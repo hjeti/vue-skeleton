@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+	"sourceMap": false,
+	"noImplicitAny": false,
+	"moduleResolution": "node",
+	"target": "es6",
+	"allowJs": true
+  },
+  "include": [
+	"./src/**/*",
+	"node_modules/*"
+  ]
+}

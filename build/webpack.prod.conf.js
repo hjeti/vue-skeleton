@@ -1,0 +1,129 @@
+const path = require('path');
+const config = require('../config');
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const baseWebpackConfig = require('./webpack.base.conf');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const webpackHelpers = require('./webpackHelpers');
+
+const env = config.build.env;
+
+const webpackConfig = merge(baseWebpackConfig, {
+	module: {
+		rules: [
+			{
+				test: /\.scss$/,
+				loader: ExtractTextPlugin.extract({
+					use: webpackHelpers.getScssLoaderConfig()
+				}),
+			},
+			{
+				test: /\.vue$/,
+				use: [webpackHelpers.getVueLoaderConfig()],
+			},
+			{
+				test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+				use: [
+					{
+						loader: 'url-loader',
+						options: {
+							limit: 10000,
+							name: path.posix.join(config.build.versionPath, 'image/[name].[hash:7].[ext]')
+						}
+					}
+				],
+			},
+			{
+				test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+				use: [
+					{
+						loader: 'url-loader',
+						options: {
+							limit: 10000,
+							name: path.posix.join(config.build.versionPath, 'font/[name].[hash:7].[ext]')
+						}
+					}
+				],
+			}
+		]
+	},
+	devtool: false,
+	output: {
+		filename: path.posix.join('', config.build.versionPath + '/js/[name].js'),
+		chunkFilename: path.posix.join('', config.build.versionPath + '/js/[id].js'),
+	},
+	plugins: [
+		new WebpackCleanupPlugin(),
+		new webpack.DefinePlugin({
+			'process.env': env
+		}),
+		new webpack.optimize.UglifyJsPlugin({
+			compress: {
+				warnings: false
+			},
+			output: {
+				comments: false
+			}
+		}),
+		new OptimizeCssAssetsPlugin(),
+		new webpack.LoaderOptionsPlugin({
+			minimize: true,
+			options: {
+				sassLoader: {
+					data: '@import "src/style/utils.scss";',
+					includePaths: 'src/style'
+				},
+				context: path.resolve(__dirname, '../')
+			}
+		}),
+
+		new ExtractTextPlugin({filename: path.posix.join(config.build.versionPath, '/css/[name].css')}),
+
+		new HtmlWebpackPlugin({
+			filename: config.build.index,
+			template: 'index.html',
+			inject: true,
+			version: config.build.versionPath,
+			minify: {
+				removeComments: true,
+				collapseWhitespace: true,
+				removeAttributeQuotes: false
+			},
+			chunksSortMode: 'dependency'
+		}),
+		// split vendor js into its own file
+		new webpack.optimize.CommonsChunkPlugin({
+			name: 'vendor',
+			minChunks: function (module, count) {
+				// any required modules inside node_modules are extracted to vendor
+				return (
+					module.resource &&
+					/\.js$/.test(module.resource) &&
+					module.resource.indexOf(
+						path.join(__dirname, '../node_modules')
+					) === 0
+				)
+			}
+		}),
+		new webpack.optimize.CommonsChunkPlugin({
+			name: 'manifest',
+			chunks: ['vendor']
+		}),
+		new CopyWebpackPlugin([
+			{
+				from: 'static',
+				to: config.build.versionPath + '/static'
+			}]),
+		new CopyWebpackPlugin([
+			{
+				from: 'staticRoot',
+				to: 'static'
+			}])
+	]
+});
+
+module.exports = webpackConfig;
