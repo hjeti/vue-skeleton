@@ -3,7 +3,7 @@
 
 <template>
 	<div>
-		{{name_pc}}
+		<h2>{{name_pc}}</h2>
 	</div>
 </template>
 
