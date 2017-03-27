@@ -4,8 +4,8 @@ export const SET_LAST_NAME = 'setLastName';
 export default {
 	namespaced: true,
 	state: {
-		firstName: 'Hendrik-Jan',
-		lastName: 'de Harder',
+		firstName: '',
+		lastName: '',
 	},
 	getters: {
 		fullName: state => `${state.firstName} ${state.lastName}`,
