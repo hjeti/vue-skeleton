@@ -7,4 +7,9 @@ export default [
 		component: HomePage,
 		props: true,
 	},
+	{
+		path: '*',
+		component: HomePage,
+		props: true,
+	},
 ];
