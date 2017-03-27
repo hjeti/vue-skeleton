@@ -59,7 +59,8 @@ const webpackConfig = merge(baseWebpackConfig, {
 	plugins: [
 		new WebpackCleanupPlugin(),
 		new webpack.DefinePlugin({
-			'process.env': env
+			'process.env': env,
+			STATIC_ROOT: "'" + config.build.versionPath + "static/'"
 		}),
 		new webpack.optimize.UglifyJsPlugin({
 			compress: {
