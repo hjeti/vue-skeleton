@@ -3,7 +3,7 @@
 
 <template>
 	<div>
-		HomePage
+		<h2>{{name_pc}}</h2>
 	</div>
 </template>
 

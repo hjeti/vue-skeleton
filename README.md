@@ -7,6 +7,7 @@ A vue skeleton
 * vue-router
 * webpack 2 
 * SCSS 
+* CSS Modules
 * versioning 
 * Typescript support
 * vuex-connect
@@ -15,3 +16,12 @@ A vue skeleton
 * seng-scss
 * airbnb coding standard integrated using eslint
 * preview build
+
+## Coding
+
+* Every component folder is in PascalCase
+* Every component contains a index.js to integrate vuex-connect and for easy import ```import HomePage from 'page/HomePage'```
+* Every page name ends with Page
+* Always use the PascalCase component name in your templates ```<ScrollBar/>```
+
+
