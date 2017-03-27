@@ -24,4 +24,19 @@ A vue skeleton
 * Every page name ends with Page
 * Always use the PascalCase component name in your templates ```<ScrollBar/>```
 
+## Commands
+
+* ```npm run dev```: Starts the dev server
+* ```npm run build```: Create a build
+* ```npm run preview```: Preview the build in the browser
+* ```npm run lint```: Run eslint
+
+## Seng generator templates
+
+* component (```sg component <name>```) : Create a component 
+* connected-component (```sg connected-component <name>```): Create a component with vuex-connect integrated 
+* page (```sg page <name>```): Create a page
+* connected-page (```sg connected-page <name>```): Create a page with vuex-connect integrated
+* store (```sg store <name>```): Create a store module
+
 
