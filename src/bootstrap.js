@@ -9,6 +9,8 @@ import component from 'component';
 import router from 'router';
 import store from 'store';
 
+import 'modernizr';
+
 import App from './App';
 
 // import polyfills
