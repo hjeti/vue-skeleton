@@ -4,6 +4,9 @@ const webpackHelpers = require('./webpackHelpers');
 
 const projectRoot = path.resolve(__dirname, '../');
 const isDevelopment = process.env.NODE_ENV == 'development';
+const eslintLoaderEnabled = isDevelopment ? config.dev.enableESLintLoader : config.build.enableESLintLoader;
+
+console.log(eslintLoaderEnabled);
 
 module.exports = {
 	entry: {
@@ -32,19 +35,7 @@ module.exports = {
 				],
 				exclude: /node_modules/
 			},
-			{
-				test: /\.js$/,
-				enforce: 'pre',
-				use: [
-					{
-						loader: 'eslint-loader'
-					}
-				],
-				include: [
-					path.join(projectRoot, 'src')
-				],
-				exclude: /node_modules/
-			},
+			webpackHelpers.getESLintLoader(eslintLoaderEnabled, projectRoot),
 			{
 				test: /\.ts$/,
 				include: [

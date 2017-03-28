@@ -1,4 +1,5 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const path = require('path');
 
 exports.getBabelLoaderConfig = function(isDevelopment){
 	return {
@@ -40,7 +41,7 @@ exports.getScssLoaderConfig = function(isDevelopment){
 	return config;
 };
 
-exports.getVueLoaderConfig = function(isDevelopment){
+exports.getVueLoaderConfig = function(isDevelopment, eslintLoaderEnabled){
 	let scssLoader;
 
 	if(isDevelopment){
@@ -65,7 +66,7 @@ exports.getVueLoaderConfig = function(isDevelopment){
 		options: {
 			loaders: {
 				scss: scssLoader,
-				js: 'babel-loader!eslint-loader'
+				js: 'babel-loader' + (eslintLoaderEnabled ? '!eslint-loader' : '')
 			},
 			postcss: [
 				require('autoprefixer')({
@@ -80,6 +81,23 @@ exports.getVueLoaderConfig = function(isDevelopment){
 	};
 
 	return config;
+};
+
+exports.getESLintLoader = function(enabled, projectRoot){
+	console.log(enabled);
+	return enabled ? {
+		test: /\.js$/,
+		enforce: 'pre',
+		use: [
+			{
+				loader: 'eslint-loader'
+			}
+		],
+		include: [
+			path.join(projectRoot, 'src')
+		],
+		exclude: /node_modules/
+	} : {};
 };
 
 

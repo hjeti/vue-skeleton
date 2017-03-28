@@ -22,7 +22,7 @@ module.exports = merge(baseWebpackConfig, {
 			},
 			{
 				test: /\.vue$/,
-				use: [webpackHelpers.getVueLoaderConfig(true)],
+				use: [webpackHelpers.getVueLoaderConfig(true, config.dev.enableESLintLoader)],
 			},
 			{
 				test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

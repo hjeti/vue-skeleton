@@ -6,13 +6,15 @@ module.exports = {
 			NODE_ENV: '"production"'
 		},
         index: path.resolve(__dirname, '../dist/index.html'),
-	    versionPath: 'version/' + new Date().getTime() + '/'
+	    versionPath: 'version/' + new Date().getTime() + '/',
+		enableESLintLoader: true,
     },
     dev: {
         env: {
 			NODE_ENV: '"development"'
 		},
         port: 8080,
-        proxyTable: {}
+        proxyTable: {},
+		enableESLintLoader: true,
     }
 };
