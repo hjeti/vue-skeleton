@@ -6,8 +6,6 @@ const projectRoot = path.resolve(__dirname, '../');
 const isDevelopment = process.env.NODE_ENV == 'development';
 const eslintLoaderEnabled = isDevelopment ? config.dev.enableESLintLoader : config.build.enableESLintLoader;
 
-console.log(eslintLoaderEnabled);
-
 module.exports = {
 	entry: {
 		app: './src/bootstrap.js'

@@ -84,7 +84,6 @@ exports.getVueLoaderConfig = function(isDevelopment, eslintLoaderEnabled){
 };
 
 exports.getESLintLoader = function(enabled, projectRoot){
-	console.log(enabled);
 	return enabled ? {
 		test: /\.js$/,
 		enforce: 'pre',
