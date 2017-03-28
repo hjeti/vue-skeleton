@@ -50,7 +50,7 @@ module.exports = merge(baseWebpackConfig, {
 			}
 		]
 	},
-	devtool: 'eval-source-map',
+	devtool: 'cheap-module-eval-source-map',
 	plugins: [
 		new webpack.DefinePlugin({
 			'process.env': config.dev.env,
@@ -79,12 +79,14 @@ module.exports = merge(baseWebpackConfig, {
 		new CopyWebpackPlugin([
 			{
 				from: 'static',
-				to: 'static'
+				to: 'static',
+				ignore: ['.*']
 			}]),
 		new CopyWebpackPlugin([
 			{
 				from: 'staticRoot',
-				to: 'static'
+				to: 'static',
+				ignore: ['.*']
 			}])
 	]
 });

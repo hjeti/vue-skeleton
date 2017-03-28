@@ -70,7 +70,11 @@ const webpackConfig = merge(baseWebpackConfig, {
 				comments: false
 			}
 		}),
-		new OptimizeCssAssetsPlugin(),
+		new OptimizeCssAssetsPlugin({
+			cssProcessorOptions: {
+				safe: true
+			}
+		}),
 		new webpack.LoaderOptionsPlugin({
 			minimize: true,
 			options: {
@@ -117,12 +121,14 @@ const webpackConfig = merge(baseWebpackConfig, {
 		new CopyWebpackPlugin([
 			{
 				from: 'static',
-				to: config.build.versionPath + '/static'
+				to: config.build.versionPath + '/static',
+				ignore: ['.*']
 			}]),
 		new CopyWebpackPlugin([
 			{
 				from: 'staticRoot',
-				to: 'static'
+				to: 'static',
+				ignore: ['.*']
 			}])
 	]
 });
