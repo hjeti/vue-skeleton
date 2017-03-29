@@ -19,8 +19,6 @@ const server = express();
 server.use(require('connect-history-api-fallback')());
 server.use(compression());
 
-console.log(webpackConfig.output.publicPath);
-
 server.use(webpackConfig.output.publicPath, express.static(path.join(__dirname, '../dist')));
 server.use('/static', express.static(path.join(__dirname, '../dist/static')));
 
