@@ -18,6 +18,8 @@ A vue skeleton
 * preview server with gzip
 * modernizr
 * optional eslint-loader
+* svg support
+* https support
 
 ## Coding
 
@@ -32,6 +34,8 @@ A vue skeleton
 * ```npm run build```: Create a build
 * ```npm run preview```: Preview the build in the browser
 * ```npm run lint```: Run eslint
+* ```npm run svg```: Convert svg for use with vue-svgicon
+
 
 ## Seng generator templates
 
