@@ -4,6 +4,9 @@ const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
 const opn = require('opn');
+const fs = require('fs');
+const https = require('https');
+const http = require('http');
 const compression = require('compression');
 const webpackConfig = require('./webpack.prod.conf');
 
@@ -25,11 +28,25 @@ server.get('*', function(req, res){
 	res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
-const uri = 'http://localhost:' + port;
+const uri = (config.dev.useHttps ? 'https' : 'http') + '://localhost:' + port;
 
 console.log('> Listening at ' + uri + '\n');
 
-module.exports = server.listen(port, function (err) {
+let createdServer;
+
+if(config.dev.useHttps)
+{
+	createdServer = https.createServer({
+		key: fs.readFileSync(path.join(__dirname, './ssl/key.pem')),
+		cert: fs.readFileSync(path.join(__dirname, './ssl/cert.pem'))
+	}, server);
+}
+else
+{
+	createdServer = http.createServer(server);
+}
+
+module.exports = createdServer.listen(port, function (err) {
 	if (err) {
 		console.log(err);
 		return;

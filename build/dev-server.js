@@ -4,6 +4,9 @@ const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
 const opn = require('opn');
+const fs = require('fs');
+const https = require('https');
+const http = require('http');
 const proxyMiddleware = require('http-proxy-middleware');
 const webpackConfig = require('./webpack.dev.conf');
 
@@ -56,13 +59,27 @@ server.use(hotMiddleware);
 const staticPath = path.posix.join('/', 'static');
 server.use(staticPath, express.static('./static'));
 
-const uri = 'http://localhost:' + port;
 
 devMiddleware.waitUntilValid(function () {
 	console.log('> Listening at ' + uri + '\n');
 });
 
-module.exports = server.listen(port, function (err) {
+let createdServer;
+const uri = (config.dev.useHttps ? 'https' : 'http') + '://localhost:' + port;
+
+if(config.dev.useHttps)
+{
+	createdServer = https.createServer({
+		key: fs.readFileSync(path.join(__dirname, './ssl/key.pem')),
+		cert: fs.readFileSync(path.join(__dirname, './ssl/cert.pem'))
+	}, server);
+}
+else
+{
+	createdServer = http.createServer(server);
+}
+
+module.exports = createdServer.listen(port, function (err) {
 	if (err) {
 		console.log(err);
 		return;
