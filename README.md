@@ -15,7 +15,9 @@ A vue skeleton
 * seng-config
 * seng-scss
 * airbnb coding standard integrated using eslint
-* preview build
+* preview server with gzip
+* modernizr
+* optional eslint-loader
 
 ## Coding
 
