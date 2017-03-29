@@ -5,23 +5,31 @@ const express = require('express');
 const webpack = require('webpack');
 const opn = require('opn');
 const compression = require('compression');
+const webpackConfig = require('./webpack.prod.conf');
 
 // default port where dev server listens for incoming traffic
 const port = 4040;
 
-const app = express();
+const server = express();
 
 // handle fallback for HTML5 history API
-app.use(require('connect-history-api-fallback')());
-app.use(compression());
+server.use(require('connect-history-api-fallback')());
+server.use(compression());
 
-app.use(express.static(path.join(__dirname, '../dist')));
+console.log(webpackConfig.output.publicPath);
+
+server.use(webpackConfig.output.publicPath, express.static(path.join(__dirname, '../dist')));
+server.use('/static', express.static(path.join(__dirname, '../dist/static')));
+
+server.get('*', function(req, res){
+	res.sendFile(path.join(__dirname, '../dist/index.html'));
+});
 
 const uri = 'http://localhost:' + port;
 
 console.log('> Listening at ' + uri + '\n');
 
-module.exports = app.listen(port, function (err) {
+module.exports = server.listen(port, function (err) {
 	if (err) {
 		console.log(err);
 		return;

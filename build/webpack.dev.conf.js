@@ -53,8 +53,7 @@ module.exports = merge(baseWebpackConfig, {
 	devtool: 'cheap-module-eval-source-map',
 	plugins: [
 		new webpack.DefinePlugin({
-			'process.env': config.dev.env,
-			STATIC_ROOT: "'/static/'"
+			'process.env': config.dev.env
 		}),
 		new webpack.LoaderOptionsPlugin({
 			debug: true,

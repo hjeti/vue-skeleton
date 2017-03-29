@@ -55,12 +55,12 @@ const webpackConfig = merge(baseWebpackConfig, {
 	output: {
 		filename: path.posix.join('', config.build.versionPath + '/js/[name].js'),
 		chunkFilename: path.posix.join('', config.build.versionPath + '/js/[id].js'),
+		publicPath: config.build.publicPath
 	},
 	plugins: [
 		new WebpackCleanupPlugin(),
 		new webpack.DefinePlugin({
 			'process.env': env,
-			STATIC_ROOT: "'" + config.build.versionPath + "static/'"
 		}),
 		new webpack.optimize.UglifyJsPlugin({
 			compress: {
