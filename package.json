@@ -20,7 +20,7 @@
     "seng-scss": "^1.0.0",
     "vue": "^2.2.5",
     "vue-router": "^2.3.0",
-    "vue-svgicon": "^1.1.4",
+    "vue-svgicon": "ReneDrie/vue-svgicon",
     "vuex": "^2.2.1",
     "vuex-connect": "^1.2.0",
     "vuex-router-sync": "^4.1.2"
