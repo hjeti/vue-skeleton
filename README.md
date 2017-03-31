@@ -20,6 +20,7 @@ A vue skeleton
 * optional eslint-loader
 * svg support
 * https support
+* i18n
 
 ## Coding
 
