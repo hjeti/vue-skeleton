@@ -13,6 +13,7 @@ import store from 'store';
 import svgicon from 'vue-svgicon';
 import VueI18nManager from 'vue-i18n-manager';
 import localeConfig from 'config/localeConfig';
+import ConfigPlugin from 'config/ConfigPlugin';
 
 import App from './App';
 
@@ -39,6 +40,8 @@ if (localeConfig.localeEnabled) {
 
 	Vue.initI18nManager();
 }
+
+Vue.use(ConfigPlugin);
 
 // sync router data to store
 sync(store, router);

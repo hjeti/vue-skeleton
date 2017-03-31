@@ -23,7 +23,7 @@ const config = {
 		},
 	},
 	variables: {
-		[VariableNames.LOCALE_ENABLED]: true,
+		[VariableNames.LOCALE_ENABLED]: false,
 	},
 	urls: {
 		[URLNames.LOCALE]: `${process.env.VERSIONED_STATIC_ROOT}locale/{locale}.json`,
