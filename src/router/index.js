@@ -10,7 +10,10 @@ import routes from './routes';
 Vue.use(VueRouter);
 
 const processedRoutes = localeConfig.localeEnabled ?
-	routeParser(routes, configManagerInstance.getProperty(PropertyNames.DEFAULT_LOCALE)) : routes;
+	routeParser(routes, configManagerInstance.getProperty(PropertyNames.DEFAULT_LOCALE)) : routes.concat({
+		path: '*',
+		redirect: '/',
+	});
 
 const router = new VueRouter({
 	mode: 'history',
