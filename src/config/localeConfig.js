@@ -1,5 +1,4 @@
-import { URLNames, PropertyNames } from 'data/enum/configNames';
-
+import { URLNames, PropertyNames, VariableNames } from 'data/enum/configNames';
 import configManagerInstance from './configManagerInstance';
 
 const languages = configManagerInstance.getProperty(PropertyNames.AVAILABLE_LOCALES).map(locale => ({
@@ -33,7 +32,7 @@ const proxy = {
 };
 
 export default {
-	localeEnabled: true,
+	localeEnabled: configManagerInstance.getVariable(VariableNames.LOCALE_ENABLED),
 	config,
 	proxy,
 };

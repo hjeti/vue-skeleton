@@ -1,4 +1,4 @@
-import { EnvironmentNames, PropertyNames, URLNames } from 'data/enum/configNames';
+import { EnvironmentNames, PropertyNames, URLNames, VariableNames } from 'data/enum/configNames';
 
 const config = {
 	environments: {
@@ -22,7 +22,9 @@ const config = {
 			urls: {},
 		},
 	},
-	variables: {},
+	variables: {
+		[VariableNames.LOCALE_ENABLED]: true,
+	},
 	urls: {
 		[URLNames.LOCALE]: `${process.env.VERSIONED_STATIC_ROOT}locale/{locale}.json`,
 	},

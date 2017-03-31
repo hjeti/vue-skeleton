@@ -10,6 +10,7 @@ export const URLNames = {
 };
 
 export const VariableNames = {
+	LOCALE_ENABLED: 'locale-enabled',
 };
 
 export const PropertyNames = {

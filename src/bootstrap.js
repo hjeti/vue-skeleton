@@ -33,7 +33,8 @@ if (localeConfig.localeEnabled) {
 	Vue.use(VueI18nManager, {
 		store,
 		router,
-		...localeConfig,
+		config: localeConfig.config,
+		proxy: localeConfig.proxy,
 	});
 
 	Vue.initI18nManager();
