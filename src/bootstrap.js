@@ -29,13 +29,15 @@ Vue.use(svgicon, {
 	tagName: 'Icon',
 });
 
-Vue.use(VueI18nManager, {
-	store,
-	router,
-	...localeConfig,
-});
+if (localeConfig.localeEnabled) {
+	Vue.use(VueI18nManager, {
+		store,
+		router,
+		...localeConfig,
+	});
 
-Vue.initI18nManager();
+	Vue.initI18nManager();
+}
 
 // sync router data to store
 sync(store, router);

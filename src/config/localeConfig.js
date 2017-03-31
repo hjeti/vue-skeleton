@@ -33,6 +33,7 @@ const proxy = {
 };
 
 export default {
+	localeEnabled: true,
 	config,
 	proxy,
 };
