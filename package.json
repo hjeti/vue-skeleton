@@ -23,7 +23,8 @@
     "vue-svgicon": "ReneDrie/vue-svgicon",
     "vuex": "^2.2.1",
     "vuex-connect": "^1.2.0",
-    "vuex-router-sync": "^4.1.2"
+    "vuex-router-sync": "^4.1.2",
+	"vue-i18n-manager": "^3.2.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",

@@ -5,11 +5,5 @@ export default [
 	{
 		path: Pages.HOME,
 		component: HomePage,
-		props: true,
-	},
-	{
-		path: '*',
-		component: HomePage,
-		props: true,
 	},
 ];
