@@ -17,15 +17,6 @@ exports.getScssLoaderConfig = function(isDevelopment){
 		},
 		{
 			loader: 'postcss-loader',
-			options: {
-				plugins() {
-					return [
-						require('autoprefixer')({
-							browsers: ['last 2 versions']
-						})
-					];
-				}
-			}
 		},
 		{
 			loader: 'sass-loader'
@@ -42,14 +33,14 @@ exports.getScssLoaderConfig = function(isDevelopment){
 };
 
 exports.getVueLoaderConfig = function(isDevelopment, eslintLoaderEnabled){
-	let scssLoader;
+	let scssLoaders;
 
 	if(isDevelopment){
-		scssLoader = 'vue-style-loader!css-loader!sass-loader';
+		scssLoaders = ['vue-style-loader', 'css-loader', 'sass-loader'].map(loader => ({loader: loader}));
 	}
 	else
 	{
-		scssLoader = ExtractTextPlugin.extract({
+		scssLoaders = ExtractTextPlugin.extract({
 			use: [
 				{
 					loader: 'css-loader'
@@ -61,17 +52,26 @@ exports.getVueLoaderConfig = function(isDevelopment, eslintLoaderEnabled){
 		});
 	}
 
+	const jsLoaders = [
+		{
+			loader: 'babel-loader'
+		},
+	];
+
+	if(eslintLoaderEnabled) {
+		jsLoaders.push({
+			loader: 'eslint-loader',
+		});
+	}
+
 	const config = {
 		loader: 'vue-loader',
 		options: {
 			loaders: {
-				scss: scssLoader,
-				js: 'babel-loader' + (eslintLoaderEnabled ? '!eslint-loader' : '')
+				scss: scssLoaders,
+				js: jsLoaders
 			},
 			postcss: [
-				require('autoprefixer')({
-					browsers: ['last 2 versions']
-				})
 			],
 			cssModules: {
 				localIdentName: '[local]-[hash:base64:7]',
