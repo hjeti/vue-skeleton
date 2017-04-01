@@ -14,6 +14,7 @@ import svgicon from 'vue-svgicon';
 import VueI18nManager from 'vue-i18n-manager';
 import localeConfig from 'config/localeConfig';
 import ConfigPlugin from 'config/ConfigPlugin';
+import startUp from 'control/startUp';
 
 import App from 'App';
 
@@ -52,5 +53,7 @@ const app = new Vue({
 	store,
 });
 
-app.$mount('#app');
+startUp().then(() => {
+	app.$mount('#app');
+});
 
