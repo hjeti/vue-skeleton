@@ -30,7 +30,7 @@ const config = {
 	},
 	properties: {
 		[PropertyNames.DEFAULT_LOCALE]: 'en-gb',
-		[PropertyNames.AVAILABLE_LOCALES]: ['en-gb', 'de-de', 'en-us', 'nl-nl'],
+		[PropertyNames.AVAILABLE_LOCALES]: ['en-gb'],
 	},
 };
 
