@@ -9,7 +9,7 @@
     "build": "node build/build.js",
     "lint": "eslint src --ext .js",
     "preview": "node build/preview-server.js",
-	"svg": "vsvg -s ./asset/svg/ -t ./src/svg"
+	"svg": "vsvg -s ./asset/svg/ -t ./src/asset/svg"
   },
   "dependencies": {
     "axios": "^0.15.3",

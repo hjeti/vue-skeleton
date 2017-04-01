@@ -79,8 +79,8 @@ const webpackConfig = merge(baseWebpackConfig, {
 			minimize: true,
 			options: {
 				sassLoader: {
-					data: '@import "src/style/utils.scss";',
-					includePaths: 'src/style'
+					data: '@import "src/asset/style/utils.scss";',
+					includePaths: 'src/asset/style'
 				},
 				context: path.resolve(__dirname, '../')
 			}

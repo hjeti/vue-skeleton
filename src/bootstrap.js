@@ -1,5 +1,5 @@
-import 'style/screen.scss';
-import 'svg';
+import 'asset/style/screen.scss';
+import 'asset/svg';
 import 'modernizr';
 import 'polyfill';
 
