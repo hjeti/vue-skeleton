@@ -28,10 +28,6 @@ module.exports = {
 			'vue': 'never',
 			'ts': 'never'
 		}],
-		// allow optionalDependencies
-		'import/no-extraneous-dependencies': ['error', {
-			'devDependencies': true
-		}],
 		// allow debugger during development
 		'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
 		'no-console': process.env.NODE_ENV === 'production' ? 1 : 0,

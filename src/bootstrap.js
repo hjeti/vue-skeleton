@@ -15,7 +15,7 @@ import VueI18nManager from 'vue-i18n-manager';
 import localeConfig from 'config/localeConfig';
 import ConfigPlugin from 'config/ConfigPlugin';
 
-import App from './App';
+import App from 'App';
 
 // register filters globally
 Object.keys(filter).forEach(key => Vue.filter(key, filter[key]));
