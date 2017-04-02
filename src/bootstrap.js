@@ -1,5 +1,4 @@
 import 'asset/style/screen.scss';
-import 'asset/svg';
 import 'modernizr';
 import 'polyfill';
 
@@ -10,7 +9,6 @@ import directive from 'directive';
 import component from 'component';
 import router from 'router';
 import store from 'store';
-import svgicon from 'vue-svgicon';
 import VueI18nManager from 'vue-i18n-manager';
 import localeConfig from 'config/localeConfig';
 import ConfigPlugin from 'config/ConfigPlugin';
@@ -26,10 +24,6 @@ Object.keys(directive).forEach(key => Vue.directive(key, directive[key]));
 
 // register components globally
 Object.keys(component).forEach(key => Vue.component(key, component[key]));
-
-Vue.use(svgicon, {
-	tagName: 'Icon',
-});
 
 if (localeConfig.localeEnabled) {
 	Vue.use(VueI18nManager, {

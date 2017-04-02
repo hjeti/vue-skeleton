@@ -25,7 +25,7 @@ module.exports = merge(baseWebpackConfig, {
 				use: [webpackHelpers.getVueLoaderConfig(true, config.dev.enableESLintLoader)],
 			},
 			{
-				test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+				test: /\.(png|jpe?g|gif)(\?.*)?$/,
 				use: [
 					{
 						loader: 'url-loader',

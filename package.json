@@ -9,7 +9,7 @@
     "build": "node build/build.js",
     "lint": "eslint src --ext .js",
     "preview": "node build/preview-server.js",
-    "svg": "vsvg -s ./asset/svg/ -t ./src/asset/svg"
+    "svg": "node build/svg.js"
   },
   "dependencies": {
     "core-js": "^2.4.1",
@@ -18,18 +18,18 @@
     "gsap": "^1.19.1",
     "modernizr": "^3.3.1",
     "moment": "^2.18.1",
-	"normalize.css": "^6.0.0",
-	"seng-config": "^1.0.2",
+    "normalize.css": "^6.0.0",
+    "seng-config": "^1.0.2",
     "seng-scss": "^1.0.0",
     "vue": "^2.2.5",
     "vue-router": "^2.3.0",
-    "vue-svgicon": "ReneDrie/vue-svgicon",
     "vuex": "^2.2.1",
     "vuex-connect": "^1.2.0",
     "vuex-router-sync": "^4.1.2",
     "vue-i18n-manager": "^3.2.2"
   },
   "devDependencies": {
+    "async": "^2.2.0",
     "autoprefixer": "^6.4.0",
     "awesome-typescript-loader": "^3.1.2",
     "axios": "^0.16.0",
@@ -73,6 +73,9 @@
     "semver": "^5.3.0",
     "shelljs": "^0.7.4",
     "style-loader": "^0.16.1",
+    "svg-inline-loader": "^0.7.1",
+    "svgo": "^0.7.2",
+    "to-camel-case": "^1.0.0",
     "typescript": "^2.2.1",
     "url-loader": "^0.5.8",
     "vue-loader": "^11.3.4",

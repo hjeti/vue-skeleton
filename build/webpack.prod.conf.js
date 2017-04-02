@@ -26,7 +26,7 @@ const webpackConfig = merge(baseWebpackConfig, {
 				use: [webpackHelpers.getVueLoaderConfig(false, config.build.enableESLintLoader)],
 			},
 			{
-				test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+				test: /\.(png|jpe?g|gif)(\?.*)?$/,
 				use: [
 					{
 						loader: 'url-loader',
