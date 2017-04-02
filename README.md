@@ -35,7 +35,7 @@ A vue skeleton
 * ```npm run build```: Create a build
 * ```npm run preview```: Preview the build in the browser
 * ```npm run lint```: Run eslint
-* ```npm run svg```: Convert svg for use with vue-svgicon
+* ```npm run svg```: Process and optimize svg for use with the Icon component
 
 
 ## Seng generator templates
