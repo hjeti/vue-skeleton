@@ -11,6 +11,8 @@ export const URLNames = {
 
 export const VariableNames = {
 	LOCALE_ENABLED: 'locale-enabled',
+	STATIC_ROOT: 'static-root',
+	VERSIONED_STATIC_ROOT: 'versioned-static-root',
 };
 
 export const PropertyNames = {

@@ -24,6 +24,8 @@ const config = {
 	},
 	variables: {
 		[VariableNames.LOCALE_ENABLED]: false,
+		[VariableNames.VERSIONED_STATIC_ROOT]: process.env.VERSIONED_STATIC_ROOT,
+		[VariableNames.STATIC_ROOT]: process.env.STATIC_ROOT,
 	},
 	urls: {
 		[URLNames.LOCALE]: `${process.env.VERSIONED_STATIC_ROOT}locale/{locale}.json`,
