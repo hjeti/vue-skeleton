@@ -4,7 +4,5 @@
 	"setClasses"
   ],
   "feature-detects": [
-	"css/rgba",
-	"storage/localstorage"
   ]
 }
