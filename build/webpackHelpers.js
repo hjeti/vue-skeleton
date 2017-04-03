@@ -19,7 +19,11 @@ exports.getScssLoaderConfig = function(isDevelopment){
 			loader: 'postcss-loader',
 		},
 		{
-			loader: 'sass-loader'
+			loader: 'sass-loader',
+			options: {
+				data: '@import "src/asset/style/utils.scss";',
+				includePaths: ['src/asset/style'],
+			}
 		}
 	];
 
@@ -36,7 +40,14 @@ exports.getVueLoaderConfig = function(isDevelopment, eslintLoaderEnabled){
 	let scssLoaders;
 
 	if(isDevelopment){
-		scssLoaders = ['vue-style-loader', 'css-loader', 'sass-loader'].map(loader => ({loader: loader}));
+		scssLoaders = ['vue-style-loader', 'css-loader'].map(loader => ({loader: loader}));
+		scssLoaders.push({
+			loader: 'sass-loader',
+			options: {
+				data: '@import "src/asset/style/utils.scss";',
+				includePaths: ['src/asset/style'],
+			}
+		});
 	}
 	else
 	{
@@ -45,9 +56,6 @@ exports.getVueLoaderConfig = function(isDevelopment, eslintLoaderEnabled){
 				{
 					loader: 'css-loader'
 				},
-				{
-					loader: 'sass-loader'
-				}
 			], fallback: 'vue-style-loader'
 		});
 	}

@@ -58,10 +58,6 @@ module.exports = merge(baseWebpackConfig, {
 		new webpack.LoaderOptionsPlugin({
 			debug: true,
 			options: {
-				sassLoader: {
-					data: '@import "src/asset/style/utils.scss";',
-					includePaths: 'src/asset/style'
-				},
 				context: path.resolve(__dirname, '../')
 			}
 		}),
