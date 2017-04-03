@@ -9,7 +9,7 @@ import routes from './routes';
 
 Vue.use(VueRouter);
 
-const processedRoutes = localeConfig.localeEnabled ?
+const processedRoutes = localeConfig.localeEnabled && localeConfig.localeRoutingEnabled ?
 	routeParser(routes, configManagerInstance.getProperty(PropertyNames.DEFAULT_LOCALE)) : routes.concat({
 		path: '*',
 		redirect: '/',

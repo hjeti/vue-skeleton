@@ -33,6 +33,7 @@ const proxy = {
 
 export default {
 	localeEnabled: configManagerInstance.getVariable(VariableNames.LOCALE_ENABLED),
+	localeRoutingEnabled: configManagerInstance.getVariable(VariableNames.LOCALE_ROUTING_ENABLED),
 	config,
 	proxy,
 };
