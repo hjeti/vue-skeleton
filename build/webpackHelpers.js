@@ -56,6 +56,13 @@ exports.getVueLoaderConfig = function(isDevelopment, eslintLoaderEnabled){
 				{
 					loader: 'css-loader'
 				},
+				{
+					loader: 'sass-loader',
+					options: {
+						data: '@import "src/asset/style/utils.scss";',
+						includePaths: ['src/asset/style'],
+					}
+				}
 			], fallback: 'vue-style-loader'
 		});
 	}
