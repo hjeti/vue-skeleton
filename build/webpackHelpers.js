@@ -1,6 +1,16 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 
+exports.getSassLoaderConfig = function(){
+	return {
+		loader: 'sass-loader',
+		options: {
+			data: '@import "src/asset/style/utils.scss";',
+			includePaths: ['src/asset/style'],
+		}
+	};
+};
+
 exports.getBabelLoaderConfig = function(isDevelopment){
 	return {
 		loader: 'babel-loader',
@@ -18,13 +28,7 @@ exports.getScssLoaderConfig = function(isDevelopment){
 		{
 			loader: 'postcss-loader',
 		},
-		{
-			loader: 'sass-loader',
-			options: {
-				data: '@import "src/asset/style/utils.scss";',
-				includePaths: ['src/asset/style'],
-			}
-		}
+		this.getSassLoaderConfig()
 	];
 
 	if(isDevelopment){
@@ -41,13 +45,7 @@ exports.getVueLoaderConfig = function(isDevelopment, eslintLoaderEnabled){
 
 	if(isDevelopment){
 		scssLoaders = ['vue-style-loader', 'css-loader'].map(loader => ({loader: loader}));
-		scssLoaders.push({
-			loader: 'sass-loader',
-			options: {
-				data: '@import "src/asset/style/utils.scss";',
-				includePaths: ['src/asset/style'],
-			}
-		});
+		scssLoaders.push(this.getSassLoaderConfig());
 	}
 	else
 	{
@@ -56,13 +54,7 @@ exports.getVueLoaderConfig = function(isDevelopment, eslintLoaderEnabled){
 				{
 					loader: 'css-loader'
 				},
-				{
-					loader: 'sass-loader',
-					options: {
-						data: '@import "src/asset/style/utils.scss";',
-						includePaths: ['src/asset/style'],
-					}
-				}
+				this.getSassLoaderConfig()
 			], fallback: 'vue-style-loader'
 		});
 	}
