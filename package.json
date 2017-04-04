@@ -10,8 +10,7 @@
     "lint": "eslint src --ext .js",
     "preview": "node build/preview-server.js",
     "svg": "node bin/svg.js",
-	"prepush": "node bin/prePush.js",
-	"precommit": "node bin/prePush.js"
+	"prepush": "node bin/prePush.js"
   },
   "dependencies": {
     "core-js": "^2.4.1",
