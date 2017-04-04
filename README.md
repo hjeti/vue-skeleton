@@ -5,17 +5,17 @@ A vue skeleton
 
 * vuex
 * vue-router
+* vuex-connect
 * webpack 2
 * SCSS
 * CSS Modules
 * versioning
 * Typescript support
-* vuex-connect
 * seng-generator
 * seng-config
 * seng-scss
 * airbnb coding standard integrated using eslint
-* preview server with gzip
+* (build) preview server with gzip
 * modernizr
 * optional eslint-loader
 * svg support
@@ -37,16 +37,15 @@ A vue skeleton
 * ```npm run lint```: Run eslint
 * ```npm run svg```: Process and optimize svg for use with the Icon component
 
-
 ## Seng generator templates
 
 Vue-skeleton has [seng-generator](https://github.com/mediamonks/seng-generator) templates integrated for easy creation of components, pages and store modules.
 
-Before you can use seng-generator you have to install it.
+Before you can use seng-generator you have to install it globally.
 
 Run ```npm install seng-generator -g```
 
-After the installation is complete you can generate code based on the following templates:
+After the installation you can generate code based on the following templates:
 * component (```sg component <name>```) : Creates a component
 * connected-component (```sg connected-component <name>```): Creates a component with vuex-connect integrated
 * page (```sg page <name>```): Creates a page
@@ -84,12 +83,14 @@ Autoprefixer is also enabled by default. The browserslist can be found and tweak
 ## Preview Build
 
 It's also possible to preview a build. You can preview your build by running ```npm run preview``` after a build.
-Because of config differences between development and production it's possible that everything works in developement but not in a production build.
-So it's good to test it on a regular basis to avoid suprises when you go live.
+Because of config differences between development and production it's possible that everything works in development but not in a production build.
+So it's good to test it on a regular basis to avoid surprises when deploying to an environment.
 
 ## Modernizr
 
-Modernizr is buildin in vue-skeleton. You can add your feature-detects and options in ```.modernizrrc```. See https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json for all options and feature-detects.
+Modernizr is built-in the vue-skeleton. You can add your feature-detects and options in ```.modernizrrc```. 
+Reference the [Modernizr Configuration](https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json) for all 
+options and feature-detects.
 
 ## Polyfills
 
@@ -110,9 +111,12 @@ By default it includes polyfills for the following features:
 ## Config
 
 ## Startup
+Add methods to `control/startUp` that need to be run before app initialisation. The startUp returns a promise allowing 
+to chain your startup tasks. 
 
-
-
+Examples of startup tasks:
+- Registering/Initialisation of Vue plugins
+- Requesting async initialisation data
 
 
 
