@@ -26,5 +26,5 @@ module.exports = {
         proxyTable: {},
 		enableESLintLoader: true,
     },
-	prePushESLint: true
+	prePushEnabled: true
 };
