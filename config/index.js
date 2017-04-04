@@ -25,5 +25,6 @@ module.exports = {
 		useHttps: false,
         proxyTable: {},
 		enableESLintLoader: true,
-    }
+    },
+	prePushESLint: true
 };
