@@ -10,10 +10,11 @@
     "lint": "eslint src --ext .js",
     "preview": "node build/preview-server.js",
     "svg": "node bin/svg.js",
-    "prePushESLint": "node bin/prePushESLint.js"
+    "prePushESLint": "node bin/prePushESLint.js",
+	"error": "echo \"Error: I SHOULD FAIL LOLOLOLOLOL \" && exit 1"
   },
   "pre-push": [
-    "prePushESLint"
+    "error"
   ],
   "dependencies": {
     "core-js": "^2.4.1",
