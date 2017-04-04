@@ -20,4 +20,4 @@ Object.keys(directive).forEach(key => Vue.directive(key, directive[key]));
 Object.keys(component).forEach(key => Vue.component(key, component[key]));
 
 // Mount the app after startUp
-startUp(Vue, router, store).then(app => app.$mount('#app'));
+startUp(router, store).then(app => app.$mount('#app'));
