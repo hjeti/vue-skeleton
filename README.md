@@ -25,7 +25,7 @@ A vue skeleton
 ## Coding
 
 * Every component folder is in PascalCase
-* Every component contains a index.js to integrate vuex-connect and for easy import ```import HomePage from 'page/HomePage'```
+* Every component contains an index.js to integrate vuex-connect and for easy import ```import HomePage from 'page/HomePage'```
 * Every page name ends with Page
 * Always use the PascalCase component name in your templates ```<ScrollBar/>```
 
