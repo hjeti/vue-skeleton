@@ -26,13 +26,13 @@ server.get('*', function(req, res){
 	res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
-const uri = (config.dev.useHttps ? 'https' : 'http') + '://localhost:' + port;
+const uri = (config.useHttps ? 'https' : 'http') + '://localhost:' + port;
 
 console.log('> Listening at ' + uri + '\n');
 
 let createdServer;
 
-if(config.dev.useHttps)
+if(config.useHttps)
 {
 	createdServer = https.createServer({
 		key: fs.readFileSync(path.join(__dirname, './ssl/key.pem')),
