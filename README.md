@@ -52,6 +52,7 @@ After the installation you can generate code based on the following templates:
 * page (```sg page <name>```): Creates a page
 * connected-page (```sg connected-page <name>```): Creates a page with vuex-connect integrated
 * store (```sg store <name>```): Creates a store module
+* store (```sg complex-store <name>```): Creates a complex store module
 
 It's also possible to modify or add templates. Check the [documentation](https://github.com/mediamonks/seng-generator) of seng-generator for more info.
 
