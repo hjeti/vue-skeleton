@@ -3,18 +3,16 @@ import 'modernizr';
 import 'polyfill';
 
 import Vue from 'vue';
-import { sync } from 'vuex-router-sync';
+import App from 'App';
 import filter from 'filter';
 import directive from 'directive';
 import component from 'component';
 import router from 'router';
 import store from 'store';
-import VueI18nManager from 'vue-i18n-manager';
-import localeConfig from 'config/localeConfig';
-import ConfigPlugin from 'config/ConfigPlugin';
 import startUp from 'control/startUp';
-
-import App from 'App';
+import localeConfig from 'config/localeConfig';
+import VueI18nManager from 'vue-i18n-manager';
+import { sync } from 'vuex-router-sync';
 
 // register filters globally
 Object.keys(filter).forEach(key => Vue.filter(key, filter[key]));
@@ -36,18 +34,15 @@ if (localeConfig.localeEnabled) {
 	Vue.initI18nManager();
 }
 
-Vue.use(ConfigPlugin);
-
 // sync router data to store
 sync(store, router);
 
+// Init new vue app
 const app = new Vue({
 	...App,
 	router,
 	store,
 });
 
-startUp().then(() => {
-	app.$mount('#app');
-});
-
+// Mount the app after startUp
+startUp().then(() => app.$mount('#app'));
