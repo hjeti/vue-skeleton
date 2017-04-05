@@ -49,7 +49,10 @@ module.exports = {
 					webpackHelpers.getBabelLoaderConfig(isDevelopment),
 					{
 						loader: 'awesome-typescript-loader',
-					}
+						options: {
+							configFileName: path.resolve(__dirname, '../tsconfig.json'),
+						},
+					},
 				]
 			},
 			{
