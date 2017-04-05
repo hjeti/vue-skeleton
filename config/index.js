@@ -14,6 +14,7 @@ module.exports = {
 	    versionPath: versionPath,
 		publicPath: publicPath,
 		enableESLintLoader: true,
+	    enableTSLintLoader: true,
     },
     dev: {
         env: {
@@ -25,5 +26,6 @@ module.exports = {
 		useHttps: false,
         proxyTable: {},
 		enableESLintLoader: true,
+	    enableTSLintLoader: false,
     }
 };

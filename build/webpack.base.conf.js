@@ -5,6 +5,7 @@ const webpackHelpers = require('./webpackHelpers');
 const projectRoot = path.resolve(__dirname, '../');
 const isDevelopment = process.env.NODE_ENV == 'development';
 const eslintLoaderEnabled = isDevelopment ? config.dev.enableESLintLoader : config.build.enableESLintLoader;
+const tslintLoaderEnabled = isDevelopment ? config.dev.enableTSLintLoader : config.build.enableTSLintLoader;
 
 module.exports = {
 	entry: {
@@ -47,7 +48,7 @@ module.exports = {
 				use: [
 					webpackHelpers.getBabelLoaderConfig(isDevelopment),
 					{
-						loader: 'awesome-typescript-loader'
+						loader: 'awesome-typescript-loader',
 					}
 				]
 			},
