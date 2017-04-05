@@ -13,7 +13,8 @@
 	"prepush": "node bin/prePush.js"
   },
   "dependencies": {
-    "core-js": "^2.4.1",
+	"axios": "^0.16.0",
+	"core-js": "^2.4.1",
     "classlist-polyfill": "^1.0.3",
     "fetch-polyfill": "^0.8.2",
     "gsap": "^1.19.1",
@@ -33,7 +34,6 @@
     "async": "^2.2.0",
     "autoprefixer": "^6.4.0",
     "awesome-typescript-loader": "^3.1.2",
-    "axios": "^0.16.0",
     "babel-core": "^6.0.0",
     "babel-eslint": "^7.1.1",
     "babel-loader": "^6.4.1",
@@ -70,7 +70,6 @@
     "optimize-css-assets-webpack-plugin": "^1.3.0",
     "ora": "^1.2.0",
     "postcss-loader": "^1.3.3",
-    "pre-push": "github:roland-mediamonks/pre-push",
     "sass-loader": "^6.0.3",
     "sass-resources-loader": "^1.2.0",
     "semver": "^5.3.0",

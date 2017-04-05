@@ -75,7 +75,7 @@ There are two main SCSS files:
 
 * ```screen.scss``` is the SCSS file for all your global styling. By default it only imports the normalize.css module.
 * ```utils.scss``` is the SCSS file for all the mixins and variables. By default it imports [seng-scss](https://github.com/mediamonks/seng-scss).
-This file is also automatically imported in every component SCSS file so you never have to import mixins and variables in your component.
+```utils.scss``` is also automatically imported in every component SCSS file so you never have to import mixins and variables in your component.
 **Note: Make sure that you never add styling that outputs css because that will be included in every component css file.**
 
 ## Autoprefixer
@@ -90,8 +90,8 @@ So it's good to test it on a regular basis to avoid surprises when deploying to 
 
 ## Modernizr
 
-Modernizr is built-in the vue-skeleton. You can add your feature-detects and options in ```.modernizrrc```. 
-Reference the [Modernizr Configuration](https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json) for all 
+Modernizr is built-in the vue-skeleton. You can add your feature-detects and options in ```.modernizrrc```.
+Reference the [Modernizr Configuration](https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json) for all
 options and feature-detects.
 
 ## Polyfills
@@ -181,8 +181,8 @@ Check the [documentation](https://matteogabriele.gitbooks.io/vue-i18n-manager/co
 ## Config
 
 ## Startup
-Add methods to `control/startUp` that need to be run before app initialisation. The startUp returns a promise allowing 
-to chain your startup tasks. 
+Add methods to `control/startUp` that need to be run before app initialisation. The startUp returns a promise allowing
+to chain your startup tasks.
 
 Examples of startup tasks:
 - Registering/Initialisation of Vue plugins
