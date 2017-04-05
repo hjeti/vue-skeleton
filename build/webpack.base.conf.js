@@ -55,6 +55,7 @@ module.exports = {
 					},
 				]
 			},
+			webpackHelpers.getTSLintLoader(tslintLoaderEnabled, projectRoot),
 			{
 				test: /\.svg$/,
 				loader: 'svg-inline-loader'
