@@ -65,9 +65,9 @@ devMiddleware.waitUntilValid(function () {
 });
 
 let createdServer;
-const uri = (config.dev.useHttps ? 'https' : 'http') + '://localhost:' + port;
+const uri = (config.useHttps ? 'https' : 'http') + '://localhost:' + port;
 
-if(config.dev.useHttps)
+if(config.useHttps)
 {
 	createdServer = https.createServer({
 		key: fs.readFileSync(path.join(__dirname, './ssl/key.pem')),

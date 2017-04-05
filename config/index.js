@@ -23,9 +23,10 @@ module.exports = {
 			STATIC_ROOT: JSON.stringify('/static/')
 		},
         port: 8080,
-		useHttps: false,
         proxyTable: {},
 		enableESLintLoader: true,
 	    enableTSLintLoader: false,
-    }
+    },
+	useHttps: false,
+	prePushEnabled: true
 };

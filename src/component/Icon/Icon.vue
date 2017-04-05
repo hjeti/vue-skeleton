@@ -2,7 +2,6 @@
 <script src="./Icon.js"></script>
 
 <template>
-	<div :class="$style.container" v-html="icon">
-	</div>
+	<span :class="$style.container" v-html="icon"></span>
 </template>
 
