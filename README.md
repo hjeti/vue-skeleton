@@ -14,10 +14,10 @@ A vue skeleton
 * seng-generator
 * seng-config
 * seng-scss
-* airbnb coding standard integrated using eslint
+* airbnb coding standard integrated using es/tslint
 * (build) preview server with gzip
 * modernizr
-* optional eslint-loader
+* optional es/tslint-loader
 * svg support
 * https support
 * i18n
