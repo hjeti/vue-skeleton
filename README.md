@@ -3,32 +3,32 @@ A lightweight (~58kb gzipped) Vue skeleton
 
 ## Features
 
-* vuex
-* vue-router
-* vuex-connect
-* webpack 2
-* SCSS
-* CSS Modules
+* [vuex](https://github.com/vuejs/vuex)
+* [vue-router](https://github.com/vuejs/vue-router)
+* [vuex-connect](https://github.com/ktsn/vuex-connect)
+* [webpack 2](https://github.com/webpack/webpack)
+* [SCSS](https://github.com/sass/sass)
+* [CSS Modules](https://github.com/css-modules/css-modules)
+* [TypeScript](https://github.com/Microsoft/TypeScript)
+* [seng-generator](https://github.com/mediamonks/seng-generator)
+* [seng-config](https://github.com/mediamonks/seng-config)
+* [seng-scss](https://github.com/mediamonks/seng-scss)
+* [airbnb coding standard](https://github.com/airbnb/javascript) (integrated with es/ts-lint)
+* [modernizr](https://github.com/Modernizr/Modernizr)
+* i18n using [i18nManager](https://github.com/MatteoGabriele/vue-i18n-manager)
 * versioning
-* Typescript support
-* seng-generator
-* seng-config
-* seng-scss
-* airbnb coding standard integrated using es/tslint
 * (build) preview server with gzip
-* modernizr
-* optional es/tslint-loader
+* optional eslint-loader
 * optional prepush eslint hook
 * svg support
 * https support
-* i18n
 
 ## Coding
 
 * Every component folder is in PascalCase
 * Every component contains an index.js to integrate vuex-connect and for easy import ```import HomePage from 'page/HomePage'```
 * Every page name ends with Page
-* Always use the PascalCase component name in your templates ```<ScrollBar/>```
+* Always use the PascalCase component name in templates ```<ScrollBar/>```
 
 ## Commands
 
@@ -41,13 +41,14 @@ A lightweight (~58kb gzipped) Vue skeleton
 
 ## Seng generator templates
 
-Vue-skeleton has [seng-generator](https://github.com/mediamonks/seng-generator) templates integrated for easy creation of components, pages and store modules.
+Vue skeleton has [seng-generator](https://github.com/mediamonks/seng-generator) templates integrated for easy 
+creation of components, pages and store modules.
 
-Before you can use seng-generator you have to install it globally.
+To use the seng-generator it's mandatory to install it globally.
 
 Run ```npm install seng-generator -g```
 
-After the installation you can generate code based on the following templates:
+After the installation code can be generated using the following templates:
 * component (```sg component <name>```) : Creates a component
 * connected-component (```sg connected-component <name>```): Creates a component with vuex-connect integrated
 * page (```sg page <name>```): Creates a page
@@ -57,50 +58,53 @@ After the installation you can generate code based on the following templates:
 
 It's also possible to modify or add templates. Check the [documentation](https://github.com/mediamonks/seng-generator) of seng-generator for more info.
 
-## SVG
+## Using SVGs
 
-It's super easy to use svgs in vue-skeleton.
+It's super easy to use svgs in Vue skeleton.
 
-* Add your svgs to the svg folder (```asset/svg```)
-* Run ```npm run svg``` to optimize your svgs and copy them to the ```src/asset/svg``` folder
+* Add svgs to the svg folder (```asset/svg```)
+* Run ```npm run svg``` to optimize svgs and copy them to the ```src/asset/svg``` folder
 * Use them in the Icon component ```<Icon name="check" class="icon-check" />```
 
-The Icon component is globally registered in Vue so you can use it without importing and registering it in your components.
+The Icon component is globally registered in Vue so it can be used without importing and registering within components.
 
 ## SCSS
 
-Vue-skeleton uses SCSS for styling. It also uses CSS modules to local scope the styling of your components.
+Vue skeleton uses SCSS for styling. It also uses CSS modules to local scope the styling of components.
 Check https://vue-loader.vuejs.org/en/features/css-modules.html for more information.
 
 There are two main SCSS files:
 
-* ```screen.scss``` is the SCSS file for all your global styling. By default it only imports the normalize.css module.
-* ```utils.scss``` is the SCSS file for all the mixins and variables. By default it imports [seng-scss](https://github.com/mediamonks/seng-scss).
-```utils.scss``` is also automatically imported in every component SCSS file so you never have to import mixins and variables in your component.
-**Note: Make sure that you never add styling that outputs css because that will be included in every component css file.**
+* ```screen.scss``` Application global styling goes here. By default it only imports the normalize.css module.
+* ```utils.scss```  Application wide available mixins and variables. By default it imports [seng-scss](https://github.com/mediamonks/seng-scss).
+```utils.scss```    Is automatically imported in every component SCSS file.
+
+**Note: Make sure that ```utils.scss``` NEVER outputs CSS. Outputting CSS to ```utils.scss``` will add this CSS to 
+every component. **  
 
 ## Autoprefixer
 
-Autoprefixer is also enabled by default. The browserslist can be found and tweaked in the ```package.json```.
+Autoprefixer is enabled by default. To configure which browser(s) need prefixing adjust the browser list in the ```
+/package.json``` file.
 
 ## Preview Build
 
-It's also possible to preview a build. You can preview your build by running ```npm run preview``` after a build.
+After creating a new build it's possible to preview it by running the ```npm run preview``` command.
 Because of config differences between development and production it's possible that everything works in development but not in a production build.
 So it's good to test it on a regular basis to avoid surprises when deploying to an environment.
 
 ## Modernizr
 
-Modernizr is built-in the vue-skeleton. You can add your feature-detects and options in ```.modernizrrc```.
+Modernizr is built-in the Vue skeleton. The Modernizr configuration is located in the ```/.modernizrrc``` file.
 Reference the [Modernizr Configuration](https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json) for all
 options and feature-detects.
 
 ## Polyfills
 
-You can import all required polyfills in ```src/polyfill/index.js```.
-Vue-skeleton doesn't include babel-polyfill because it includes a lot of polyfills that are not required anymore.
+All required polyfills are imported in the ```src/polyfill/index.js``` file.
+Vue skeleton doesn't include babel-polyfill as it includes a lot of polyfills that are not required anymore.
 
-By default it includes polyfills for the following features:
+By default it includes polyfills for the following features
 
 * Fetch
 * Promises
@@ -109,15 +113,15 @@ By default it includes polyfills for the following features:
 
 ## Assets
 
-Assets are an important part of a website so they are also important in vue-skeleton.
+Assets are an important part of a website so they are also important in Vue skeleton.
 
 There are two kinds of assets:
  
 * Static assets
 * Assets that are processed by webpack
 
-You should add your assets that are processed by webpack in the ```src/asset``` folder.
-Examples of those assets are fonts, images, svgs and scss files.
+Assets that need to be processed by webpack are stored in the ```src/asset``` folder.
+Examples of those assets are fonts, images, SVGs and SCSS files.
 
 There are two folders for static assets:
 
@@ -126,21 +130,22 @@ After a build this folder will end up in the root of the versioned folder (by de
 * ```staticRoot``` This folder is for assets that don't need to be versioned. Examples are favicon and share images. 
 After a build the content of this folder will end up in a ```static``` folder in the root of the build next to the ```index.html```.
 
-Because static assets are not processed by webpack you need to prefix your static paths in your code with a variable.
+static assets are not processed by webpack. It's mandatory to prefix static paths in code using a variable.
 As stated above the versioned static folder is placed in a versioned folder with a timestamp in the path.
 It's impossible to know the timestamp during development so the only option is prefixing.
 
-Luckily it's super easy to prefix your paths because vue-skeleton provides all the necessary variables:
+Luckily it's super easy to prefix paths because Vue skeleton provides all the necessary variables:
 
 ```javascript
 process.env.VERSIONED_STATIC_ROOT
 process.env.STATIC_ROOT
 ```
 
-If you prefix your paths with those variables you don't run into problems during development and after a build.
+Prefixing paths using these variables is *important* not using them can result in unresolvable assets during 
+development/build.
 
-Those variables are also set in the config ```src/config/config.js```. 
-So you can also get them from the ConfigManager:
+These variables are available in the config ```src/config/config.js```.
+Getting them from the ConfigManager is easy:
 
 ```javascript
 import configManagerInstance from 'config/configManagerInstance';
@@ -150,7 +155,7 @@ const backgroundImage = `${configManagerInstance.getVariable(VariableNames.VERSI
 const shareImage = `${configManagerInstance.getVariable(VariableNames.STATIC_ROOT)}image/share.png`;
 ```
 
-Inside your Vue components you can also use the ConfigPlugin that makes the ConfigManager available as ```this.$config```:
+Inside Vue components it's also possible to reference the ConfigManager by using  ```this.$config```:
 
 ```javascript
 import { VariableNames } from 'data/enum/configNames';
@@ -158,15 +163,16 @@ import { VariableNames } from 'data/enum/configNames';
 const video = `${this.$config.getVariable(VariableNames.VERSIONED_STATIC_ROOT)}video/intro.mp4`;
 ```
 
-See Config chapter for more information.
+See Configuration chapter for more information.
 
 ## Locale support
 
-Vue-skeleton uses [vue-i18n-manager](https://github.com/MatteoGabriele/vue-i18n-manager) for localization.
+The Vue skeleton uses [vue-i18n-manager](https://github.com/MatteoGabriele/vue-i18n-manager) for localization.
 
-You can configure it in the config (`src/config/config.js`) and in the locale config (`src/config/localeConfig.js`).
+Configure it in the config (`src/config/config.js`) and in the locale config (`src/config/localeConfig.js`).
 
-In most cases you only need the normal config. The config has the following variables that determine how and if localization is used in a website:
+In most cases the standard config should be sufficient. The config has the following variables that determine how and if 
+localization is used:
 
 * `VariableNames.LOCALE_ENABLED`: Enable of disable localization
 * `VariableNames.LOCALE_ROUTING_ENABLED`: Enable or disable localized routing (/en/home)
@@ -174,16 +180,18 @@ In most cases you only need the normal config. The config has the following vari
 * `PropertyNames.DEFAULT_LOCALE`: The default locale
 * `PropertyNames.AVAILABLE_LOCALES`: An array with all available locales
 
-The value of the locales (eg. `en-gb`) in the config has to match the json filename and will also be present in the url if localized routing is enabled. If for example the name of the json and the variable in the url needs to be different you can change the default implementation in the `localeConfig.js`.
-`localeConfig.js` also contains the proxy that is responsible for loading the locale jsons. 
+The value of the locales (eg. `en-gb`) in the config has to match the JSON filename and will also be present in the 
+url if localized routing is enabled. If for example the name of the JSON and the variable in the url needs to be 
+different it's possible to change the default implementation in the `localeConfig.js` file.
+`localeConfig.js` also contains the proxy that is responsible for loading the locale JSON files. 
 
-Check the [documentation](https://matteogabriele.gitbooks.io/vue-i18n-manager/content/) if you want to know how to use the i18n-manager in your components. 
+Check the [i18nManager  documentation](https://matteogabriele.gitbooks.io/vue-i18n-manager/content/) for usage in components. 
 
-## Config
+## Configuration
 
 ## Startup
 Add methods to `control/startUp` that need to be run before app initialisation. The startUp returns a promise allowing
-to chain your startup tasks.
+to chain startup tasks.
 
 Examples of startup tasks:
 - Registering/Initialisation of Vue plugins
