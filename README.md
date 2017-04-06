@@ -189,10 +189,6 @@ url if localized routing is enabled.
 
 `localeConfig.js` manages the config of the i18n manager. It also contains the proxy that is responsible for loading the locale JSON files. 
 Change the proxy if a custom implementeation is required.
-The value of locales (e.g. `en-gb`) in the config needs to match the JSON filename and will be present in the 
-url if localized routing is enabled. Changing this default behavior can by done by changing the default configuration in the `localeConfig.js` file. 
-
-`localeConfig.js` also contains a proxy that is responsible for loading the locale JSON files. 
 
 Check the [i18nManager  documentation](https://matteogabriele.gitbooks.io/vue-i18n-manager/content/) for usage within Vue components. 
 
