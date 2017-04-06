@@ -35,7 +35,8 @@ A lightweight (~58kb gzipped) Vue skeleton
 * ```npm run dev```: Starts the dev server
 * ```npm run build```: Create a build
 * ```npm run preview```: Preview the build in the browser
-* ```npm run lint```: Run eslint
+* ```npm run eslint```: Run eslint
+* ```npm run tslint```: Run tslint
 * ```npm run svg```: Process and optimize svg for use with the Icon component
 
 ## Seng generator templates
