@@ -1,11 +1,16 @@
 import { URLNames, PropertyNames, VariableNames } from 'data/enum/configNames';
 import configManagerInstance from './configManagerInstance';
 
-const languages = configManagerInstance.getProperty(PropertyNames.AVAILABLE_LOCALES).map(locale => ({
-	code: locale,
-	urlPrefix: locale,
-	translationKey: locale,
-}));
+const languages = configManagerInstance.getProperty(PropertyNames.AVAILABLE_LOCALES).map((locale) => {
+	if (typeof locale === 'string')	{
+		return {
+			code: locale,
+			urlPrefix: locale,
+			translationKey: locale,
+		};
+	}
+	return locale;
+});
 
 const config = {
 	persistent: false,
