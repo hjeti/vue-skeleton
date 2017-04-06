@@ -28,5 +28,6 @@ module.exports = {
 	    enableTSLintLoader: false,
     },
 	useHttps: false,
-	prePushEnabled: true
+	// Pre-push tasks standard enabled
+	prePush: ['esLintCheck', 'tsLintCheck'],
 };
