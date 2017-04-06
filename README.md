@@ -14,10 +14,10 @@ A lightweight (~58kb gzipped) Vue skeleton
 * seng-generator
 * seng-config
 * seng-scss
-* airbnb coding standard integrated using eslint
+* airbnb coding standard integrated using es/tslint
 * (build) preview server with gzip
 * modernizr
-* optional eslint-loader
+* optional es/tslint-loader
 * optional prepush eslint hook
 * svg support
 * https support
@@ -35,7 +35,8 @@ A lightweight (~58kb gzipped) Vue skeleton
 * ```npm run dev```: Starts the dev server
 * ```npm run build```: Create a build
 * ```npm run preview```: Preview the build in the browser
-* ```npm run lint```: Run eslint
+* ```npm run eslint```: Run eslint
+* ```npm run tslint```: Run tslint
 * ```npm run svg```: Process and optimize svg for use with the Icon component
 
 ## Seng generator templates
@@ -188,5 +189,12 @@ Examples of startup tasks:
 - Registering/Initialisation of Vue plugins
 - Requesting async initialisation data
 
+## Pre-push hooks
+Before pushing to a repository you can run tasks to abort a push. If an another task needs to be run before 
+pushing add them in `bin/prePush.js` file.
 
+Standard pre-push tasks enabled
+- esLintCheck
+- tsLintCheck
 
+Disabling or enabling task can be done in `config/index.js` by changing the `prePush` property contents.
