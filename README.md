@@ -188,5 +188,12 @@ Examples of startup tasks:
 - Registering/Initialisation of Vue plugins
 - Requesting async initialisation data
 
+## Pre-push hooks
+Before pushing to a repository you can run tasks to abort a push. If an another task needs to be run before 
+pushing add them in `bin/prePush.js` file.
 
+Standard pre-push tasks enabled
+- esLintCheck
+- tsLintCheck
 
+Disabling or enabling task can be done in `config/index.js` by changing the `prePush` property contents.
