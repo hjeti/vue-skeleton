@@ -58,7 +58,7 @@ After installation the following scaffolding commands are available:
 * page (```sg page <name>```): Creates a page
 * connected-page (```sg connected-page <name>```): Creates a page with vuex-connect integrated
 * store (```sg store <name>```): Creates a store module
-* store (```sg complex-store <name>```): Creates a complex store module
+* complex-store (```sg complex-store <name>```): Creates a complex store module
 
 Check the [seng-generator](https://github.com/mediamonks/seng-generator) [documentation](https://github.com/mediamonks/seng-generator) for more information about modifying or adding templates.
 
@@ -85,7 +85,7 @@ There are two main SCSS files:
 ```utils.scss```    Automatically imported in every component SCSS file.
 
 **Note: Make sure that ```utils.scss``` NEVER outputs CSS. Outputting CSS to ```utils.scss``` will add this CSS to 
-every component. **
+every component.**
 
 ## Autoprefixer
 
@@ -184,6 +184,11 @@ localization is used:
 * `PropertyNames.DEFAULT_LOCALE`: The default locale
 * `PropertyNames.AVAILABLE_LOCALES`: An array with all available locales
 
+The value of the locales can be an object that i18n-manager accepts or a string. A string value (eg. `en-gb`) in the config has to match the JSON filename and will also be present in the 
+url if localized routing is enabled. 
+
+`localeConfig.js` manages the config of the i18n manager. It also contains the proxy that is responsible for loading the locale JSON files. 
+Change the proxy if a custom implementeation is required.
 The value of locales (e.g. `en-gb`) in the config needs to match the JSON filename and will be present in the 
 url if localized routing is enabled. Changing this default behavior can by done by changing the default configuration in the `localeConfig.js` file. 
 
@@ -192,6 +197,37 @@ url if localized routing is enabled. Changing this default behavior can by done 
 Check the [i18nManager  documentation](https://matteogabriele.gitbooks.io/vue-i18n-manager/content/) for usage within Vue components. 
 
 ## Configuration
+
+There are 3 configs in vue-skeleton.
+
+#### Webpack config
+
+The webpack config is located in the `build` folder. It consists of a base (`webpack.base.conf.js`) that contains als the configuration that is shared between 
+dev (`webpack.dev.conf.js`) and production (`webpack.prod.conf.js`). To avoid config duplication there is also a `webpackHelpers` file with some helpers that return 
+the right config for dev and production. Webpack is already completely configured but there is always room for customization. 
+
+#### Project config
+
+The project config is located in the `config` folder. The project config contains variables that are used by webpack 
+like the environment variables, location of the index file and the version path. If the site is running in a 
+subfolder on the server it's possible to set the publicpath to avoid problems.
+
+This file also contains some other non webpack related settings. The settings make it possible to enable or disable eslint and tslint loader, configure prepush tasks 
+and the option to enable https during development.
+
+#### Site config
+
+In development there needs to be a place to store urls of apis, facebook app id etc. Vue-skeleton uses seng-config because it's very easy to use and has a lot of features.
+It has support for properties, urls and variables and environments. The latter is very important because most of the config is environment based. 
+Seng-config environments can extend each other for easy configuration.
+
+All the site config related files are located in `src/config`:
+
+* `config.js`: Contains the config and the environment logic. The environment is set based on the host. 
+* `configManagerInstance.js`: The instance of the ConfigManger that is used to retrieve all the config from `config.js`. Check the [documentation](https://rawgit.com/MediaMonks/seng-config/master/doc/typedoc/classes/_lib_configmanager_.configmanager.html) for all available methods. 
+* `ConfigPlugin.js`: Exposes the `configManagerInstance.js` to all Vue components as `$config`. 
+This makes it easy to retrieve config values in Vue components without the need to import everything. 
+* `localeConfig.js`: Contains the locale config. 
 
 ## Startup
 Add methods to `control/startUp` that need to be run before app initialisation. The startUp returns a promise allowing
