@@ -42,6 +42,8 @@ The whole skeleton when build is **only ~58kb** gzipped!
 * ```npm run tslint```: Runs tslint
 * ```npm run svg```: Process and optimize SVGs for use with the Icon component
 
+When using [yarn](https://yarnpkg.com) you can replace ```npm run``` commands with ```yarn```.
+
 ## Seng generator templates
 
 Vue skeleton has [seng-generator](https://github.com/mediamonks/seng-generator) templates and configuration integrated to
