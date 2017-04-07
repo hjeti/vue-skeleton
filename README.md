@@ -4,6 +4,26 @@ The skeleton goal is to get up to speed quickly without tinkering hours with con
 
 The whole skeleton when build is **only ~58kb** gzipped!
 
+# Table of Contents
+1. [Features](#features)
+2. [Code/Folder conventions](#code/folder-convetions)
+3. [NPM Commands](#npm-commands)
+4. [Seng generator templates](#seng-generator-templates)
+5. [Configuration](#configuration)
+	1. [Webpack configuration](###webpack-configuration)
+	2. [Project configuration](###project-configuration)
+	3. [Site configuration](###site-configuration)
+6. [Using SVGs](#using-svgs)
+7. [SCSS](#scss)
+8. [Autoprefixer](#autoprefixer)
+9. [Modernizr](#modernizr)
+10. [Asset management](#asset-management)
+11. [Previewing a build](#previewing-a-build)
+12. [Polyfill configuration](#polyfill-configuration)
+13. [Localization support](#localization-support)
+14. [Application startup](#Startup)
+15. [Pre-push hooks](#pre-push-hooks)
+
 ## Features
 
 * [vuex](https://github.com/vuejs/vuex)
@@ -26,14 +46,14 @@ The whole skeleton when build is **only ~58kb** gzipped!
 * SVG support
 * https support
 
-## Coding
+## Code/Folder conventions
 
 * Every component folder is formatted in PascalCase
 * Every component contains an index.js to integrate vuex-connect and for easy import ```import HomePage from 'page/HomePage'```
 * Every page name is appended with Page
 * Always use the PascalCase formatting for components in templates ```<ScrollBar/>```
 
-## Commands
+## NPM Commands
 
 * ```npm run dev```: Starts the development server
 * ```npm run build```: Creates a build
@@ -64,6 +84,43 @@ After installation the following scaffolding commands are available:
 
 Check the [seng-generator](https://github.com/mediamonks/seng-generator) [documentation](https://github
 .com/mediamonks/seng-generator) for detailed information about modifying or adding templates.
+
+## Configuration
+
+There are 3 configurations in Vue skeleton.
+
+#### Webpack configuration
+
+The webpack configuration is located in the `build` folder. It consists of a base (`webpack.base.conf.js`) that 
+contains all the configuration that is shared between 
+development (`webpack.dev.conf.js`) and production (`webpack.prod.conf.js`). To avoid config duplication there is a `webpackHelpers` 
+file with some helpers that return the right config context for development and production. Webpack is completely 
+configured out of the box. But there is always room for customization. 
+
+#### Project configuration
+
+The project config is located in the `config` folder. The project config contains variables that are used by webpack 
+like the environment variables, location of the index file and the version path. If the site is running in a 
+subfolder on the server it's possible to change the publicpath to avoid problems.
+
+This file contains some other non webpack related settings. The settings make it possible to enable or disable eslint
+ and tslint loader, configururation of prepush tasks 
+and the option to enable https during development.
+
+#### Site configuration
+
+In development there needs to be a place to store urls of APIs like the facebook app id etc. Vue skeleton uses 
+seng-config because it has straightforward API and comes packed with a lot of features.
+It has support for properties, urls and variables and environments. The latter is very important because most of the config is environment based. 
+Seng-config environments can extend each other for easy configuration.
+
+All the app configuration related files are stored in `src/config`:
+
+* `config.js`: Contains the config and the environment logic. The environment is set based on the host. 
+* `configManagerInstance.js`: The instance of the ConfigManger that is used to retrieve all the config from `config.js`. Check the [documentation](https://rawgit.com/MediaMonks/seng-config/master/doc/typedoc/classes/_lib_configmanager_.configmanager.html) for all available methods. 
+* `ConfigPlugin.js`: Exposes the `configManagerInstance.js` to all Vue components as `$config`. 
+This makes it easy to retrieve config values in Vue components without the needing to import it every time. 
+* `localeConfig.js`: Contains the locale config. 
 
 ## Using SVGs
 
@@ -96,32 +153,13 @@ every component.**
 Autoprefixer is enabled by default. To configure which browser(s) need prefixing adjust the browser list in the ```
 /package.json``` file.
 
-## Preview Build
-
-After creating a new build it is possible to preview it by running the ```npm run preview``` command.
-Due to config differences between development and production it may occur that it runs perfectly fine on development 
-but not in a production build.
-It is good to test builds on a regular basis to avoid issues when deploying to an environment.
-
 ## Modernizr
 
 Modernizr is built-in the Vue skeleton. The Modernizr configuration is located in the ```/.modernizrrc``` file.
 Reference the [Modernizr Configuration](https://github.com/Modernizr/Modernizr/blob/master/lib/config-all.json) for all
 options and feature-detects.
 
-## Polyfills
-
-All required polyfills are imported in the ```src/polyfill/index.js``` file.
-Vue skeleton has custom list of polyfills and does not use babel-polyfill as it includes a lot of legacy polyfills.
-
-By default it includes polyfills for the following features
-
-* Fetch
-* Promises
-* Array.includes
-* Classlist
-
-## Assets
+## Asset management
 
 Managing and working with assets is important. The Vue skeleton comes with a hassle-free solution for managing assets.
 
@@ -176,6 +214,25 @@ const video = `${this.$config.getVariable(VariableNames.VERSIONED_STATIC_ROOT)}v
 
 Reference the [configuration chapter](#configuration) for more information.
 
+## Previewing a build
+
+After creating a new build it is possible to preview it by running the ```npm run preview``` command.
+Due to config differences between development and production it may occur that it runs perfectly fine on development 
+but not in a production build.
+It is good to test builds on a regular basis to avoid issues when deploying to an environment.
+
+## Polyfill configuration
+
+All required polyfills are imported in the ```src/polyfill/index.js``` file.
+Vue skeleton has custom list of polyfills and does not use babel-polyfill as it includes a lot of legacy polyfills.
+
+By default it includes polyfills for the following features
+
+* Fetch
+* Promises
+* Array.includes
+* Classlist
+
 ## Localization support
 
 The Vue skeleton is packaged with [vue-i18n-manager](https://github.com/MatteoGabriele/vue-i18n-manager) for localization.
@@ -200,44 +257,7 @@ Change the proxy if a custom implementation is required.
 
 Check the [i18nManager  documentation](https://matteogabriele.gitbooks.io/vue-i18n-manager/content/) for usage within Vue components. 
 
-## Configuration
-
-There are 3 configurations in Vue skeleton.
-
-#### Webpack config
-
-The webpack configuration is located in the `build` folder. It consists of a base (`webpack.base.conf.js`) that 
-contains all the configuration that is shared between 
-development (`webpack.dev.conf.js`) and production (`webpack.prod.conf.js`). To avoid config duplication there is a `webpackHelpers` 
-file with some helpers that return the right config context for development and production. Webpack is completely 
-configured out of the box. But there is always room for customization. 
-
-#### Project config
-
-The project config is located in the `config` folder. The project config contains variables that are used by webpack 
-like the environment variables, location of the index file and the version path. If the site is running in a 
-subfolder on the server it's possible to change the publicpath to avoid problems.
-
-This file contains some other non webpack related settings. The settings make it possible to enable or disable eslint
- and tslint loader, configururation of prepush tasks 
-and the option to enable https during development.
-
-#### Site config
-
-In development there needs to be a place to store urls of APIs like the facebook app id etc. Vue skeleton uses 
-seng-config because it has straightforward API and comes packed with a lot of features.
-It has support for properties, urls and variables and environments. The latter is very important because most of the config is environment based. 
-Seng-config environments can extend each other for easy configuration.
-
-All the app configuration related files are stored in `src/config`:
-
-* `config.js`: Contains the config and the environment logic. The environment is set based on the host. 
-* `configManagerInstance.js`: The instance of the ConfigManger that is used to retrieve all the config from `config.js`. Check the [documentation](https://rawgit.com/MediaMonks/seng-config/master/doc/typedoc/classes/_lib_configmanager_.configmanager.html) for all available methods. 
-* `ConfigPlugin.js`: Exposes the `configManagerInstance.js` to all Vue components as `$config`. 
-This makes it easy to retrieve config values in Vue components without the needing to import it every time. 
-* `localeConfig.js`: Contains the locale config. 
-
-## Startup
+## Application startup
 Add methods to `control/startUp` that need to be run before app initialisation. The startUp returns a promise allowing
 to chain startup tasks.
 
