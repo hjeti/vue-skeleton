@@ -8,7 +8,8 @@ module.exports = {
 		env: {
 			NODE_ENV: JSON.stringify('production'),
 			VERSIONED_STATIC_ROOT: JSON.stringify(publicPath + versionPath + 'static/'),
-			STATIC_ROOT: JSON.stringify(publicPath + 'static/')
+			STATIC_ROOT: JSON.stringify(publicPath + 'static/'),
+			PUBLIC_PATH: publicPath,
 		},
 		index: path.resolve(__dirname, '../dist/index.html'),
 		versionPath: versionPath,
@@ -20,7 +21,8 @@ module.exports = {
 		env: {
 			NODE_ENV: JSON.stringify('development'),
 			VERSIONED_STATIC_ROOT: JSON.stringify('/static/'),
-			STATIC_ROOT: JSON.stringify('/static/')
+			STATIC_ROOT: JSON.stringify('/static/'),
+			PUBLIC_PATH: publicPath,
 		},
 		port: 8080,
 		proxyTable: {},
