@@ -115,6 +115,7 @@ exports.getTSLintLoader = function(enabled, projectRoot){
 				loader: 'tslint-loader',
 				options: {
 					tsConfigFile: path.resolve(__dirname, '../tsconfig.json'),
+					configFile: path.resolve(__dirname, '../.tslintrc.js'),
 				},
 			},
 		],

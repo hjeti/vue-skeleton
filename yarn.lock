@@ -1614,7 +1614,7 @@ detect-indent@^4.0.0:
   dependencies:
     repeating "^2.0.0"
 
-diff@^3.0.1:
+diff@^3.0.1, diff@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/diff/-/diff-3.2.0.tgz#c9ce393a4b7cbd0b058a725c93df299027868ff9"
 
@@ -4505,7 +4505,7 @@ resolve-from@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/resolve-from/-/resolve-from-1.0.1.tgz#26cbfe935d1aeeeabb29bc3fe5aeb01e93d44226"
 
-resolve@^1.1.6, resolve@^1.1.7, resolve@^1.2.0:
+resolve@^1.1.6, resolve@^1.1.7, resolve@^1.2.0, resolve@^1.3.2:
   version "1.3.2"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.3.2.tgz#1f0442c9e0cbb8136e87b9305f932f46c7f28235"
   dependencies:
@@ -5019,9 +5019,9 @@ tslint-eslint-rules@^3.4.0:
   dependencies:
     doctrine "^0.7.2"
 
-tslint-loader@^3.4.3:
-  version "3.4.3"
-  resolved "https://registry.yarnpkg.com/tslint-loader/-/tslint-loader-3.4.3.tgz#ac1eaf57d35eff383d0b008fa67b0813e8b51c54"
+tslint-loader@^3.5.1:
+  version "3.5.1"
+  resolved "https://registry.yarnpkg.com/tslint-loader/-/tslint-loader-3.5.1.tgz#1cd0ead309a15ec41815766a93b90e3a07708916"
   dependencies:
     loader-utils "^1.0.2"
     mkdirp "^0.5.1"
@@ -5033,7 +5033,7 @@ tslint-microsoft-contrib@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/tslint-microsoft-contrib/-/tslint-microsoft-contrib-4.0.1.tgz#9e201a1639f5859658ffcf2b4dcbb19992f8e6c0"
 
-tslint@^4.0.0, tslint@^4.1.1:
+tslint@^4.1.1:
   version "4.5.1"
   resolved "https://registry.yarnpkg.com/tslint/-/tslint-4.5.1.tgz#05356871bef23a434906734006fc188336ba824b"
   dependencies:
@@ -5047,7 +5047,21 @@ tslint@^4.0.0, tslint@^4.1.1:
     tsutils "^1.1.0"
     update-notifier "^2.0.0"
 
-tsutils@^1.1.0:
+tslint@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.0.0.tgz#ad3b7952f8a9b21079248bee01c2eaf92167e185"
+  dependencies:
+    babel-code-frame "^6.22.0"
+    colors "^1.1.2"
+    diff "^3.2.0"
+    findup-sync "~0.3.0"
+    glob "^7.1.1"
+    optimist "~0.6.0"
+    resolve "^1.3.2"
+    semver "^5.3.0"
+    tsutils "^1.4.0"
+
+tsutils@^1.1.0, tsutils@^1.4.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-1.5.0.tgz#36b571537827988b497244486a77792c8fc3563c"
 
