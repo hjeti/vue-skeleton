@@ -6,13 +6,13 @@ The whole skeleton when build is **only ~58kb** gzipped!
 
 # Table of Contents
 1. [Features](#features)
-2. [Code/Folder conventions](#code/folder-convetions)
+2. [Code/Folder conventions](#codefolder-conventions)
 3. [NPM Commands](#npm-commands)
 4. [Seng generator templates](#seng-generator-templates)
 5. [Configuration](#configuration)
-	1. [Webpack configuration](###webpack-configuration)
-	2. [Project configuration](###project-configuration)
-	3. [Site configuration](###site-configuration)
+	1. [Webpack configuration](#webpack-configuration)
+	2. [Project configuration](#project-configuration)
+	3. [Site configuration](#site-configuration)
 6. [Using SVGs](#using-svgs)
 7. [SCSS](#scss)
 8. [Autoprefixer](#autoprefixer)
@@ -21,7 +21,7 @@ The whole skeleton when build is **only ~58kb** gzipped!
 11. [Previewing a build](#previewing-a-build)
 12. [Polyfill configuration](#polyfill-configuration)
 13. [Localization support](#localization-support)
-14. [Application startup](#Startup)
+14. [Application startup](#application-startup)
 15. [Pre-push hooks](#pre-push-hooks)
 
 ## Features
