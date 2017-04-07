@@ -82,8 +82,7 @@ After installation the following scaffolding commands are available:
 * store (```sg store <name>```): Creates a store module
 * complex-store (```sg complex-store <name>```): Creates a complex store module
 
-Check the [seng-generator](https://github.com/mediamonks/seng-generator) [documentation](https://github
-.com/mediamonks/seng-generator) for detailed information about modifying or adding templates.
+Check the [seng-generator](https://github.com/mediamonks/seng-generator) [documentation](https://github.com/mediamonks/seng-generator) for detailed information about modifying or adding templates.
 
 ## Configuration
 
