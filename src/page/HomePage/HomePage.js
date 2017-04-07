@@ -1,5 +1,7 @@
 export default {
 	name: 'HomePage',
 
-	mounted() {},
+	mounted() {
+		console.log(this.$config);
+	},
 };

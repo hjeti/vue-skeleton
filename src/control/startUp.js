@@ -1,9 +1,20 @@
 import Vue from 'vue';
-import ConfigPlugin from 'config/ConfigPlugin';
+import configManagerInstance from 'config/configManagerInstance';
+import VueExposePlugin from 'util/VueExposePlugin';
+import { URLNames, PropertyNames, VariableNames } from 'data/enum/configNames';
+import PageNames from 'data/enum/PageNames';
+import Pages from 'data/enum/Pages';
 
 const initPlugins = () => {
-	// Plugin to reference the configManager using vm.$config
-	Vue.use(ConfigPlugin);
+	// expose objects to the Vue prototype for easy access in your vue templates and components
+	Vue.use(VueExposePlugin, {
+		$config: configManagerInstance,
+		URLNames,
+		PropertyNames,
+		VariableNames,
+		PageNames,
+		Pages,
+	});
 
 	// enable if you want to use axios
 	// Vue.use(VueAxios, axios);
