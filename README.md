@@ -46,8 +46,8 @@ When using [yarn](https://yarnpkg.com) just replace ```npm run``` commands with 
 
 ## Seng generator templates
 
-Vue skeleton has [seng-generator](https://github.com/mediamonks/seng-generator) templates and configuration integrated to
-scaffold components, pages and store modules.
+Vue skeleton comes with [seng-generator](https://github.com/mediamonks/seng-generator) predefined templates and 
+configuration which is used to scaffold components, pages and store modules.
 
 Global installation of [seng-generator](https://github.com/mediamonks/seng-generator) is mandatory.
 To install it globally run the following command:
@@ -62,21 +62,23 @@ After installation the following scaffolding commands are available:
 * store (```sg store <name>```): Creates a store module
 * complex-store (```sg complex-store <name>```): Creates a complex store module
 
-Check the [seng-generator](https://github.com/mediamonks/seng-generator) [documentation](https://github.com/mediamonks/seng-generator) for more information about modifying or adding templates.
+Check the [seng-generator](https://github.com/mediamonks/seng-generator) [documentation](https://github
+.com/mediamonks/seng-generator) for detailed information about modifying or adding templates.
 
 ## Using SVGs
 
 It is super easy to use SVGs in Vue skeleton.
 
 * Add SVGs to the following folder ```asset/svg```
-* Run ```npm run svg``` to optimize svgs and copy them to the ```src/asset/svg``` folder
+* Run ```npm run svg``` to optimize SVGs and copy them to the ```src/asset/svg``` folder
 * Use them in the Icon component ```<Icon name="check" class="icon-check" />```
 
-The Icon component is globally registered in Vue allowing it to be used directly without importing and registering within components.
+The Icon component is globally registered in Vue allowing it to be used directly without importing and registering 
+within Vue components.
 
 ## SCSS
 
-Vue skeleton uses SCSS for styling. It uses CSS modules to local scope the styling of components.
+Vue skeleton uses SCSS for styling. It uses CSS modules to local scope the styling of Vue components.
 Check [CSS Modules](https://vue-loader.vuejs.org/en/features/css-modules.html) for more information.
 
 There are two main SCSS files:
@@ -97,7 +99,8 @@ Autoprefixer is enabled by default. To configure which browser(s) need prefixing
 ## Preview Build
 
 After creating a new build it is possible to preview it by running the ```npm run preview``` command.
-Due to config difference between development and production it may occur that it runs perfectly fine on development but not in a production build.
+Due to config differences between development and production it may occur that it runs perfectly fine on development 
+but not in a production build.
 It is good to test builds on a regular basis to avoid issues when deploying to an environment.
 
 ## Modernizr
@@ -109,7 +112,7 @@ options and feature-detects.
 ## Polyfills
 
 All required polyfills are imported in the ```src/polyfill/index.js``` file.
-Vue skeleton has custom list of polyfills and doesn't use babel-polyfill as it includes a lot of legacy polyfills.
+Vue skeleton has custom list of polyfills and does not use babel-polyfill as it includes a lot of legacy polyfills.
 
 By default it includes polyfills for the following features
 
@@ -120,7 +123,7 @@ By default it includes polyfills for the following features
 
 ## Assets
 
-Managing and working with assets is important. The Vue skeleton has a hassle-free solution for managing assets.
+Managing and working with assets is important. The Vue skeleton comes with a hassle-free solution for managing assets.
 
 There are two kinds of assets:
  
@@ -132,12 +135,14 @@ Examples of those assets are fonts, images, SVGs and SCSS files.
 
 There are two folders for static assets:
 
-* ```static``` This folder is for assets that need to be versioned. Examples: locales, JSONs, data JSONs, videos and images. 
-After a build this folder will end up in the **root** of the versioned folder (by default: ```version/${timestamp}/static```.
+* ```static``` This folder is for assets that need to be versioned. Examples: locale JSONs, data JSONs, videos and images. 
+After a build this folder will end up in the **root of the versioned folder** (by default: 
+```version/${timestamp}/static```.
 * ```staticRoot``` This folder is for assets that don't need to be versioned. Examples: favicon and share images. 
-After a build the content is copied over in a ```static``` folder in the root of the build next to the ```index.html```.
+After a build the content is copied over in a ```static``` folder in the **root of the build** next to the ```index
+.html```.
 
-static assets are not processed by webpack (e.g. manually file optimization). It is mandatory to prefix static paths in code using a variable.
+static assets won't be processed by webpack (e.g. manually file optimization). It is mandatory to prefix static paths in code using a variable.
 As stated above the versioned static folder is placed in a versioned folder with a timestamp in the path.
 It's impossible to know the timestamp during development the only option is to prefix assets.
 
@@ -148,7 +153,7 @@ process.env.VERSIONED_STATIC_ROOT
 process.env.STATIC_ROOT
 ```
 
-Prefixing paths using these variables is **important** not using them can result in unresolvable assets during 
+**Prefixing paths** using these variables **is important** not using them can result in unresolvable assets during 
 development/build.
 
 These variables are available in the config ```src/config/config.js``` and getting them using the ConfigManager is easy:
@@ -169,13 +174,14 @@ import { VariableNames } from 'data/enum/configNames';
 const video = `${this.$config.getVariable(VariableNames.VERSIONED_STATIC_ROOT)}video/intro.mp4`;
 ```
 
-See the configuration chapter for more information.
+Reference the [configuration chapter](#configuration) for more information.
 
-## Locale support
+## Localization support
 
 The Vue skeleton is packaged with [vue-i18n-manager](https://github.com/MatteoGabriele/vue-i18n-manager) for localization.
 
-Configuration can be changed in the global config (`src/config/config.js`) and in the locale config (`src/config/localeConfig.js`).
+Configuration can be changed in the project config (`src/config/config.js`) and in the locale config 
+(`src/config/localeConfig.js`).
 
 In most cases the standard config should be sufficient. The config has the following variables that determine how and if 
 localization is used:
@@ -190,41 +196,45 @@ The value of the locales can be an object that i18n-manager accepts or a string.
 url if localized routing is enabled. 
 
 `localeConfig.js` manages the config of the i18n manager. It also contains the proxy that is responsible for loading the locale JSON files. 
-Change the proxy if a custom implementeation is required.
+Change the proxy if a custom implementation is required.
 
 Check the [i18nManager  documentation](https://matteogabriele.gitbooks.io/vue-i18n-manager/content/) for usage within Vue components. 
 
 ## Configuration
 
-There are 3 configs in vue-skeleton.
+There are 3 configurations in Vue skeleton.
 
 #### Webpack config
 
-The webpack config is located in the `build` folder. It consists of a base (`webpack.base.conf.js`) that contains als the configuration that is shared between 
-dev (`webpack.dev.conf.js`) and production (`webpack.prod.conf.js`). To avoid config duplication there is also a `webpackHelpers` file with some helpers that return 
-the right config for dev and production. Webpack is already completely configured but there is always room for customization. 
+The webpack configuration is located in the `build` folder. It consists of a base (`webpack.base.conf.js`) that 
+contains all the configuration that is shared between 
+development (`webpack.dev.conf.js`) and production (`webpack.prod.conf.js`). To avoid config duplication there is a `webpackHelpers` 
+file with some helpers that return the right config context for development and production. Webpack is completely 
+configured out of the box. But there is always room for customization. 
 
 #### Project config
 
 The project config is located in the `config` folder. The project config contains variables that are used by webpack 
 like the environment variables, location of the index file and the version path. If the site is running in a 
-subfolder on the server it's possible to set the publicpath to avoid problems.
+subfolder on the server it's possible to change the publicpath to avoid problems.
 
-This file also contains some other non webpack related settings. The settings make it possible to enable or disable eslint and tslint loader, configure prepush tasks 
+This file contains some other non webpack related settings. The settings make it possible to enable or disable eslint
+ and tslint loader, configururation of prepush tasks 
 and the option to enable https during development.
 
 #### Site config
 
-In development there needs to be a place to store urls of apis, facebook app id etc. Vue-skeleton uses seng-config because it's very easy to use and has a lot of features.
+In development there needs to be a place to store urls of APIs like the facebook app id etc. Vue skeleton uses 
+seng-config because it has straightforward API and comes packed with a lot of features.
 It has support for properties, urls and variables and environments. The latter is very important because most of the config is environment based. 
 Seng-config environments can extend each other for easy configuration.
 
-All the site config related files are located in `src/config`:
+All the app configuration related files are stored in `src/config`:
 
 * `config.js`: Contains the config and the environment logic. The environment is set based on the host. 
 * `configManagerInstance.js`: The instance of the ConfigManger that is used to retrieve all the config from `config.js`. Check the [documentation](https://rawgit.com/MediaMonks/seng-config/master/doc/typedoc/classes/_lib_configmanager_.configmanager.html) for all available methods. 
 * `ConfigPlugin.js`: Exposes the `configManagerInstance.js` to all Vue components as `$config`. 
-This makes it easy to retrieve config values in Vue components without the need to import everything. 
+This makes it easy to retrieve config values in Vue components without the needing to import it every time. 
 * `localeConfig.js`: Contains the locale config. 
 
 ## Startup
