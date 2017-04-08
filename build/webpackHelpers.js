@@ -102,7 +102,7 @@ exports.getESLintLoader = function(enabled, projectRoot){
 		include: [
 			path.join(projectRoot, 'src')
 		],
-		exclude: /node_modules/
+		exclude: /node_modules|vendor/
 	} : {};
 };
 
@@ -122,7 +122,7 @@ exports.getTSLintLoader = function(enabled, projectRoot){
 		include: [
 			path.join(projectRoot, 'src')
 		],
-		exclude: /node_modules/
+		exclude: /node_modules|vendor/
 	} : {};
 };
 
