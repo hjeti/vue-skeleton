@@ -11,6 +11,7 @@ const initPlugins = () => {
 	// expose objects to the Vue prototype for easy access in your vue templates and components
 	Vue.use(VueExposePlugin, {
 		$config: configManagerInstance,
+		// $http: axios,
 		URLNames,
 		PropertyNames,
 		VariableNames,
@@ -19,9 +20,6 @@ const initPlugins = () => {
 		Params,
 		createPath,
 	});
-
-	// enable if you want to use axios
-	// Vue.use(VueAxios, axios);
 };
 
 const startUp = () => {
