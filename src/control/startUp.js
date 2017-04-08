@@ -5,6 +5,7 @@ import { URLNames, PropertyNames, VariableNames } from 'data/enum/configNames';
 import PageNames from 'data/enum/PageNames';
 import Pages from 'data/enum/Pages';
 import { createPath } from 'util/routeUtils';
+import Params from 'data/enum/Params';
 
 const initPlugins = () => {
 	// expose objects to the Vue prototype for easy access in your vue templates and components
@@ -15,6 +16,7 @@ const initPlugins = () => {
 		VariableNames,
 		PageNames,
 		Pages,
+		Params,
 		createPath,
 	});
 
