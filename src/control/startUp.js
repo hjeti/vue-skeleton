@@ -4,6 +4,7 @@ import VueExposePlugin from 'util/VueExposePlugin';
 import { URLNames, PropertyNames, VariableNames } from 'data/enum/configNames';
 import PageNames from 'data/enum/PageNames';
 import Pages from 'data/enum/Pages';
+import { createPath } from 'util/routeUtils';
 
 const initPlugins = () => {
 	// expose objects to the Vue prototype for easy access in your vue templates and components
@@ -14,6 +15,7 @@ const initPlugins = () => {
 		VariableNames,
 		PageNames,
 		Pages,
+		createPath,
 	});
 
 	// enable if you want to use axios
