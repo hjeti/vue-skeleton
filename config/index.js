@@ -26,7 +26,7 @@ module.exports = {
 		},
 		port: 8080,
 		proxyTable: {},
-		enableESLintLoader: true,
+		enableESLintLoader: false,
 		enableTSLintLoader: false,
 	},
 	useHttps: false,
