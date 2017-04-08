@@ -6,8 +6,6 @@ export const createPath = (path, params = {}, state = {}) => {
 	return path
 	// first replace all params
 		.replace(/:(\w+)/g, (match, param) => {
-			console.log(match, param);
-
 			if (typeof mergedParams[param] !== 'undefined') {
 				return mergedParams[param] || '';
 			}
