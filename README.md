@@ -1,8 +1,9 @@
-# vue-skeleton
+# vue-skeleton ![dependencies](https://david-dm.org/hjeti/vue-skeleton.svg)
 The Vue skeleton comes standard packaged with a variety of tools for building a multilingual SPA.
 The skeleton goal is to get up to speed quickly without tinkering hours with configuration.
 
 The whole skeleton when build is **only ~58kb** gzipped!
+
 
 # Table of Contents
 1. [Features](#features)
