@@ -7,23 +7,24 @@ The whole skeleton when build is **only ~58kb** gzipped!
 
 # Table of Contents
 1. [Features](#features)
-2. [Code/Folder conventions](#codefolder-conventions)
-3. [NPM Commands](#npm-commands)
-4. [Seng generator templates](#seng-generator-templates)
-5. [Configuration](#configuration)
+2. [Prerequisite](#prerequisite)
+3. [Code/Folder conventions](#codefolder-conventions)
+4. [NPM Commands](#npm-commands)
+5. [Seng generator templates](#seng-generator-templates)
+6. [Configuration](#configuration)
 	1. [Webpack configuration](#webpack-configuration)
 	2. [Project configuration](#project-configuration)
 	3. [Site configuration](#site-configuration)
-6. [Using SVGs](#using-svgs)
-7. [SCSS](#scss)
-8. [Autoprefixer](#autoprefixer)
-9. [Modernizr](#modernizr)
-10. [Asset management](#asset-management)
-11. [Previewing a build](#previewing-a-build)
-12. [Polyfill configuration](#polyfill-configuration)
-13. [Localization support](#localization-support)
-14. [Application startup](#application-startup)
-15. [Pre-push hooks](#pre-push-hooks)
+7. [Using SVGs](#using-svgs)
+8. [SCSS](#scss)
+9. [Autoprefixer](#autoprefixer)
+10. [Modernizr](#modernizr)
+11. [Asset management](#asset-management)
+12. [Previewing a build](#previewing-a-build)
+13. [Polyfill configuration](#polyfill-configuration)
+14. [Localization support](#localization-support)
+15. [Application startup](#application-startup)
+16. [Pre-push hooks](#pre-push-hooks)
 
 ## Features
 
@@ -46,6 +47,12 @@ The whole skeleton when build is **only ~58kb** gzipped!
 * optional prepush es/ts-lint hooks
 * SVG support
 * https support
+
+## Prerequisite
+Node 6.x.x or higher
+NPM 3.x.x or higher
+
+Run ```npm install``` (when using yarn run ```yarn install```) in the project root to get started.
 
 ## Code/Folder conventions
 
