@@ -2,11 +2,17 @@
 	"compilerOptions": {
 		"sourceMap": true,
 		"noImplicitAny": false,
-		"moduleResolution": "node",
+		"moduleResolution": "Node",
 		"allowSyntheticDefaultImports": true,
-		"target": "es6",
+	  	"target": "es2017",
 		"allowJs": true,
-		"baseUrl": "./src/"
+		"baseUrl": "./src/",
+	  	"lib": [
+			"DOM",
+			"ES6",
+			"DOM.Iterable",
+			"ScriptHost"
+	  	]
 	},
 	"include": [
 		"./src/**/*",
