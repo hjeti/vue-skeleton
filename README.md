@@ -2,7 +2,7 @@
 The Vue skeleton comes standard packaged with a variety of tools for building a multilingual SPA.
 The skeleton goal is to get up to speed quickly without tinkering hours with configuration.
 
-The whole skeleton when build is **only ~58kb** gzipped!
+The whole skeleton when build is **only ~65kb** gzipped!
 
 
 # Table of Contents
@@ -229,12 +229,11 @@ It is good to test builds on a regular basis to avoid issues when deploying to a
 ## Polyfill configuration
 
 All required polyfills are imported in the ```src/polyfill/index.js``` file.
-Vue skeleton has custom list of polyfills and does not use babel-polyfill as it includes a lot of legacy polyfills.
+Vue skeleton uses babel polyfill in combination with the env babel preset so only required polyfills are included.
 
 By default it includes polyfills for the following features
 
 * Fetch
-* Promises
 * Array.includes
 * Classlist
 
