@@ -81,4 +81,4 @@ linters:
     enabled: true
 
   PseudoElement:
-  	enabled: false
+    enabled: false

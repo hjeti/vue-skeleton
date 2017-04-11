@@ -40,6 +40,7 @@ The whole skeleton when build is **only ~65kb** gzipped!
 * [seng-scss](https://github.com/mediamonks/seng-scss)
 * [airbnb coding standard](https://github.com/airbnb/javascript) (integrated with es/ts-lint)
 * [modernizr](https://github.com/Modernizr/Modernizr)
+* [SCSS Lint](https://github.com/brigade/scss-lint)
 * i18n using [i18nManager](https://github.com/MatteoGabriele/vue-i18n-manager)
 * versioning
 * (build) preview server (gzip enabled)
