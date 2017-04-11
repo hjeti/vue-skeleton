@@ -3,7 +3,13 @@
 	[
 	  "env", {
 		"targets": {
-		  "uglify": true
+			"uglify": true,
+			"browsers": [
+				"last 2 versions",
+				"last 3 IOS versions",
+				"not ie <= 9",
+				"not ExplorerMobile <= 11"
+			]
 		},
 		"modules": false,
 		"useBuiltIns": true,

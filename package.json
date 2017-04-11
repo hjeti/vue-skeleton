@@ -100,8 +100,9 @@
     "npm": ">= 3.0.0"
   },
   "browserslist": [
-    "last 3 versions",
+    "last 2 Chrome versions",
     "last 3 IOS versions",
-	"ie >= 10"
+	"not ie <= 9",
+	"not ExplorerMobile <= 11"
   ]
 }
