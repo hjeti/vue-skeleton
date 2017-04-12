@@ -129,6 +129,21 @@ All the app configuration related files are stored in `src/config`:
 * `configManagerInstance.js`: The instance of the ConfigManger that is used to retrieve all the config from `config.js`. Check the [documentation](https://rawgit.com/MediaMonks/seng-config/master/doc/typedoc/classes/_lib_configmanager_.configmanager.html) for all available methods.
 * `localeConfig.js`: Contains the locale config.
 
+## SCSS
+
+Vue skeleton uses SCSS for styling. It uses CSS modules to local scope the styling of Vue components.
+Check [CSS Modules](https://vue-loader.vuejs.org/en/features/css-modules.html) for more information.
+
+There are two main SCSS files:
+
+* ```screen.scss``` Application global styling goes here. By default it only imports the normalize.css module.
+* ```utils.scss```  Application wide available mixins and variables. By default it imports [seng-scss](https://github.com/mediamonks/seng-scss).
+
+```utils.scss```    Automatically imported in every component SCSS file.
+
+**Note: Make sure that ```utils.scss``` NEVER outputs CSS. Outputting CSS to ```utils.scss``` will add this CSS to
+every component.**
+
 ## Component structure
 
 A component consists of 4 files:
@@ -245,21 +260,6 @@ It is super easy to use SVGs in Vue skeleton.
 
 The Icon component is globally registered in Vue allowing it to be used directly without importing and registering
 within Vue components.
-
-## SCSS
-
-Vue skeleton uses SCSS for styling. It uses CSS modules to local scope the styling of Vue components.
-Check [CSS Modules](https://vue-loader.vuejs.org/en/features/css-modules.html) for more information.
-
-There are two main SCSS files:
-
-* ```screen.scss``` Application global styling goes here. By default it only imports the normalize.css module.
-* ```utils.scss```  Application wide available mixins and variables. By default it imports [seng-scss](https://github.com/mediamonks/seng-scss).
-
-```utils.scss```    Automatically imported in every component SCSS file.
-
-**Note: Make sure that ```utils.scss``` NEVER outputs CSS. Outputting CSS to ```utils.scss``` will add this CSS to
-every component.**
 
 ## Autoprefixer
 
