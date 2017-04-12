@@ -3,5 +3,6 @@ node_modules/
 dist/
 npm-debug.log
 .idea
+stats.json
 */.idea
 /*error.txt

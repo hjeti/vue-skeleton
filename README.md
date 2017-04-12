@@ -70,6 +70,7 @@ Run ```npm install``` (when using yarn run ```yarn install```) in the project ro
 * ```npm run eslint```: Runs eslint
 * ```npm run tslint```: Runs tslint
 * ```npm run svg```: Process and optimize SVGs for use with the Icon component
+* ```npm run analyze```: Analyze webpack bundle after a build with [Webpack Bundle Analyzer](https://github.com/th0r/webpack-bundle-analyzer)
 
 When using [yarn](https://yarnpkg.com) just replace ```npm run``` commands with ```yarn```.
 

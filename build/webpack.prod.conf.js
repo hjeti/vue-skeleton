@@ -9,6 +9,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpackHelpers = require('./webpackHelpers');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const env = config.build.env;
 
@@ -125,7 +126,12 @@ const webpackConfig = merge(baseWebpackConfig, {
 				from: 'staticRoot',
 				to: 'static',
 				ignore: ['.*']
-			}])
+			}]),
+		new BundleAnalyzerPlugin({
+			analyzerMode: 'disabled',
+			generateStatsFile: true,
+			statsFilename: '../stats.json',
+		})
 	]
 });
 
