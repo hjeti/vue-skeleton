@@ -151,10 +151,10 @@ every component.**
 
 A component consists of 4 files:
 
-* `{Name}.vue`: This is the main file it contains the imports of the style and logic ofr the component. Besides the imports it also contains the template(html) of the component.
+* `{Name}.vue`: This is the main file it contains the imports of the style and logic of the component. Besides the imports it also contains the template(html) of the component.
 * `{Name}.js`: This is the javascript file that contains all component logic.
 * `{Name}.scss`: This is the SCSS file that contains all the styling of a component. Vue skeleton uses css modules so all the styling is scoped to the component.
-* `index.js`: This javascript file is in every component because of two reasons. The index.js makes your components shorter `import HomePage from 'page/HomePage'` instead of `import Homepage from 'page/HomePage/HomePage'`. This file also makes it easy to implement [vuex-connect](https://github.com/ktsn/vuex-connect) in your components. 
+* `index.js`: This javascript file is in every component because of two reasons. The index.js makes your component imports shorter `import HomePage from 'page/HomePage'` instead of `import Homepage from 'page/HomePage/HomePage'`. This file also makes it easy to implement [vuex-connect](https://github.com/ktsn/vuex-connect) in your components. 
 
 ## Vuex store modules
 
