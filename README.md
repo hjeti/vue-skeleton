@@ -217,7 +217,7 @@ Vue skeleton contains a little plugin that makes development faster and easier.
 
 The VueExposePlugin exposes code(enums, functions, classes etc.) in vue components. 
 
-By default you can't use any imported code in your templates. 
+By default it's impossible to use imported code in the templates of components. 
 The VueExposePlugin provides a workaround.
 
 Without the plugin:
