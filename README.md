@@ -70,7 +70,7 @@ Run ```npm install``` (when using yarn run ```yarn install```) in the project ro
 * ```npm run eslint```: Runs eslint
 * ```npm run tslint```: Runs tslint
 * ```npm run svg```: Process and optimize SVGs for use with the Icon component
-* ```npm run analyze```: Analyze webpack bundle after a build with [Webpack Bundle Analyzer](https://github.com/th0r/webpack-bundle-analyzer)
+* ```npm run analyze```: Analyze webpack bundle after a build using [Webpack Bundle Analyzer](https://github.com/th0r/webpack-bundle-analyzer)
 
 When using [yarn](https://yarnpkg.com) just replace ```npm run``` commands with ```yarn```.
 
@@ -128,6 +128,112 @@ All the app configuration related files are stored in `src/config`:
 * `config.js`: Contains the config and the environment logic. The environment is set based on the host.
 * `configManagerInstance.js`: The instance of the ConfigManger that is used to retrieve all the config from `config.js`. Check the [documentation](https://rawgit.com/MediaMonks/seng-config/master/doc/typedoc/classes/_lib_configmanager_.configmanager.html) for all available methods.
 * `localeConfig.js`: Contains the locale config.
+
+## Component structure
+
+A component consists of 4 files:
+
+* `{Name}.vue`: This is the main file it contains the imports of the style and logic ofr the component. Besides the imports it also contains the template(html) of the component.
+* `{Name}.js`: This is the javascript file that contains all component logic.
+* `{Name}.scss`: This is the SCSS file that contains all the styling of a component. Vue skeleton uses css modules so all the styling is scoped to the component.
+* `index.js`: This javascript file is in every component because of two reasons. The index.js makes your components shorter `import HomePage from 'page/HomePage'` instead of `import Homepage from 'page/HomePage/HomePage'`. This file also makes it easy to implement [vuex-connect](https://github.com/ktsn/vuex-connect) in your components. 
+
+## Vuex store modules
+
+It's a best practise to split your data in namespaced modules in vuex.
+The store seng-generator templates make working with modules easy 
+because the store module already contain statics for the namespace and the mutation types.
+
+Example how to use a module with it's statics and how to use them in a component:
+
+`store/module/user.js`:
+```javascript
+// declare the mutation types for use in the mutations object and in the index.js
+export const SET_FIRST_NAME = 'setFirstName';
+export const SET_LAST_NAME = 'setLastName';
+
+export default {
+	namespaced: true,
+	state: {
+		firstName: '',
+		lastName: '',
+	},
+	getters: {
+		fullName: state => `${state.firstName} ${state.lastName}`,
+	},
+	mutations: {
+		[SET_FIRST_NAME]: (state, payload) => {
+			state.firstName = payload;
+		},
+		[SET_LAST_NAME]: (state, payload) => {
+			state.lastName = payload;
+		},
+	},
+};
+```
+
+`store/module/index.js`:
+```javascript
+// import the mututation types 
+import user, { SET_FIRST_NAME, SET_LAST_NAME } from './user';
+
+//The namespace of the module. Value has to match with the name used in store/modules.js
+export const UserNamespace = 'user';
+
+// The mutation types for use in the component
+export const UserMutationTypes = {
+	SET_FIRST_NAME: `${UserNamespace}/${SET_FIRST_NAME}`,
+	SET_LAST_NAME: `${UserNamespace}/${SET_LAST_NAME}`,
+};
+
+export default user;
+```
+
+`Component`:
+```javascript
+import { mapState, mapMutations } from 'vuex';
+import { UserNamespace, UserMutationTypes } from 'store/module/user';
+
+export default {
+	name: 'HomePage',
+	computed: {
+		...mapState(UserNamespace, [
+			'firstName',
+			'lastName',
+		]),
+	},
+	methods: {
+		...mapMutations({
+			setFirstName: UserMutationTypes.SET_FIRST_NAME,
+			setLastName: UserMutationTypes.SET_LAST_NAME,
+		}),
+	},
+};
+```
+
+## VueExposePlugin
+
+Vue skeleton contains a little plugin that makes development faster and easier.
+
+The VueExposePlugin exposes code(enums, functions, classes etc.) in vue components. 
+
+By default you can't use any imported code in your templates. 
+The VueExposePlugin provides a workaround.
+
+Without the plugin:
+```html
+<router-link :to="{ name: 'contact', params: {id: 5}}">Contact</router-link>
+```
+
+With the plugin:
+```html
+<router-link :to="{ name: PageNames.CONTACT, params: {[Params.ID]: 5}}">Contact</router-link>
+<a :href="$config.getURL(URLNames.TERMS)" target="_blank">terms</a>
+```
+
+The VueExposePlugin is registered in the `startUp.js`. By default it exposes page and config enums and the configmanager instance.
+
+**NOTE: VueExposePlugin adds everything on the Vue prototype so watch out for naming conflicts and expose only what is really needed.**
 
 ## Using SVGs
 
