@@ -18,7 +18,7 @@ The whole skeleton when build is **only ~65kb** gzipped!
 7. [SCSS](#scss)
 8. [Component Structure](#component-structure)
 9. [Vuex store modules](#vuex-store-modules)
-10. [VueExposePlugin](#vuexexposeplugin)
+10. [VueExposePlugin](#vueexposeplugin)
 11. [Using SVGs](#using-svgs)
 12. [Autoprefixer](#autoprefixer)
 13. [Modernizr](#modernizr)
