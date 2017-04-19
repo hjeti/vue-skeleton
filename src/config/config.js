@@ -31,6 +31,7 @@ const config = {
 	},
 	urls: {
 		[URLNames.LOCALE]: `${process.env.VERSIONED_STATIC_ROOT}locale/{locale}.json`,
+		[URLNames.API]: `${process.env.PUBLIC_PATH}api/`,
 	},
 	properties: {
 		[PropertyNames.DEFAULT_LOCALE]: 'en-gb',
