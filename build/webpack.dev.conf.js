@@ -63,7 +63,7 @@ module.exports = merge(baseWebpackConfig, {
 		}),
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoEmitOnErrorsPlugin(),
-
+		new webpack.NamedChunksPlugin(),
 		new HtmlWebpackPlugin({
 			filename: 'index.html',
 			template: 'index.html',
