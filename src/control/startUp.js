@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import axios from 'axios';
 import configManagerInstance from 'config/configManagerInstance';
 import VueExposePlugin from 'util/VueExposePlugin';
 import { URLNames, PropertyNames, VariableNames } from 'data/enum/configNames';
@@ -11,7 +12,7 @@ const initPlugins = () => {
 	// expose objects to the Vue prototype for easy access in your vue templates and components
 	Vue.use(VueExposePlugin, {
 		$config: configManagerInstance,
-		// $http: axios,
+		$http: axios,
 		URLNames,
 		PropertyNames,
 		VariableNames,

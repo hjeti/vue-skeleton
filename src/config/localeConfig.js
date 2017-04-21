@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { URLNames, PropertyNames, VariableNames } from 'data/enum/configNames';
 import configManagerInstance from './configManagerInstance';
 
@@ -20,15 +21,12 @@ const config = {
 
 const proxy = {
 	getTranslation({ translationKey }) {
-		return fetch(configManagerInstance.getURL(URLNames.LOCALE, { locale: translationKey }), {
-			method: 'get',
-			credentials: 'same-origin',
-			mode: 'cors',
+		return axios.get(configManagerInstance.getURL(URLNames.LOCALE, { locale: translationKey }), {
 			headers: {
 				Accept: 'application/json',
 			},
 		})
-			.then(response => response.json())
+			.then(response => response.data)
 			.catch(() => {
 				// eslint-disable-next-line no-console
 				console.error(`Error loading locale: ${translationKey}`);

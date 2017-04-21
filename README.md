@@ -2,7 +2,7 @@
 The Vue skeleton comes standard packaged with a variety of tools for building a multilingual SPA.
 The skeleton goal is to get up to speed quickly without tinkering hours with configuration.
 
-The whole skeleton when build is **only ~65kb** gzipped!
+The whole skeleton when build is **only ~95kb** gzipped!
 
 
 # Table of Contents
@@ -345,7 +345,6 @@ Vue skeleton uses babel polyfill in combination with the env babel preset so onl
 
 By default it includes polyfills for the following features
 
-* Fetch
 * Array.includes
 * Classlist
 
