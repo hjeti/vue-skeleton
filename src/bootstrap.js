@@ -1,6 +1,6 @@
+import 'polyfill';
 import 'asset/style/screen.scss';
 import 'modernizr';
-import 'polyfill';
 
 import Vue from 'vue';
 import App from 'App';
