@@ -390,3 +390,16 @@ Standard pre-push tasks enabled
 
 Disabling or enabling task can be done in `config/index.js` by changing the `prePush` property contents.
 Removing the `prePush` property or emptying the array will disable pre-push hooks.
+
+## Code splitting
+
+
+
+```javascript
+const HomePage = resolve =>
+	require.ensure([], (require) => {
+		resolve(require('page/HomePage').default);
+	}, 'HomePage');
+```
+
+[More info](https://webpack.js.org/guides/code-splitting-async/#require-ensure-)
