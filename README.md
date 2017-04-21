@@ -2,7 +2,7 @@
 The Vue skeleton comes standard packaged with a variety of tools for building a multilingual SPA.
 The skeleton goal is to get up to speed quickly without tinkering hours with configuration.
 
-The whole skeleton when build is **only ~65kb** gzipped!
+The whole skeleton when build is **only ~95kb** gzipped!
 
 
 # Table of Contents
