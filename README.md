@@ -28,6 +28,7 @@ The whole skeleton when build is **only ~65kb** gzipped!
 17. [Localization support](#localization-support)
 18. [Application startup](#application-startup)
 19. [Pre-push hooks](#pre-push-hooks)
+20. [Code splitting](#code-splitting)
 
 ## Features
 
