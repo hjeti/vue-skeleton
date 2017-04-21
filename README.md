@@ -344,7 +344,6 @@ Vue skeleton uses babel polyfill in combination with the env babel preset so onl
 
 By default it includes polyfills for the following features
 
-* Fetch
 * Array.includes
 * Classlist
 
