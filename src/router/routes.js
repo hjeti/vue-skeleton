@@ -9,3 +9,4 @@ export default [
 		name: PageNames.HOME,
 	},
 ];
+

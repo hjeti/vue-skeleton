@@ -63,12 +63,13 @@ const webpackConfig = merge(baseWebpackConfig, {
 		new webpack.DefinePlugin({
 			'process.env': env,
 		}),
+		new webpack.NamedChunksPlugin(),
 		new webpack.optimize.UglifyJsPlugin({
 			compress: {
 				warnings: false
 			},
 			output: {
-				comments: false
+				comments: true
 			}
 		}),
 		new OptimizeCssAssetsPlugin({

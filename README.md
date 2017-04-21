@@ -390,3 +390,26 @@ Standard pre-push tasks enabled
 
 Disabling or enabling task can be done in `config/index.js` by changing the `prePush` property contents.
 Removing the `prePush` property or emptying the array will disable pre-push hooks.
+
+## Code splitting
+
+It is also possible to use code splitting in Vue Skeleton. 
+This can improve load times if an app consists of a lot of pages for example. 
+
+Splitting happens in `src\router\routes.js` where all the routes are defined.
+In a normal situation without code splitting all pages are imported at the top of the file.
+Instead of importing, a page needs to be required like in the example below.
+
+```javascript
+const HomePage = resolve =>
+	require.ensure([], (require) => {
+		resolve(require('page/HomePage').default);
+	}, 'HomePage');
+```
+
+The route definition where the page component is used stays exactly the same. 
+
+It's also possible to group multiple pages in a seperate bundle by giving them the same chunk name.
+In the example above the chunkname is set to `HomePage`.
+
+[More info](https://webpack.js.org/guides/code-splitting-async/#require-ensure-)
