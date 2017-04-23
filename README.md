@@ -1,4 +1,4 @@
-# vue-skeleton ![dependencies](https://david-dm.org/hjeti/vue-skeleton.svg)
+# vue-skeleton ![dependencies](https://david-dm.org/hjeti/vue-skeleton.svg) [![GitHub issues](https://img.shields.io/github/issues/hjeti/vue-skeleton.svg?style=flat-square)](https://github.com/hjeti/vue-skeleton/issues) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/hjeti/vue-skeleton/master/LICENSE)
 The Vue skeleton comes standard packaged with a variety of tools for building a multilingual SPA.
 The skeleton goal is to get up to speed quickly without tinkering hours with configuration.
 
