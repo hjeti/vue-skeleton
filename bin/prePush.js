@@ -13,12 +13,12 @@ const prePush = {
 		const tasks = [];
 
 		// Check if task is available when available push it to the task array.
-		config.prePush.forEach(taskName => {
-			const task = prePush.tasks.find(task => task.name === taskName);
+		config.prePush.forEach(prePushTask => {
+			const task = prePush.tasks.find(availableTask => availableTask.name === prePushTask.name);
 			if (task) {
-				tasks.push(task.run());
+				tasks.push(task.run(prePushTask.options));
 			} else {
-				console.error(chalk.red(`Pre-push task ${taskName} is not found and is not executed before pushing`));
+				console.error(chalk.red(`Pre-push task ${prePushTask.name} is not found and is not executed before pushing`));
 			}
 		});
 
@@ -50,7 +50,7 @@ const prePush = {
 	tasks: [
 		{
 			name: 'esLintCheck',
-			run: () => {
+			run: (options) => {
 				const linter = 'eslint';
 				const linterBinary = path.resolve(__dirname, `../node_modules/.bin/${linter}`);
 				const outputPath = path.resolve(__dirname, `../${linter}error.txt`);
@@ -62,7 +62,13 @@ const prePush = {
 		},
 		{
 			name: 'tsLintCheck',
-			run: () => {
+			run: (options) => {
+				let excludeArgument = '';
+
+				if (options && prePush.hasOption(options, 'exclude') && options.exclude instanceof Array) {
+					excludeArgument = options.exclude.map(item => `--exclude "${item}"`).join(' ');
+				}
+
 				const linter = 'tslint';
 				const linterBinary = path.resolve(__dirname, `../node_modules/.bin/${linter}`);
 				const outputPath = path.resolve(__dirname, `../${linter}error.txt`);
@@ -70,11 +76,15 @@ const prePush = {
 				const tsConfig = path.resolve(__dirname, '../tsconfig.json');
 				const lintingRules = path.resolve(__dirname, '../.tslintrc.js');
 
-				return pify(shell.exec)(`${linterBinary} "${sourceDir}" -o ${outputPath} -p ${tsConfig} -c ${lintingRules}`)
+				return pify(shell.exec)(`${linterBinary} "${sourceDir}" ${excludeArgument} -o ${outputPath} -p ${tsConfig} -c ${lintingRules}`)
 					.catch((error, stdout, stderr) => prePush.errorHandler(error, stdout, stderr, linter, outputPath));
 			}
 		}
 	],
+
+	hasOption: (options, optionName) => {
+		return options.hasOwnProperty(optionName);
+	},
 };
 
 prePush.run();
