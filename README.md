@@ -23,6 +23,9 @@ The whole skeleton when build is **only ~95kb** gzipped!
 12. [Autoprefixer](#autoprefixer)
 13. [Modernizr](#modernizr)
 14. [Asset management](#asset-management)
+    1. [Types of assets](#types-of-assets)
+    2. [Referencing assets processed by webpack](#referencing-assets-processed-by-webpack)
+    3. [Referencing static assets](#referencing-static-assets)
 15. [Previewing a build](#previewing-a-build)
 16. [Polyfill configuration](#polyfill-configuration)
 17. [Localization support](#localization-support)
@@ -280,14 +283,25 @@ options and feature-detects.
 
 Managing and working with assets is important. The Vue skeleton comes with a hassle-free solution for managing assets.
 
-There are two kinds of assets:
+#### Types of assets
 
 * Static assets
 * Assets that are processed by webpack
 
 Assets that need to be processed by webpack are stored in the ```src/asset``` folder.
-Examples of those assets are fonts, images, SVGs and SCSS files.
+Examples of those assets are fonts, images, SVGs and SCSS files. Reference these files in .vue templates can be done by prepending ~.
 
+#### Referencing assets processed by webpack
+
+**.vue template example*
+A image is located in ```src/asset/image/example.png``` to reference this image so it can be picked up by webpack use the following syntax
+```<img src="~asset/image/example.png" />```
+
+**.scss example*
+A image is located in ```src/asset/image/example.png``` to reference this image so it can be picked up by webpack use the following syntax
+```background-image: url(asset/image/example.png);```
+
+#### Referencing static assets
 There are two folders for static assets:
 
 * ```static``` This folder is for assets that need to be versioned. Examples: locale JSONs, data JSONs, videos and images.
