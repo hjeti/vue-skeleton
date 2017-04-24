@@ -1,8 +1,7 @@
 # vue-skeleton ![dependencies](https://img.shields.io/david/hjeti/vue-skeleton.svg?style=flat-square) [![GitHub issues](https://img.shields.io/github/issues/hjeti/vue-skeleton.svg?style=flat-square)](https://github.com/hjeti/vue-skeleton/issues) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/hjeti/vue-skeleton/master/LICENSE)
-The Vue skeleton comes standard packaged with a variety of tools for building a multilingual SPA.
-The skeleton goal is to get up to speed quickly without tinkering hours with configuration.
+The Vue skeleton comes packaged with a variety of tools for building a multilingual SPA. The goal of the skeleton is to get up to speed quickly without hours of tinkering with configuration.
 
-The whole skeleton when build is **only ~95kb** gzipped!
+When built, the whole skeleton is only **~95kb** gzipped!
 
 # Table of Contents
 1. [Features](#features)
