@@ -5,8 +5,8 @@
   "author": "Hendrik-Jan de Harder <hendrik-jan@mediamonks.com>",
   "private": true,
   "scripts": {
-    "dev": "node build/dev-server.js",
-    "build": "node build/build.js",
+    "dev": "cross-env NODE_ENV=development node build/dev-server.js",
+    "build": "cross-env NODE_ENV=production node build/build.js",
     "eslint": "eslint src --ext .js",
     "tslint": "tslint src/**/*.ts -c .tslintrc.js -p tsconfig.json",
     "preview": "node build/preview-server.js",
@@ -49,6 +49,7 @@
     "compression": "^1.6.2",
     "connect-history-api-fallback": "^1.1.0",
     "copy-webpack-plugin": "^4.0.1",
+    "cross-env": "^4.0.0",
     "css-loader": "^0.28.0",
     "eslint": "^3.16.1",
     "eslint-config-airbnb-base": "^11.1.0",
