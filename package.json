@@ -89,7 +89,7 @@
     "tslint-loader": "^3.5.1",
     "typescript": "^2.2.1",
     "url-loader": "^0.5.8",
-    "vue-loader": "^11.3.4",
+    "vue-loader": "^12.0.2",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.2.6",
     "webpack": "^2.2.1",
