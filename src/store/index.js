@@ -2,7 +2,7 @@ import Vuex from 'vuex';
 import Vue from 'vue';
 import modules from './modules';
 
-export default function getStore() {
+const getStore = () => {
 	Vue.use(Vuex);
 
 	const store = new Vuex.Store({
@@ -11,4 +11,6 @@ export default function getStore() {
 	});
 
 	return store;
-}
+};
+
+export default getStore;

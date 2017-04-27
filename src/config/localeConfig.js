@@ -2,7 +2,7 @@ import axios from 'axios';
 import { URLNames, PropertyNames, VariableNames } from 'data/enum/configNames';
 import configManagerInstance from './configManagerInstance';
 
-export default function getLocaleConfig() {
+const getLocaleConfig = () => {
 	const languages = configManagerInstance.getProperty(PropertyNames.AVAILABLE_LOCALES).map((locale) => {
 		if (typeof locale === 'string')	{
 			return {
@@ -41,4 +41,6 @@ export default function getLocaleConfig() {
 		config,
 		proxy,
 	};
-}
+};
+
+export default getLocaleConfig;

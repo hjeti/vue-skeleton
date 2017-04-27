@@ -7,7 +7,7 @@ import getLocaleConfig from 'config/localeConfig';
 
 import routes from './routes';
 
-export default function getRouter() {
+const getRouter = () => {
 	Vue.use(VueRouter);
 
 	const localeConfig = getLocaleConfig();
@@ -26,3 +26,5 @@ export default function getRouter() {
 
 	return router;
 }
+
+export default getRouter;
