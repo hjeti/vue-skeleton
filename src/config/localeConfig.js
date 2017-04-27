@@ -1,9 +1,12 @@
 import axios from 'axios';
 import { URLNames, PropertyNames, VariableNames } from 'data/enum/configNames';
-import configManagerInstance from './configManagerInstance';
+import { getValue } from 'util/injector';
+import { CONFIG_MANAGER } from 'data/Injectables';
 
 const getLocaleConfig = () => {
-	const languages = configManagerInstance.getProperty(PropertyNames.AVAILABLE_LOCALES).map((locale) => {
+	const configManager = getValue(CONFIG_MANAGER);
+
+	const languages = configManager.getProperty(PropertyNames.AVAILABLE_LOCALES).map((locale) => {
 		if (typeof locale === 'string')	{
 			return {
 				code: locale,
@@ -16,13 +19,13 @@ const getLocaleConfig = () => {
 
 	const config = {
 		persistent: false,
-		defaultCode: configManagerInstance.getProperty(PropertyNames.DEFAULT_LOCALE),
+		defaultCode: configManager.getProperty(PropertyNames.DEFAULT_LOCALE),
 		languages,
 	};
 
 	const proxy = {
 		getTranslation({ translationKey }) {
-			return axios.get(configManagerInstance.getURL(URLNames.LOCALE, { locale: translationKey }), {
+			return axios.get(configManager.getURL(URLNames.LOCALE, { locale: translationKey }), {
 				headers: {
 					Accept: 'application/json',
 				},
@@ -36,8 +39,8 @@ const getLocaleConfig = () => {
 	};
 
 	return {
-		localeEnabled: configManagerInstance.getVariable(VariableNames.LOCALE_ENABLED),
-		localeRoutingEnabled: configManagerInstance.getVariable(VariableNames.LOCALE_ROUTING_ENABLED),
+		localeEnabled: configManager.getVariable(VariableNames.LOCALE_ENABLED),
+		localeRoutingEnabled: configManager.getVariable(VariableNames.LOCALE_ROUTING_ENABLED),
 		config,
 		proxy,
 	};
