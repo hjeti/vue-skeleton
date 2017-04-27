@@ -2,11 +2,13 @@ import Vuex from 'vuex';
 import Vue from 'vue';
 import modules from './modules';
 
-Vue.use(Vuex);
+export default function getStore() {
+	Vue.use(Vuex);
 
-const store = new Vuex.Store({
-	modules,
-	strict: process.env.NODE_ENV !== 'production',
-});
+	const store = new Vuex.Store({
+		modules,
+		strict: process.env.NODE_ENV !== 'production',
+	});
 
-export default store;
+	return store;
+}

@@ -7,10 +7,10 @@ import App from 'App';
 import filter from 'filter';
 import directive from 'directive';
 import component from 'component';
-import router from 'router';
-import store from 'store';
+import getRouter from 'router';
+import getStore from 'store';
 import startUp from 'control/startUp';
-import localeConfig from 'config/localeConfig';
+import getLocaleConfig from 'config/localeConfig';
 import VueI18nManager from 'vue-i18n-manager';
 import { sync } from 'vuex-router-sync';
 
@@ -22,6 +22,10 @@ Object.keys(directive).forEach(key => Vue.directive(key, directive[key]));
 
 // register components globally
 Object.keys(component).forEach(key => Vue.component(key, component[key]));
+
+const router = getRouter();
+const store = getStore();
+const localeConfig = getLocaleConfig();
 
 if (localeConfig.localeEnabled) {
 	Vue.use(VueI18nManager, {
