@@ -69,7 +69,7 @@ const webpackConfig = merge(baseWebpackConfig, {
 				warnings: false
 			},
 			output: {
-				comments: true
+				comments: false
 			}
 		}),
 		new OptimizeCssAssetsPlugin({
