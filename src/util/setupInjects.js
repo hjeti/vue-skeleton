@@ -15,6 +15,7 @@ const setupInjects = () => {
 		headers: {
 			Accept: 'application/json',
 		},
+		responseType: 'json',
 	});
 
 	setValue(CONFIG_MANAGER, configManager);
