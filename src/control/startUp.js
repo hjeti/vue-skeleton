@@ -7,12 +7,13 @@ import Pages from 'data/enum/Pages';
 import { createPath } from 'util/routeUtils';
 import Params from 'data/enum/Params';
 import { getValue } from 'util/injector';
-import { CONFIG_MANAGER } from 'data/Injectables';
+import { CONFIG_MANAGER, GATEWAY } from 'data/Injectables';
 
 const initPlugins = () => {
 	// expose objects to the Vue prototype for easy access in your vue templates and components
 	Vue.use(VueExposePlugin, {
 		$config: getValue(CONFIG_MANAGER),
+		$gateway: getValue(GATEWAY),
 		$http: axios,
 		URLNames,
 		PropertyNames,
