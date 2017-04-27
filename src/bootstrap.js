@@ -13,6 +13,7 @@ import startUp from 'control/startUp';
 import getLocaleConfig from 'config/localeConfig';
 import VueI18nManager from 'vue-i18n-manager';
 import { sync } from 'vuex-router-sync';
+import setupInjects from 'util/setupInjects';
 
 // register filters globally
 Object.keys(filter).forEach(key => Vue.filter(key, filter[key]));
@@ -22,6 +23,8 @@ Object.keys(directive).forEach(key => Vue.directive(key, directive[key]));
 
 // register components globally
 Object.keys(component).forEach(key => Vue.component(key, component[key]));
+
+setupInjects();
 
 const router = getRouter();
 const store = getStore();
