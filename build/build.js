@@ -1,13 +1,12 @@
 // https://github.com/shelljs/shelljs
 require('shelljs/global');
-env.NODE_ENV = 'production';
 
-const path = require('path');
 const config = require('../config');
 const ora = require('ora');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.prod.conf');
 const fs = require('fs-extra');
+const chalk = require('chalk');
 
 const spinner = ora('building for production...');
 spinner.start();
@@ -25,5 +24,9 @@ webpack(webpackConfig, function (err, stats) {
 			chunks: false,
 			chunkModules: false,
 			reasons: false
-		}) + '\n')
+		}) + '\n');
+
+	console.log();
+	console.log(chalk.blue('Analyze your build by running:'), chalk.blue.bold('npm run analyze'));
+	console.log();
 });
