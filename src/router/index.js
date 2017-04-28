@@ -8,7 +8,7 @@ import { getValue } from 'util/injector';
 
 import routes from './routes';
 
-const getRouter = () => {
+const setupRouter = () => {
 	Vue.use(VueRouter);
 
 	const localeConfig = getLocaleConfig();
@@ -29,4 +29,4 @@ const getRouter = () => {
 	return router;
 };
 
-export default getRouter;
+export default setupRouter;

@@ -2,7 +2,7 @@ import Vuex from 'vuex';
 import Vue from 'vue';
 import modules from './modules';
 
-const getStore = () => {
+const setupStore = () => {
 	Vue.use(Vuex);
 
 	const store = new Vuex.Store({
@@ -13,4 +13,4 @@ const getStore = () => {
 	return store;
 };
 
-export default getStore;
+export default setupStore;
