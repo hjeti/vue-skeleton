@@ -25,7 +25,7 @@ module.exports = {
 			PUBLIC_PATH: JSON.stringify( '/' ),
 		},
 		port: 8080,
-		proxyTable: {'/api': {target: 'https://api-dev.adidas-confirmed.monkapps.com/', changeOrigin: true}},
+		proxyTable: {},
 		enableESLintLoader: false,
 		enableTSLintLoader: false,
 	},

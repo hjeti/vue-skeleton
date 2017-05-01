@@ -5,6 +5,7 @@ import * as axios from 'axios';
 import { URLNames } from 'data/enum/configNames';
 
 import { setValue } from './injector';
+import { responseFormatter, errorFormatter } from './gatewayFormatter';
 
 const setupInjects = () => {
 	const configManager = new ConfigManager();
@@ -17,6 +18,11 @@ const setupInjects = () => {
 		},
 		responseType: 'json',
 	});
+
+	gateway.interceptors.response.use(
+		response => responseFormatter(response),
+		error => Promise.reject(errorFormatter(error)),
+	);
 
 	setValue(CONFIG_MANAGER, configManager);
 	setValue(GATEWAY, gateway);
