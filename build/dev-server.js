@@ -10,6 +10,8 @@ const http = require('http');
 const proxyMiddleware = require('http-proxy-middleware');
 const webpackConfig = require('./webpack.dev.conf');
 
+const disableHotReload = process.argv.indexOf('--disable-hot-reloading') != -1 || false;
+
 // default port where dev server listens for incoming traffic
 const port = process.env.PORT || config.dev.port;
 // Define HTTP proxies to your custom API backend
@@ -24,14 +26,21 @@ const devMiddleware = require('webpack-dev-middleware')(compiler, {
 	quiet: true
 });
 
-const hotMiddleware = require('webpack-hot-middleware')(compiler, {
-	log: () => {
-	}
-});
+let hotMiddleware = null;
+
+if(!disableHotReload){
+	hotMiddleware = require('webpack-hot-middleware')(compiler, {
+		log: () => {
+		}
+	});
+}
+
 // force page reload when html-webpack-plugin template changes
 compiler.plugin('compilation', function (compilation) {
 	compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
-		hotMiddleware.publish({action: 'reload'});
+		if(!disableHotReload){
+			hotMiddleware.publish({action: 'reload'});
+		}
 		cb();
 	})
 });
@@ -55,7 +64,9 @@ server.use(devMiddleware);
 
 // enable hot-reload and state-preserving
 // compilation error display
-server.use(hotMiddleware);
+if(!disableHotReload) {
+	server.use(hotMiddleware);
+}
 
 // serve pure static assets
 const staticPath = path.posix.join('/', 'static');

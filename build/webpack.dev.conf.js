@@ -8,10 +8,14 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const webpackHelpers = require('./webpackHelpers');
 
+const disableHotReload = process.argv.indexOf('--disable-hot-reloading') != -1 || false;
+
 // add hot-reload related code to entry chunks
-Object.keys(baseWebpackConfig.entry).forEach(function (name) {
-	baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
-});
+if(!disableHotReload){
+	Object.keys(baseWebpackConfig.entry).forEach(function (name) {
+		baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
+	});
+}
 
 module.exports = merge(baseWebpackConfig, {
 	module: {
