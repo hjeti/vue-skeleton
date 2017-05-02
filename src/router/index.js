@@ -8,9 +8,9 @@ import { getValue } from 'util/injector';
 
 import routes from './routes';
 
-const setupRouter = () => {
-	Vue.use(VueRouter);
+Vue.use(VueRouter);
 
+const setupRouter = () => {
 	const localeConfig = getLocaleConfig();
 	const configManager = getValue(CONFIG_MANAGER);
 
