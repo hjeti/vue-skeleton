@@ -23,7 +23,7 @@
     "fetch-polyfill": "^0.8.2",
     "gsap": "^1.19.1",
     "modernizr": "^3.3.1",
-    "normalize.css": "^6.0.0",
+    "normalize.css": "^7.0.0",
     "seng-config": "^1.1.0",
     "seng-scss": "^1.0.0",
     "vue": "^2.2.5",
