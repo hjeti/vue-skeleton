@@ -6,12 +6,12 @@ const publicPath = '/';  //change if site is running in a subfolder on the serve
 module.exports = {
 	build: {
 		env: {
-			NODE_ENV: JSON.stringify( 'production' ),
-			VERSIONED_STATIC_ROOT: JSON.stringify( publicPath + versionPath + 'static/' ),
-			STATIC_ROOT: JSON.stringify( publicPath + 'static/' ),
-			PUBLIC_PATH: JSON.stringify( publicPath ),
+			NODE_ENV: JSON.stringify('production'),
+			VERSIONED_STATIC_ROOT: JSON.stringify(publicPath + versionPath + 'static/'),
+			STATIC_ROOT: JSON.stringify(publicPath + 'static/'),
+			PUBLIC_PATH: JSON.stringify(publicPath),
 		},
-		index: path.resolve( __dirname, '../dist/index.html' ),
+		index: path.resolve(__dirname, '../dist/index.html'),
 		versionPath: versionPath,
 		publicPath: publicPath,
 		enableESLintLoader: true,
@@ -19,10 +19,10 @@ module.exports = {
 	},
 	dev: {
 		env: {
-			NODE_ENV: JSON.stringify( 'development' ),
-			VERSIONED_STATIC_ROOT: JSON.stringify( '/static/' ),
-			STATIC_ROOT: JSON.stringify( '/static/' ),
-			PUBLIC_PATH: JSON.stringify( '/' ),
+			NODE_ENV: JSON.stringify('development'),
+			VERSIONED_STATIC_ROOT: JSON.stringify('/static/'),
+			STATIC_ROOT: JSON.stringify('/static/'),
+			PUBLIC_PATH: JSON.stringify('/'),
 		},
 		port: 8080,
 		proxyTable: {},
