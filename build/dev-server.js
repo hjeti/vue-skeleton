@@ -10,7 +10,7 @@ const http = require('http');
 const proxyMiddleware = require('http-proxy-middleware');
 const webpackConfig = require('./webpack.dev.conf');
 
-const disableHotReload = process.argv.indexOf('--disable-hot-reloading') != -1 || false;
+const disableHotReload = process.argv.indexOf('--disableHotReloading') != -1 || false;
 
 // default port where dev server listens for incoming traffic
 const port = process.env.PORT || config.dev.port;

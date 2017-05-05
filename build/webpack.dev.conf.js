@@ -8,7 +8,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const webpackHelpers = require('./webpackHelpers');
 
-const disableHotReload = process.argv.indexOf('--disable-hot-reloading') != -1 || false;
+const disableHotReload = process.argv.indexOf('--disableHotReloading') != -1 || false;
 
 // add hot-reload related code to entry chunks
 if(!disableHotReload){
