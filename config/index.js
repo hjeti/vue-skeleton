@@ -1,7 +1,18 @@
 const path = require('path');
 
+/*
+change the publicPath if site is running in a subfolder on the server. It's also possible to override this
+publicPath by using: npm run build -- --publicPath=/v/vue-skeleton/
+ */
+let publicPath = '/';
+
+const publicPathArgument = process.argv.find((argument) => argument.indexOf('--publicPath') === 0);
+
+if(publicPathArgument){
+	publicPath = publicPathArgument.split('=')[1];
+}
+
 const versionPath = 'version/' + new Date().getTime() + '/';
-const publicPath = '/';  //change if site is running in a subfolder on the server
 
 module.exports = {
 	build: {
