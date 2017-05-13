@@ -10,11 +10,13 @@ import { getValue } from 'util/injector';
 import { CONFIG_MANAGER, GATEWAY } from 'data/Injectables';
 
 const initPlugins = () => {
+	const configManager = getValue(CONFIG_MANAGER);
 	// expose objects to the Vue prototype for easy access in your vue templates and components
 	Vue.use(VueExposePlugin, {
-		$config: getValue(CONFIG_MANAGER),
+		$config: configManager,
 		$gateway: getValue(GATEWAY),
 		$http: axios,
+		$versionRoot: configManager.getVariable(VariableNames.VERSIONED_STATIC_ROOT),
 		URLNames,
 		PropertyNames,
 		VariableNames,
