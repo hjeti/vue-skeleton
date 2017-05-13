@@ -17,6 +17,7 @@ const initPlugins = () => {
 		$gateway: getValue(GATEWAY),
 		$http: axios,
 		$versionRoot: configManager.getVariable(VariableNames.VERSIONED_STATIC_ROOT),
+		$staticRoot: configManager.getVariable(VariableNames.STATIC_ROOT),
 		URLNames,
 		PropertyNames,
 		VariableNames,
