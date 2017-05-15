@@ -63,6 +63,7 @@ const webpackConfig = merge(baseWebpackConfig, {
 		new webpack.DefinePlugin({
 			'process.env': env,
 		}),
+		new webpack.NamedChunksPlugin(),
 		new webpack.optimize.UglifyJsPlugin({
 			compress: {
 				warnings: false
@@ -82,9 +83,7 @@ const webpackConfig = merge(baseWebpackConfig, {
 				context: path.resolve(__dirname, '../')
 			}
 		}),
-
 		new ExtractTextPlugin({filename: path.posix.join(config.build.versionPath, '/css/[name].css')}),
-
 		new HtmlWebpackPlugin({
 			filename: config.build.index,
 			template: 'index.html',
