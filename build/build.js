@@ -27,6 +27,6 @@ webpack(webpackConfig, function (err, stats) {
 		}) + '\n');
 
 	console.log();
-	console.log(chalk.blue('You can analyze your build by running:'), chalk.blue.bold('npm run analyze'));
+	console.log(chalk.blue('You can analyze your build by running:'), chalk.blue.bold('yarn analyze'));
 	console.log();
 });
