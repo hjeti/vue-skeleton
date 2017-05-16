@@ -1,4 +1,33 @@
-* text eol=lf
+* text=auto
+
+*.css      text eol=lf
+*.htm      text eol=lf
+*.html     text eol=lf
+*.js       text eol=lf
+*.json     text eol=lf
+*.scss     text eol=lf
+*.php      text eol=lf
+*.ts       text eol=lf
+*.vue      text eol=lf
+*.xml      text eol=lf
+*.svg      text eol=lf
+*.txt      text eol=lf
+*.lock     text eol=lf
+*.md       text eol=lf
+*.yml      text eol=lf
+
+LICENSE    text eol=lf
+.tslintrc.js text eol=lf
+.eslintrc.js text eol=lf
+.babelrc text eol=lf
+.eslintignore text eol=lf
+.editorconfig text eol=lf
+.postcssrc.js text eol=lf
+.modernizrrc text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+.scss-lint.yml text eol=lf
+.senggenerator text eol=lf
 
 *.jpg binary
 *.png binary
