@@ -3,7 +3,6 @@ import 'asset/style/screen.scss';
 import 'modernizr';
 
 import Vue from 'vue';
-import App from 'App';
 import filter from 'filter';
 import directive from 'directive';
 import component from 'component';
@@ -14,6 +13,7 @@ import getLocaleConfig from 'config/localeConfig';
 import VueI18nManager from 'vue-i18n-manager';
 import { sync } from 'vuex-router-sync';
 import setupInjects from 'util/setupInjects';
+import App from 'App';
 
 // register filters globally
 Object.keys(filter).forEach(key => Vue.filter(key, filter[key]));
