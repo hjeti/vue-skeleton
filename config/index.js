@@ -27,6 +27,8 @@ module.exports = {
 		publicPath: publicPath,
 		enableESLintLoader: true,
 		enableTSLintLoader: true,
+		enableImageOptimization: true,
+		enablePNGQuant: true, // Best PNG optimizer but PNGQuant crashes on some images so use with caution.
 	},
 	dev: {
 		env: {

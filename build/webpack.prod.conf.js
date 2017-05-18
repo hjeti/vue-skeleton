@@ -10,6 +10,7 @@ const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpackHelpers = require('./webpackHelpers');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 const env = config.build.env;
 
@@ -95,6 +96,12 @@ const webpackConfig = merge(baseWebpackConfig, {
 				removeAttributeQuotes: false
 			},
 			chunksSortMode: 'dependency'
+		}),
+		new ImageminPlugin({
+			disable: !config.build.enableImageOptimization,
+			svgo: null,
+			gifsicle: null,
+			pngquant: config.build.enablePNGQuant ? { quality: '65' } : null,
 		}),
 		// split vendor js into its own file
 		new webpack.optimize.CommonsChunkPlugin({
