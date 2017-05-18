@@ -25,6 +25,7 @@ When built, the whole skeleton is only **~68kb** gzipped!
 * optional prepush es/ts-lint hooks
 * SVG support
 * https support
+* [Image optimization](https://github.com/Klathmon/imagemin-webpack-plugin)
 
 ## Documentation
 * [Vue Skeleton Documentation](https://github.com/hjeti/vue-skeleton/wiki/Documentation)
