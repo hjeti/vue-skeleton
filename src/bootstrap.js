@@ -46,9 +46,9 @@ sync(store, router);
 
 // Init new vue app
 const app = new Vue({
-	...App,
 	router,
 	store,
+	render: h => h(App),
 });
 
 // Mount the app after startUp
