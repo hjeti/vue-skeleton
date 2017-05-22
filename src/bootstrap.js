@@ -31,10 +31,6 @@ const router = setupRouter();
 const store = setupStore();
 const localeConfig = getLocaleConfig();
 
-localeLoader.setLoadCallback((locale) => {
-	console.log('locale loaded', locale);
-});
-
 if (localeConfig.localeEnabled) {
 	Vue.use(VueI18nManager, {
 		store,
