@@ -1,5 +1,4 @@
-import axios from 'axios';
-import { URLNames, PropertyNames, VariableNames } from 'data/enum/configNames';
+import { PropertyNames, VariableNames } from 'data/enum/configNames';
 import { getValue } from 'util/injector';
 import { CONFIG_MANAGER } from 'data/Injectables';
 
