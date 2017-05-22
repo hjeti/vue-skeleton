@@ -12,6 +12,7 @@ import localeLoader from 'util/localeLoader';
 
 const initPlugins = () => {
 	const configManager = getValue(CONFIG_MANAGER);
+
 	// expose objects to the Vue prototype for easy access in your vue templates and components
 	Vue.use(VueExposePlugin, {
 		$config: configManager,
@@ -45,9 +46,11 @@ const startUp = (store) => {
 	// Initialise plugins
 	initPlugins();
 
+	const configManager = getValue(CONFIG_MANAGER);
+
 	// Add async methods to the Promise.all array
 	return Promise.all([
-		waitForLocale(store),
+		configManager.getVariable(VariableNames.LOCALE_ENABLED) ? waitForLocale(store) : Promise.resolve(),
 	]);
 };
 
