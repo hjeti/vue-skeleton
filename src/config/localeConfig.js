@@ -23,26 +23,10 @@ const getLocaleConfig = () => {
 		languages,
 	};
 
-	const proxy = {
-		getTranslation({ translationKey }) {
-			return axios.get(configManager.getURL(URLNames.LOCALE, { locale: translationKey }), {
-				headers: {
-					Accept: 'application/json',
-				},
-			})
-				.then(response => response.data)
-				.catch(() => {
-					// eslint-disable-next-line no-console
-					console.error(`Error loading locale: ${translationKey}`);
-				});
-		},
-	};
-
 	return {
 		localeEnabled: configManager.getVariable(VariableNames.LOCALE_ENABLED),
 		localeRoutingEnabled: configManager.getVariable(VariableNames.LOCALE_ROUTING_ENABLED),
 		config,
-		proxy,
 	};
 };
 

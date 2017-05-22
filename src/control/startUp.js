@@ -8,6 +8,7 @@ import { createPath } from 'util/routeUtils';
 import Params from 'data/enum/Params';
 import { getValue } from 'util/injector';
 import { CONFIG_MANAGER, GATEWAY } from 'data/Injectables';
+import localeLoader from 'util/localeLoader';
 
 const initPlugins = () => {
 	const configManager = getValue(CONFIG_MANAGER);
@@ -28,13 +29,25 @@ const initPlugins = () => {
 	});
 };
 
-const startUp = () => {
+const waitForLocale = store => new Promise((resolve) => {
+	if (localeLoader.isLoaded(store.getters.currentLanguage.code)) {
+		resolve();
+	} else {
+		localeLoader.setLoadCallback((locale) => {
+			if (locale === store.getters.currentLanguage.code) {
+				resolve();
+			}
+		});
+	}
+});
+
+const startUp = (store) => {
 	// Initialise plugins
 	initPlugins();
 
 	// Add async methods to the Promise.all array
 	return Promise.all([
-		Promise.resolve(),
+		waitForLocale(store),
 	]);
 };
 

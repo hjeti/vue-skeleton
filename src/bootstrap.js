@@ -14,6 +14,7 @@ import VueI18nManager from 'vue-i18n-manager';
 import { sync } from 'vuex-router-sync';
 import setupInjects from 'util/setupInjects';
 import App from 'App';
+import localeLoader from './util/localeLoader';
 
 // register filters globally
 Object.keys(filter).forEach(key => Vue.filter(key, filter[key]));
@@ -30,12 +31,16 @@ const router = setupRouter();
 const store = setupStore();
 const localeConfig = getLocaleConfig();
 
+localeLoader.setLoadCallback((locale) => {
+	console.log('locale loaded', locale);
+});
+
 if (localeConfig.localeEnabled) {
 	Vue.use(VueI18nManager, {
 		store,
 		router,
 		config: localeConfig.config,
-		proxy: localeConfig.proxy,
+		proxy: localeLoader,
 	});
 
 	Vue.initI18nManager();
@@ -52,4 +57,4 @@ const app = new Vue({
 });
 
 // Mount the app after startUp
-startUp().then(() => app.$mount('#app'));
+startUp(store).then(() => app.$mount('#app'));
