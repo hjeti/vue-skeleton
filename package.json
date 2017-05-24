@@ -82,7 +82,7 @@
     "sass-resources-loader": "^1.2.0",
     "semver": "^5.3.0",
     "shelljs": "^0.7.4",
-    "style-loader": "^0.17.0",
+    "style-loader": "0.18.1",
     "svg-inline-loader": "^0.7.1",
     "svgo": "^0.7.2",
     "to-camel-case": "^1.0.0",
