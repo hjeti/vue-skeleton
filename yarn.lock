@@ -6469,9 +6469,9 @@ vue-template-es2015-compiler@^1.2.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/vue-template-es2015-compiler/-/vue-template-es2015-compiler-1.5.2.tgz#a0a6c50c941d2a4abda963f2f42c337ac450ee95"
 
-vue-types@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/vue-types/-/vue-types-1.0.0.tgz#906fbeb81fe30236366ee83e503335006ca19f4f"
+vue-types@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/vue-types/-/vue-types-1.0.1.tgz#09e66d9afb2cd3872acb9d0e3c78a77e08baf8c0"
   dependencies:
     lodash.isplainobject "4.0.6"
 
