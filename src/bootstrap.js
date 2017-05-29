@@ -13,8 +13,9 @@ import getLocaleConfig from 'config/localeConfig';
 import VueI18nManager from 'vue-i18n-manager';
 import { sync } from 'vuex-router-sync';
 import setupInjects from 'util/setupInjects';
+import VueTypes from 'vue-types';
+import localeLoader from 'util/localeLoader';
 import App from 'App';
-import localeLoader from './util/localeLoader';
 
 // register filters globally
 Object.keys(filter).forEach(key => Vue.filter(key, filter[key]));
@@ -24,6 +25,9 @@ Object.keys(directive).forEach(key => Vue.directive(key, directive[key]));
 
 // register components globally
 Object.keys(component).forEach(key => Vue.component(key, component[key]));
+
+// disable sensible defaults of vue-types
+VueTypes.sensibleDefaults = false;
 
 setupInjects();
 

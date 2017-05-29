@@ -29,6 +29,7 @@
     "vue": "^2.2.5",
     "vue-i18n-manager": "^3.2.2",
     "vue-router": "^2.3.0",
+    "vue-types": "^1.0.0",
     "vuex": "^2.2.1",
     "vuex-connect": "^1.2.0",
     "vuex-router-sync": "^4.1.2"
