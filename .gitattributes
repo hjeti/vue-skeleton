@@ -8,7 +8,7 @@
 *.scss     text
 *.php      text
 *.ts       text eol=lf
-*.vue      text
+*.vue      text eol=lf
 *.xml      text
 *.svg      text
 *.txt      text
