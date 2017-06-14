@@ -79,5 +79,5 @@
 	  "globals": ["Error", "Array"]
 	}]
   ],
-  "comments": false
+  "comments": true
 }
