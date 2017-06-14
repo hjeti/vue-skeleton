@@ -27,6 +27,7 @@ webpack(webpackConfig, function (err, stats) {
 		}) + '\n');
 
 	console.log();
+	console.log(chalk.blue('You can preview your build by running:'), chalk.blue.bold('yarn preview'));
 	console.log(chalk.blue('You can analyze your build by running:'), chalk.blue.bold('yarn analyze'));
 	console.log();
 });
