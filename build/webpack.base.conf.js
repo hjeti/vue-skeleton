@@ -41,6 +41,10 @@ module.exports = {
 				test: /\.modernizrrc$/,
 				loader: 'modernizr-loader!json-loader'
 			},
+			{
+				test: /\.(glsl|txt)$/,
+				use: 'raw-loader'
+			},
 			webpackHelpers.getESLintLoader(eslintLoaderEnabled, projectRoot),
 			{
 				test: /\.ts$/,
