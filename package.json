@@ -15,11 +15,12 @@
     "prepush": "node bin/prePush.js",
     "precommit": "lint-staged",
     "analyze": "webpack-bundle-analyzer stats.json ./dist",
-		"postcommit": "git reset"
+		"postcommit": "git reset",
+		"prettier": "prettier --write --print-width 120 --tab-width 1 --use-tabs --single-quote --trailing-comma all \"src/**/*.{js,scss,ts}\""
   },
   "lint-staged": {
     "*.{js,ts,scss}": [
-      "prettier --write --print-width 120 --tab-width 1 --use-tabs --single-quote --trailing-comma all",
+      "npm run prettier",
       "git add"
     ]
   },
