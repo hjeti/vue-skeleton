@@ -13,8 +13,15 @@
     "preview": "node build/preview-server.js",
     "svg": "node bin/svg.js",
     "prepush": "node bin/prePush.js",
-    "precommit": "prettier --write --print-width 120 --tab-width 1 --use-tabs --single-quote --trailing-comma all \"src/**/*.{js,scss,ts}\" && git add -uv",
-    "analyze": "webpack-bundle-analyzer stats.json ./dist"
+    "precommit": "lint-staged",
+    "analyze": "webpack-bundle-analyzer stats.json ./dist",
+		"postcommit": "git reset"
+  },
+  "lint-staged": {
+    "*.{js,ts,scss}": [
+      "prettier --write --print-width 120 --tab-width 1 --use-tabs --single-quote --trailing-comma all",
+      "git add"
+    ]
   },
   "dependencies": {
     "axios": "^0.16.0",
@@ -75,6 +82,7 @@
     "husky": "^0.14.1",
     "imagemin-webpack-plugin": "^1.4.4",
     "json-loader": "^0.5.4",
+    "lint-staged": "^4.0.0",
     "modernizr-loader": "^1.0.1",
     "node-sass": "^4.4.0",
     "opn": "^5.0.0",
