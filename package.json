@@ -13,7 +13,7 @@
     "preview": "node build/preview-server.js",
     "svg": "node bin/svg.js",
     "prepush": "node bin/prePush.js",
-    "precommit": "prettier --write --print-width 120 --tab-width 1 --use-tabs --single-quote --trailing-comma all \"src/**/*.js\"",
+    "precommit": "prettier --write --print-width 120 --tab-width 1 --use-tabs --single-quote --trailing-comma all \"src/**/*.{js,scss,ts}\" && git add src/**/*.js",
     "analyze": "webpack-bundle-analyzer stats.json ./dist"
   },
   "dependencies": {
