@@ -14,12 +14,13 @@ export default {
 		loadCallback = callback;
 	},
 	getTranslation(locale) {
-		return axios.get(getValue(CONFIG_MANAGER).getURL(URLNames.LOCALE, { locale: locale.translationKey }), {
-			headers: {
-				Accept: 'application/json',
-			},
-		})
-			.then((response) => {
+		return axios
+			.get(getValue(CONFIG_MANAGER).getURL(URLNames.LOCALE, { locale: locale.translationKey }), {
+				headers: {
+					Accept: 'application/json',
+				},
+			})
+			.then(response => {
 				loadedLanguages.push(locale.code);
 
 				if (loadCallback) {
