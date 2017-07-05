@@ -18,7 +18,5 @@ export default {
 			state.lastName = payload;
 		},
 	},
-	actions: {
-
-	},
+	actions: {},
 };
