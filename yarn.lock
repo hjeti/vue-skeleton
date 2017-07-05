@@ -6616,6 +6616,10 @@ tslint-config-airbnb@^5.0.0:
     tslint-microsoft-contrib "^5.0.0"
     vrsource-tslint-rules "^5.1.0"
 
+tslint-config-prettier@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/tslint-config-prettier/-/tslint-config-prettier-1.1.0.tgz#40c026a56e4da27063b3e9bcd71f4f8109fee369"
+
 tslint-consistent-codestyle@^1.4.0:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/tslint-consistent-codestyle/-/tslint-consistent-codestyle-1.4.0.tgz#f8d3ece4cbf6d8815b9410e9d0f248f891963575"

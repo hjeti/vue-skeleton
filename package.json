@@ -93,6 +93,7 @@
     "to-camel-case": "^1.0.0",
     "tslint": "^5.0.0",
     "tslint-config-airbnb": "^5.0.0",
+    "tslint-config-prettier": "^1.1.0",
     "tslint-loader": "^3.5.1",
     "typescript": "^2.3.4",
     "url-loader": "^0.5.8",
