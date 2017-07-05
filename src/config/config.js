@@ -11,6 +11,7 @@ const config = {
 			variables: {},
 			urls: {},
 		},
+
 		[EnvironmentNames.DEVELOPMENT]: {
 			extends: EnvironmentNames.STAGING,
 			variables: {},
