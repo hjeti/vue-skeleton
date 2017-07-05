@@ -13,7 +13,6 @@ const getLocaleConfig = () => {
 				translationKey: locale,
 			};
 		}
-		console.log('bla');
 		return locale;
 	});
 
