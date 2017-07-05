@@ -8,12 +8,6 @@ export const errorFormatter = error => {
 	return error;
 };
 
-
-
-
-
-
-
 export const responseFormatter = response => {
 	if (response.data.data) {
 		return { ...response, ...response.data };
