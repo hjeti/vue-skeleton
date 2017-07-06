@@ -50,7 +50,7 @@ sync(store, router);
 const app = new Vue({
 	router,
 	store,
-	render: h => h(App),
+	render: createElement => createElement(App),
 });
 
 // Mount the app after startUp
