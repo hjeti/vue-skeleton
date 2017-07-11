@@ -7,6 +7,6 @@ export default {
 	{{#each mutations}}
 	[{{this}}]: (state, payload) => {
 	},
-		{{/each}}
+	{{/each}}
 	{{/if}}
 };
