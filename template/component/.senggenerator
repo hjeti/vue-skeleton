@@ -1,3 +1,32 @@
 {
-   "destination": "./src/component"
+	"destination": "./src/component",
+	"variables": [{
+			"name": "props",
+			"type": "input",
+			"message": "List of props",
+			"isArray": true,
+			"default": []
+		},
+		{
+			"name": "components",
+			"type": "input",
+			"message": "List of components",
+			"isArray": true,
+			"default": []
+		},
+		{
+			"name": "connected",
+			"type": "confirm",
+			"message": "Do you want to use veux-connect?",
+			"isBoolean": true,
+			"default": false
+		},
+		{
+			"name": "lifecycle",
+			"type": "confirm",
+			"message": "Do you want to add empty lifecycle methods?",
+			"isBoolean": true,
+			"default": false
+		}
+	]
 }

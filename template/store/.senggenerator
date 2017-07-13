@@ -1,3 +1,11 @@
 {
-   "destination": "./src/store/module"
+   "destination": "./src/store/module",
+   "variables": [{
+   			"name": "mutations",
+   			"type": "input",
+   			"message": "List of mutations in CONSTANT_CASE",
+   			"isArray": true,
+   			"default": []
+   		}
+   	]
 }
