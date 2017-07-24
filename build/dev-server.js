@@ -39,7 +39,8 @@ if(!disableHotReload){
 compiler.plugin('compilation', function (compilation) {
 	compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
 		if(!disableHotReload){
-			hotMiddleware.publish({action: 'reload'});
+			//disable for now because it is executed every time the code changes.
+			//hotMiddleware.publish({action: 'reload'});
 		}
 		cb();
 	})
