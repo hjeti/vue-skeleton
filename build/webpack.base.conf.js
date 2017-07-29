@@ -30,26 +30,26 @@ module.exports = {
 			{
 				test: /\.js$/,
 				use: [
-					webpackHelpers.getBabelLoaderConfig(isDevelopment)
+					webpackHelpers.getBabelLoaderConfig(isDevelopment),
 				],
 				include: [
-					path.join(projectRoot, 'src')
+					path.join(projectRoot, 'src'),
 				],
-				exclude: /node_modules/
+				exclude: /node_modules/,
 			},
 			{
 				test: /\.modernizrrc$/,
-				loader: 'modernizr-loader!json-loader'
+				loader: 'modernizr-loader!json-loader',
 			},
 			{
 				test: /\.(glsl|txt)$/,
-				use: 'raw-loader'
+				use: 'raw-loader',
 			},
 			webpackHelpers.getESLintLoader(eslintLoaderEnabled, projectRoot),
 			{
 				test: /\.ts$/,
 				include: [
-					path.join(projectRoot, 'src')
+					path.join(projectRoot, 'src'),
 				],
 				use: [
 					webpackHelpers.getBabelLoaderConfig(isDevelopment),
@@ -62,10 +62,6 @@ module.exports = {
 				]
 			},
 			webpackHelpers.getTSLintLoader(tslintLoaderEnabled, projectRoot),
-			{
-				test: /\.svg$/,
-				loader: 'svg-inline-loader'
-			}
 		]
 	}
 };
