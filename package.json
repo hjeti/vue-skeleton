@@ -8,7 +8,7 @@
     "dev": "cross-env NODE_ENV=development node build/dev-server.js",
     "dev-dhr": "cross-env NODE_ENV=development node build/dev-server.js --disableHotReloading",
     "build": "cross-env NODE_ENV=production node build/build.js",
-    "eslint": "eslint src --ext .js",
+    "eslint": "eslint src --ext .js --cache",
     "tslint": "tslint src/**/*.ts -c .tslintrc.js -p tsconfig.json",
     "preview": "node build/preview-server.js",
     "svg": "node bin/svg.js",
