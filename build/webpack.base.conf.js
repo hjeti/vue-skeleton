@@ -9,13 +9,13 @@ const tslintLoaderEnabled = isDevelopment ? config.dev.enableTSLintLoader : conf
 
 module.exports = {
 	entry: {
-		app: './src/bootstrap.js'
+		app: './src/bootstrap.js',
 	},
 	output: {
 		path: path.join(projectRoot, 'dist'),
 		publicPath: '/',
 		filename: '[name].js',
-		chunkFilename : '[id].js'
+		chunkFilename : '[id].js',
 	},
 	resolve: {
 		extensions: ['.vue', '.js', '.ts', '.scss'],
@@ -23,7 +23,7 @@ module.exports = {
 		alias: {
 			'modernizr$': path.join(projectRoot, '.modernizrrc'),
 			'TweenLite': path.resolve(projectRoot, 'node_modules/gsap/src/uncompressed/TweenLite'),
-		}
+		},
 	},
 	module: {
 		rules: [
@@ -62,8 +62,32 @@ module.exports = {
 				]
 			},
 			webpackHelpers.getTSLintLoader(tslintLoaderEnabled, projectRoot),
-		]
-	}
+			{
+				test: /\.svg$/,
+				use: [
+					{
+						loader: 'svg-inline-loader',
+					},
+					{
+						loader: 'svgo-loader',
+						options: {
+							plugins: [
+								{ removeStyleElement: true },
+								{ removeComments: true },
+								{ removeDesc: true },
+								{ removeUselessDefs: true },
+								{ removeTitle: true, },
+								{ removeMetadata: true, },
+								{ removeComments: true, },
+								{ cleanupIDs: { remove: true, prefix: '' } },
+								{ convertColors: { shorthex: false } },
+							],
+						},
+					},
+				],
+			},
+		],
+	},
 };
 
 
