@@ -99,5 +99,5 @@ module.exports = createdServer.listen(port, function (err) {
 		return;
 	}
 
-	opn(uri);
+	opn(uri).catch(() => {});
 });
