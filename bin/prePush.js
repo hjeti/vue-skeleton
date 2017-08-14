@@ -56,7 +56,7 @@ const prePush = {
 				const outputPath = path.resolve(__dirname, `../${linter}error.txt`);
 				const sourceDir = path.resolve(__dirname, `../src`);
 
-				return pify(shell.exec)(`${linterBinary} ${sourceDir} --ext .js -o ${outputPath}`)
+				return pify(shell.exec)(`${linterBinary} ${sourceDir} --ext .js -o ${outputPath} --cache`)
 					.catch((error, stdout, stderr) => prePush.errorHandler(error, stdout, stderr, linter, outputPath))
 			}
 		},
