@@ -5,7 +5,6 @@ export default {
 	props: {
 		name: String,
 	},
-
 	computed: {
 		icon() {
 			// eslint-disable-next-line global-require, import/no-dynamic-require
