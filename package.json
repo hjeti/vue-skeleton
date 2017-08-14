@@ -11,7 +11,6 @@
     "eslint": "eslint src --ext .js --cache",
     "tslint": "tslint src/**/*.ts -c .tslintrc.js -p tsconfig.json",
     "preview": "node build/preview-server.js",
-    "svg": "node bin/svg.js",
     "prepush": "node bin/prePush.js",
     "analyze": "webpack-bundle-analyzer stats.json ./dist"
   },
@@ -87,6 +86,7 @@
     "style-loader": "^0.18.2",
     "svg-inline-loader": "0.8.0",
     "svgo": "^0.7.2",
+    "svgo-loader": "^1.2.1",
     "to-camel-case": "^1.0.0",
     "tslint": "^5.0.0",
     "tslint-config-airbnb": "^5.0.0",

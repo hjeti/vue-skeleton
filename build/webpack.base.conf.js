@@ -9,13 +9,13 @@ const tslintLoaderEnabled = isDevelopment ? config.dev.enableTSLintLoader : conf
 
 module.exports = {
 	entry: {
-		app: './src/bootstrap.js'
+		app: './src/bootstrap.js',
 	},
 	output: {
 		path: path.join(projectRoot, 'dist'),
 		publicPath: '/',
 		filename: '[name].js',
-		chunkFilename : '[id].js'
+		chunkFilename : '[id].js',
 	},
 	resolve: {
 		extensions: ['.vue', '.js', '.ts', '.scss'],
@@ -23,33 +23,33 @@ module.exports = {
 		alias: {
 			'modernizr$': path.join(projectRoot, '.modernizrrc'),
 			'TweenLite': path.resolve(projectRoot, 'node_modules/gsap/src/uncompressed/TweenLite'),
-		}
+		},
 	},
 	module: {
 		rules: [
 			{
 				test: /\.js$/,
 				use: [
-					webpackHelpers.getBabelLoaderConfig(isDevelopment)
+					webpackHelpers.getBabelLoaderConfig(isDevelopment),
 				],
 				include: [
-					path.join(projectRoot, 'src')
+					path.join(projectRoot, 'src'),
 				],
-				exclude: /node_modules/
+				exclude: /node_modules/,
 			},
 			{
 				test: /\.modernizrrc$/,
-				loader: 'modernizr-loader!json-loader'
+				loader: 'modernizr-loader!json-loader',
 			},
 			{
 				test: /\.(glsl|txt)$/,
-				use: 'raw-loader'
+				use: 'raw-loader',
 			},
 			webpackHelpers.getESLintLoader(eslintLoaderEnabled, projectRoot),
 			{
 				test: /\.ts$/,
 				include: [
-					path.join(projectRoot, 'src')
+					path.join(projectRoot, 'src'),
 				],
 				use: [
 					webpackHelpers.getBabelLoaderConfig(isDevelopment),
@@ -64,10 +64,30 @@ module.exports = {
 			webpackHelpers.getTSLintLoader(tslintLoaderEnabled, projectRoot),
 			{
 				test: /\.svg$/,
-				loader: 'svg-inline-loader'
-			}
-		]
-	}
+				use: [
+					{
+						loader: 'svg-inline-loader',
+					},
+					{
+						loader: 'svgo-loader',
+						options: {
+							plugins: [
+								{ removeStyleElement: true },
+								{ removeComments: true },
+								{ removeDesc: true },
+								{ removeUselessDefs: true },
+								{ removeTitle: true, },
+								{ removeMetadata: true, },
+								{ removeComments: true, },
+								{ cleanupIDs: { remove: true, prefix: '' } },
+								{ convertColors: { shorthex: false } },
+							],
+						},
+					},
+				],
+			},
+		],
+	},
 };
 
 

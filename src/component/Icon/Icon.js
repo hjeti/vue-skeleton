@@ -1,17 +1,15 @@
-import icons from 'asset/svg';
+
 
 export default {
 	name: 'Icon',
 	props: {
-		name: {
-			validator(value) {
-				return !!icons[value];
-			},
-		},
+		name: String,
 	},
+
 	computed: {
 		icon() {
-			return icons[this.name];
+			// eslint-disable-next-line global-require, import/no-dynamic-require
+			return require(`../../asset/svg/${this.name}.svg`);
 		},
 	},
 };
