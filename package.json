@@ -19,6 +19,7 @@
     "babel-polyfill": "^6.23.0",
     "classlist-polyfill": "^1.0.3",
     "core-js": "^2.4.1",
+    "detect-port": "^1.2.1",
     "fetch-polyfill": "^0.8.2",
     "gsap": "^1.19.1",
     "modernizr": "^3.3.1",
