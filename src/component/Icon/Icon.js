@@ -1,9 +1,9 @@
-
+import VueTypes from 'vue-types';
 
 export default {
 	name: 'Icon',
 	props: {
-		name: String,
+		name: VueTypes.string.isRequired,
 	},
 
 	computed: {
