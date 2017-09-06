@@ -30,3 +30,5 @@ When built, the whole skeleton is only **~66kb** gzipped!
 
 ## Documentation
 * [Vue Skeleton Documentation](https://github.com/hjeti/vue-skeleton/wiki/Documentation)
+* [Webstorm configuration](https://github.com/hjeti/vue-skeleton/wiki/Webstorm-configuration)
+* [Skeleton essentials](https://github.com/hjeti/vue-skeleton/wiki/Vue-skeleton-essentials)
