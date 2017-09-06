@@ -1,9 +1,10 @@
+# vue-skeleton ![dependencies](https://img.shields.io/david/hjeti/vue-skeleton.svg?style=flat-square) [![GitHub issues](https://img.shields.io/github/issues/hjeti/vue-skeleton.svg?style=flat-square)](https://github.com/hjeti/vue-skeleton/issues) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/hjeti/vue-skeleton/master/LICENSE)
+
 <p align="center">
 	<img src="https://raw.githubusercontent.com/wiki/hjeti/vue-skeleton/asset/image/vue-skeleton.png" alt="Vue skeleton" />
 </p>	
 
-# vue-skeleton ![dependencies](https://img.shields.io/david/hjeti/vue-skeleton.svg?style=flat-square) [![GitHub issues](https://img.shields.io/github/issues/hjeti/vue-skeleton.svg?style=flat-square)](https://github.com/hjeti/vue-skeleton/issues) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/hjeti/vue-skeleton/master/LICENSE)
-The Vue skeleton comes packaged with a variety of tools for creating a (multilingual) SPA. The skeleton allows to get up and running in a matter of minutes.
+`Vue skeleton` comes packaged with a variety of tools for creating a (multilingual) SPA. The skeleton allows to get up and running in a matter of minutes.
 
 When built, the whole skeleton is only **~66kb** gzipped!
 
