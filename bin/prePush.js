@@ -40,7 +40,7 @@ const prePush = {
 
 	errorHandler: (error, stdout, stderr, executable, outputPath) => {
 		if (error) {
-			prePush.errors.push({ outputPath, executable });
+			prePush.errors.push({ outputPath, executable, stdout });
 		}
 	},
 
@@ -56,7 +56,7 @@ const prePush = {
 				const outputPath = path.resolve(__dirname, `../${linter}error.txt`);
 				const sourceDir = path.resolve(__dirname, `../src`);
 
-				return pify(shell.exec)(`${linterBinary} ${sourceDir} --ext .js -o ${outputPath} --cache`, { async: true })
+				return pify(shell.exec)(`${linterBinary} ${sourceDir} --ext .js -o ${outputPath} --cache`)
 					.catch((error, stdout, stderr) => prePush.errorHandler(error, stdout, stderr, linter, outputPath))
 			}
 		},
@@ -76,7 +76,7 @@ const prePush = {
 				const tsConfig = path.resolve(__dirname, '../tsconfig.json');
 				const lintingRules = path.resolve(__dirname, '../.tslintrc.js');
 
-				return pify(shell.exec)(`${linterBinary} "${sourceDir}" ${excludeArgument} -o ${outputPath} -p ${tsConfig} -c ${lintingRules}`, { async: true })
+				return pify(shell.exec)(`${linterBinary} "${sourceDir}" ${excludeArgument} -o ${outputPath} -p ${tsConfig} -c ${lintingRules}`)
 					.catch((error, stdout, stderr) => prePush.errorHandler(error, stdout, stderr, linter, outputPath));
 			}
 		},
