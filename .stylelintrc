@@ -3,6 +3,9 @@
 	"rules": {
 		"indentation": "tab",
 		"selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": "/^local|^global/" }],
-		"block-no-empty": null
+		"block-no-empty": null,
+		"max-nesting-depth": 5,
+		"selector-max-compound-selectors": 4,
+		"selector-pseudo-element-colon-notation": null
 	}
 }
