@@ -10,6 +10,7 @@
     "build": "cross-env NODE_ENV=production node build/build.js",
     "eslint": "eslint src --ext .js --cache",
     "tslint": "tslint src/**/*.ts -c .tslintrc.js -p tsconfig.json",
+		"stylelint": "stylelint \"./src/**/*.scss\" --cache",
     "preview": "node build/preview-server.js",
     "prepush": "node bin/prePush.js",
     "analyze": "webpack-bundle-analyzer stats.json ./dist"
@@ -26,6 +27,8 @@
     "normalize.css": "^7.0.0",
     "seng-config": "^1.1.0",
     "seng-scss": "^1.0.0",
+    "stylelint": "^8.1.1",
+    "stylelint-config-standard": "^17.0.0",
     "vue": "^2.2.5",
     "vue-i18n-manager": "^3.2.2",
     "vue-router": "^2.3.0",
