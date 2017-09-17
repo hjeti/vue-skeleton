@@ -6,4 +6,5 @@ npm-debug.log
 stats.json
 */.idea
 .eslintcache
+.stylelintcache
 /*error.txt
