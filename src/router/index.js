@@ -14,11 +14,13 @@ const setupRouter = () => {
 	const localeConfig = getLocaleConfig();
 	const configManager = getValue(CONFIG_MANAGER);
 
-	const processedRoutes = localeConfig.localeEnabled && localeConfig.localeRoutingEnabled ?
-		routeParser(routes, configManager.getProperty(PropertyNames.DEFAULT_LOCALE)) : routes.concat({
-			path: '*',
-			redirect: '/',
-		});
+	const processedRoutes =
+		localeConfig.localeEnabled && localeConfig.localeRoutingEnabled
+			? routeParser(routes, configManager.getProperty(PropertyNames.DEFAULT_LOCALE))
+			: routes.concat({
+					path: '*',
+					redirect: '/',
+				});
 
 	const router = new VueRouter({
 		mode: 'history',
