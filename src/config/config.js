@@ -40,7 +40,7 @@ const config = {
 };
 
 let environment = EnvironmentNames.PRODUCTION;
-const host = document.location.host;
+const { host } = document.location;
 
 switch (host.split(':').shift()) {
 	case 'localhost': {
