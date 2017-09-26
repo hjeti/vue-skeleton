@@ -24,7 +24,10 @@ export default {
 				loadedLanguages.push(locale.code);
 
 				if (loadCallback) {
-					loadCallback(locale.code);
+					// add timeout of 1 frame to make sure vue-i18n-manager processed the file
+					setTimeout(() => {
+						loadCallback(locale.code);
+					});
 				}
 
 				return response.data;
