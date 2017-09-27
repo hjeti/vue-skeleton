@@ -1,6 +1,6 @@
 {
   "name": "vue-skeleton",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "description": "A Vue Skeleton",
   "author": "Hendrik-Jan de Harder <hendrik-jan@mediamonks.com>",
   "private": true,
@@ -17,15 +17,15 @@
     "postcommit": "git reset",
     "prettify": "prettier --write --print-width 120 --tab-width 1 --use-tabs --single-quote --trailing-comma all \"src/**/*.{js,scss,ts}\""
   },
-	"lint-staged": {
-		"gitDir": "./",
-		"linters": {
-			"src/**/*.{js,ts,scss}": [
-				"prettier --write --print-width 120 --tab-width 1 --use-tabs --single-quote --trailing-comma all",
-				"git add"
-			]
-		}
-	},
+  "lint-staged": {
+    "gitDir": "./",
+    "linters": {
+      "src/**/*.{js,ts,scss}": [
+        "prettier --write --print-width 120 --tab-width 1 --use-tabs --single-quote --trailing-comma all",
+        "git add"
+      ]
+    }
+  },
   "dependencies": {
     "axios": "^0.16.0",
     "babel-polyfill": "^6.23.0",
