@@ -3,7 +3,7 @@ import axios from 'axios';
 import VueExposePlugin from 'util/VueExposePlugin';
 import { URLNames, PropertyNames, VariableNames } from 'data/enum/configNames';
 import PageNames from 'data/enum/PageNames';
-import Pages from 'data/enum/Pages';
+import PagePaths from 'data/enum/PagePaths';
 import { createPath } from 'util/routeUtils';
 import Params from 'data/enum/Params';
 import { getValue } from 'util/injector';
@@ -24,7 +24,7 @@ const initPlugins = () => {
 		PropertyNames,
 		VariableNames,
 		PageNames,
-		Pages,
+		PagePaths,
 		Params,
 		createPath,
 	});
