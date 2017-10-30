@@ -4,13 +4,17 @@ import modules from './modules';
 
 Vue.use(Vuex);
 
-const setupStore = () => {
-	const store = new Vuex.Store({
-		modules,
-		strict: process.env.NODE_ENV !== 'production',
-	});
+let store = null;
+
+const getStore = () => {
+	if (!store) {
+		store = new Vuex.Store({
+			modules,
+			strict: process.env.NODE_ENV !== 'production',
+		});
+	}
 
 	return store;
 };
 
-export default setupStore;
+export default getStore;

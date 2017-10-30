@@ -14,16 +14,20 @@ export default {
 		loadCallback = callback;
 	},
 	getTranslation(locale) {
-		return axios.get(getValue(CONFIG_MANAGER).getURL(URLNames.LOCALE, { locale: locale.translationKey }), {
-			headers: {
-				Accept: 'application/json',
-			},
-		})
-			.then((response) => {
+		return axios
+			.get(getValue(CONFIG_MANAGER).getURL(URLNames.LOCALE, { locale: locale.translationKey }), {
+				headers: {
+					Accept: 'application/json',
+				},
+			})
+			.then(response => {
 				loadedLanguages.push(locale.code);
 
 				if (loadCallback) {
-					loadCallback(locale.code);
+					// add timeout of 1 frame to make sure vue-i18n-manager processed the file
+					setTimeout(() => {
+						loadCallback(locale.code);
+					});
 				}
 
 				return response.data;

@@ -1,0 +1,10 @@
+/*
+ * Component Image asset helper
+ * @access public
+ * @param {String} $file - Asset file name, including extension
+ * @return {URL} - A `url()` function leading to the image
+ * @require {function} asset
+ */
+@function componentImage($file) {
+	@return url($pathComponentImage + '/' + $file);
+}

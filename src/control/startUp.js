@@ -3,7 +3,7 @@ import axios from 'axios';
 import VueExposePlugin from 'util/VueExposePlugin';
 import { URLNames, PropertyNames, VariableNames } from 'data/enum/configNames';
 import PageNames from 'data/enum/PageNames';
-import Pages from 'data/enum/Pages';
+import PagePaths from 'data/enum/PagePaths';
 import { createPath } from 'util/routeUtils';
 import Params from 'data/enum/Params';
 import { getValue } from 'util/injector';
@@ -24,25 +24,26 @@ const initPlugins = () => {
 		PropertyNames,
 		VariableNames,
 		PageNames,
-		Pages,
+		PagePaths,
 		Params,
 		createPath,
 	});
 };
 
-const waitForLocale = store => new Promise((resolve) => {
-	if (localeLoader.isLoaded(store.getters.currentLanguage.code)) {
-		resolve();
-	} else {
-		localeLoader.setLoadCallback((locale) => {
-			if (locale === store.getters.currentLanguage.code) {
-				resolve();
-			}
-		});
-	}
-});
+const waitForLocale = store =>
+	new Promise(resolve => {
+		if (localeLoader.isLoaded(store.getters.currentLanguage.code)) {
+			resolve();
+		} else {
+			localeLoader.setLoadCallback(locale => {
+				if (locale === store.getters.currentLanguage.code) {
+					resolve();
+				}
+			});
+		}
+	});
 
-const startUp = (store) => {
+const startUp = store => {
 	// Initialise plugins
 	initPlugins();
 

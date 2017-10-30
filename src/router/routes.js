@@ -1,12 +1,11 @@
 import HomePage from 'page/HomePage';
-import Pages from 'data/enum/Pages';
+import PagePaths from 'data/enum/PagePaths';
 import PageNames from 'data/enum/PageNames';
 
 export default [
 	{
-		path: Pages.HOME,
+		path: PagePaths.HOME,
 		component: HomePage,
 		name: PageNames.HOME,
 	},
 ];
-

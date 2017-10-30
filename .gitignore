@@ -1,10 +1,11 @@
 .DS_Store
 node_modules/
 dist/
-npm-debug.log
 .idea
 stats.json
 */.idea
 .eslintcache
 .stylelintcache
 /*error.txt
+/*-debug.log
+/*-error.log

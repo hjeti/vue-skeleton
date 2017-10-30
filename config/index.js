@@ -48,22 +48,18 @@ module.exports = {
 			name: 'esLintCheck',
 			options: {}
 		},
-		/*
 		{
 			name: 'styleLintCheck',
 		},
-		*/
-		/*
-		{
-			name: 'tsLintCheck',
-			options: {
-				// Make sure that these folders are also excluded in the tslintloader config in webpackHelpers.js
-				exclude: [
-					'./node_modules/!**!/!*',
-					'./src/vendor/!**!/!*',
-				],
-			},
-		},
-		*/
+		// {
+		// 	name: 'tsLintCheck',
+		// 	options: {
+		// 		// Make sure that these folders are also excluded in the tslintloader config in webpackHelpers.js
+		// 		exclude: [
+		// 			'./node_modules/**/*',
+		// 			'./src/vendor/**/*'
+		// 		],
+		// 	},
+		// },
 	],
 };

@@ -1,6 +1,6 @@
 {
   "name": "vue-skeleton",
-  "version": "0.6.1",
+  "version": "0.7.4",
   "description": "A Vue Skeleton",
   "author": "Hendrik-Jan de Harder <hendrik-jan@mediamonks.com>",
   "private": true,
@@ -13,7 +13,19 @@
     "stylelint": "stylelint \"./src/**/*.scss\" --cache",
     "preview": "node build/preview-server.js",
     "prepush": "node bin/prePush.js",
-    "analyze": "webpack-bundle-analyzer stats.json ./dist"
+    "precommit": "lint-staged",
+    "analyze": "webpack-bundle-analyzer stats.json ./dist",
+    "postcommit": "git reset",
+    "prettify": "prettier --write --print-width 120 --tab-width 1 --use-tabs --single-quote --trailing-comma all \"src/**/*.{js,scss,ts}\""
+  },
+  "lint-staged": {
+    "gitDir": "./",
+    "linters": {
+      "src/**/*.{js,ts,scss}": [
+        "prettier --write --print-width 120 --tab-width 1 --use-tabs --single-quote --trailing-comma all",
+        "git add"
+      ]
+    }
   },
   "dependencies": {
     "axios": "^0.16.0",
@@ -40,7 +52,7 @@
     "autoprefixer": "^7.1.0",
     "awesome-typescript-loader": "^3.1.2",
     "babel-core": "^6.0.0",
-    "babel-eslint": "^7.1.1",
+    "babel-eslint": "^8.0.0",
     "babel-loader": "^7.0.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-builtin-extend": "^1.1.2",
@@ -54,13 +66,15 @@
     "copy-webpack-plugin": "^4.0.1",
     "cross-env": "^5.0.0",
     "css-loader": "^0.28.0",
-    "eslint": "^4.0.0",
-    "eslint-config-airbnb-base": "^11.1.0",
+    "eslint": "^4.9.0",
+    "eslint-config-airbnb-base": "^12.0.0",
+    "eslint-config-prettier": "^2.3.0",
     "eslint-friendly-formatter": "^3.0.0",
     "eslint-import-resolver-webpack": "^0.8.1",
     "eslint-loader": "^1.7.1",
     "eslint-plugin-html": "^3.0.0",
     "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-prettier": "^2.1.2",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.13.3",
     "extract-text-webpack-plugin": "^3.0.0",
@@ -73,6 +87,7 @@
     "husky": "^0.14.1",
     "imagemin-webpack-plugin": "^1.4.4",
     "json-loader": "^0.5.4",
+    "lint-staged": "^4.0.0",
     "modernizr-loader": "^1.0.1",
     "node-sass": "^4.4.0",
     "opn": "^5.0.0",
@@ -80,6 +95,7 @@
     "ora": "^1.2.0",
     "pify": "^3.0.0",
     "postcss-loader": "^2.0.5",
+    "prettier": "^1.5.2",
     "raw-loader": "^0.5.1",
     "sass-loader": "^6.0.3",
     "sass-resources-loader": "^1.2.0",
@@ -88,12 +104,13 @@
     "style-loader": "^0.18.2",
     "stylelint": "^8.2.0",
     "stylelint-config-standard": "^17.0.0",
-    "svg-inline-loader": "0.8.0",
+    "svg-inline-loader": "^0.8.0",
     "svgo": "^0.7.2",
     "svgo-loader": "^1.2.1",
     "to-camel-case": "^1.0.0",
     "tslint": "^5.0.0",
     "tslint-config-airbnb": "^5.0.0",
+    "tslint-config-prettier": "^1.1.0",
     "tslint-loader": "^3.5.1",
     "typescript": "^2.3.4",
     "url-loader": "^0.5.8",

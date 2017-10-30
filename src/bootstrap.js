@@ -7,8 +7,8 @@ import Vue from 'vue';
 import filter from 'filter';
 import directive from 'directive';
 import component from 'component';
-import setupRouter from 'router';
-import setupStore from 'store';
+import getRouter from 'router';
+import getStore from 'store';
 import startUp from 'control/startUp';
 import getLocaleConfig from 'config/localeConfig';
 import VueI18nManager from 'vue-i18n-manager';
@@ -28,8 +28,8 @@ Object.keys(component).forEach(key => Vue.component(key, component[key]));
 
 setupInjects();
 
-const router = setupRouter();
-const store = setupStore();
+const router = getRouter();
+const store = getStore();
 const localeConfig = getLocaleConfig();
 
 if (localeConfig.localeEnabled) {
