@@ -104,6 +104,7 @@
     "style-loader": "^0.18.2",
     "stylelint": "^8.2.0",
     "stylelint-config-standard": "^17.0.0",
+    "stylelint-scss": "^2.1.0",
     "svg-inline-loader": "^0.8.0",
     "svgo": "^0.7.2",
     "svgo-loader": "^1.2.1",
