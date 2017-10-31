@@ -5,6 +5,7 @@ dist/
 stats.json
 */.idea
 .eslintcache
+.stylelintcache
 /*error.txt
 /*-debug.log
 /*-error.log

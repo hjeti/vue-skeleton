@@ -48,6 +48,9 @@ module.exports = {
 			name: 'esLintCheck',
 			options: {}
 		},
+		{
+			name: 'styleLintCheck',
+		},
 		// {
 		// 	name: 'tsLintCheck',
 		// 	options: {

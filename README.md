@@ -2,7 +2,7 @@
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/wiki/hjeti/vue-skeleton/asset/image/vue-skeleton.png?v=2" alt="Vue skeleton" />
-</p>	
+</p>
 
 `Vue skeleton` comes packaged with a variety of tools for creating a (multilingual) SPA. The skeleton allows to get up and running in a matter of minutes.
 
@@ -23,7 +23,7 @@ When built, the whole skeleton is only **~66kb** gzipped!
 * [seng-scss](https://github.com/mediamonks/seng-scss)
 * [airbnb coding standard](https://github.com/airbnb/javascript) (integrated with es/ts-lint)
 * [modernizr](https://github.com/Modernizr/Modernizr)
-* [SCSS Lint](https://github.com/brigade/scss-lint)
+* [stylelint](https://github.com/stylelint/stylelint) + [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard)
 * i18n using [i18nManager](https://github.com/MatteoGabriele/vue-i18n-manager)
 * versioning
 * (build) preview server (gzip enabled)

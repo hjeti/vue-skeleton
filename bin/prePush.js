@@ -26,7 +26,7 @@ const prePush = {
 			if(prePush.errors.length === 0) process.exit(0);
 
 			prePush.errors.forEach((error) => {
-				const lintError = fs.readFileSync(error.outputPath, 'utf8');
+				const lintError = error.outputPath ? fs.readFileSync(error.outputPath, 'utf8') : error.stdout;
 				console.error(chalk.yellow(
 					`\nYour push contains files that should pass ${error.executable} but do not.\nPlease fix the ${error.executable} errors and try again.`
 				));
@@ -40,7 +40,7 @@ const prePush = {
 
 	errorHandler: (error, stdout, stderr, executable, outputPath) => {
 		if (error) {
-			prePush.errors.push({ outputPath: outputPath, executable: executable });
+			prePush.errors.push({ outputPath, executable, stdout });
 		}
 	},
 
@@ -78,6 +78,19 @@ const prePush = {
 
 				return pify(shell.exec)(`${linterBinary} "${sourceDir}" ${excludeArgument} -o ${outputPath} -p ${tsConfig} -c ${lintingRules}`)
 					.catch((error, stdout, stderr) => prePush.errorHandler(error, stdout, stderr, linter, outputPath));
+			}
+		},
+		{
+			name: 'styleLintCheck',
+			run: (options) => {
+				const linter = 'stylelint';
+				const linterBinary = path.resolve(__dirname, `../node_modules/.bin/${linter}`);
+				const sourceDir = path.resolve(__dirname, '../src/**/*.scss');
+				const outputPath = path.resolve(__dirname, `../${linter}error.txt`);
+
+				return pify(shell.exec)(`${linterBinary} "${sourceDir}" > ${outputPath} --cache`)
+					.catch((error, stdout, stderr) => prePush.errorHandler(error, stdout, stderr, linter, outputPath))
+
 			}
 		}
 	],
