@@ -32,9 +32,10 @@ module.exports = {
 		// allow debugger during development
 		'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
 		'no-console': process.env.NODE_ENV === 'production' ? 1 : 0,
-		'no-tabs': 0,
-		'max-len': ['error', 120],
+		'max-len': ['error', 100],
 		'no-param-reassign': 0,
+    // only for use with getter-setters
+    'no-underscore-dangle': 0,
 		'prettier/prettier': [
 			'error',
 			{ singleQuote: true, trailingComma: 'all', printWidth: 100, tabWidth: 2 },
