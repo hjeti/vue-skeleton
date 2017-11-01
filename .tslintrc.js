@@ -9,6 +9,6 @@ module.exports = {
 		'no-console': process.env.NODE_ENV === 'production' ? 1 : 0,
 		'prefer-array-literal': [ true, { 'allow-type-parameters': true } ],
 		'variable-name': [ true, 'allow-pascal-case' ],
-		'max-line-length': [true, 120],
+		'max-line-length': [true, 100],
 	},
 };
