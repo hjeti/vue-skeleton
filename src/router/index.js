@@ -13,26 +13,26 @@ Vue.use(VueRouter);
 let router = null;
 
 const getRouter = () => {
-	if (!router) {
-		const localeConfig = getLocaleConfig();
-		const configManager = getValue(CONFIG_MANAGER);
+  if (!router) {
+    const localeConfig = getLocaleConfig();
+    const configManager = getValue(CONFIG_MANAGER);
 
-		const processedRoutes =
-			localeConfig.localeEnabled && localeConfig.localeRoutingEnabled
-				? routeParser(routes, configManager.getProperty(PropertyNames.DEFAULT_LOCALE))
-				: routes.concat({
-						path: '*',
-						redirect: '/',
-					});
+    const processedRoutes =
+      localeConfig.localeEnabled && localeConfig.localeRoutingEnabled
+        ? routeParser(routes, configManager.getProperty(PropertyNames.DEFAULT_LOCALE))
+        : routes.concat({
+            path: '*',
+            redirect: '/',
+          });
 
-		router = new VueRouter({
-			mode: 'history',
-			routes: processedRoutes,
-			base: configManager.getVariable(VariableNames.PUBLIC_PATH),
-		});
-	}
+    router = new VueRouter({
+      mode: 'history',
+      routes: processedRoutes,
+      base: configManager.getVariable(VariableNames.PUBLIC_PATH),
+    });
+  }
 
-	return router;
+  return router;
 };
 
 export default getRouter;

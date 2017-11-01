@@ -1,14 +1,14 @@
 html {
-	font-size: 10px;
-	box-sizing: border-box;
+  font-size: 10px;
+  box-sizing: border-box;
 }
 
 *,
 *:before,
 *:after {
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	box-sizing: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: inherit;
 }
 
 h1,
@@ -18,16 +18,16 @@ h4,
 h5,
 h6,
 p {
-	font-weight: normal;
-	margin: 0;
+  font-weight: normal;
+  margin: 0;
 }
 
 ul,
 ol {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 img {
-	display: block;
+  display: block;
 }
