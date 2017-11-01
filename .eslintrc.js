@@ -37,7 +37,7 @@ module.exports = {
 		'no-param-reassign': 0,
 		'prettier/prettier': [
 			'error',
-			{ singleQuote: true, trailingComma: 'all', printWidth: 120, tabWidth: 1, useTabs: true },
+			{ singleQuote: true, trailingComma: 'all', printWidth: 100, tabWidth: 2 },
 		],
 	},
 };
