@@ -8,6 +8,7 @@
 		"selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": "/^local|^global/" }],
 		"max-nesting-depth": 5,
 		"selector-max-compound-selectors": 4,
-		"selector-pseudo-element-colon-notation": null
+		"selector-pseudo-element-colon-notation": null,
+		"at-rule-empty-line-before": ["always", { "except": ["inside-block", "blockless-after-same-name-blockless"] }]
 	}
 }
