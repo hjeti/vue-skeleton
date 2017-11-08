@@ -83,6 +83,9 @@ exports.getVueLoaderConfig = function(isDevelopment, eslintLoaderEnabled){
 			cssModules: {
 				localIdentName: '[local]-[hash:base64:7]',
 				camelCase: true
+			},
+			transformToRequire: {
+				source: 'srcset'
 			}
 		}
 	};
