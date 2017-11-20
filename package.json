@@ -16,12 +16,12 @@
     "precommit": "lint-staged",
     "analyze": "webpack-bundle-analyzer stats.json ./dist",
     "postcommit": "git reset",
-    "prettify": "prettier --write \"src/**/*.{js,scss,ts}\""
+    "prettify": "prettier --write \"src/**/*.{js,ts}\""
   },
   "lint-staged": {
     "gitDir": "./",
     "linters": {
-      "src/**/*.{js,ts,scss}": [
+      "src/**/*.{js,ts}": [
         "prettier --write",
         "git add"
       ]
