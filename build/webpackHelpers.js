@@ -70,20 +70,23 @@ exports.getVueLoaderConfig = function(isDevelopment, eslintLoaderEnabled) {
     });
   }
 
-  const config = {
-    loader: 'vue-loader',
-    options: {
-      loaders: {
-        scss: scssLoaders,
-        js: jsLoaders,
-      },
-      postcss: [],
-      cssModules: {
-        localIdentName: '[local]-[hash:base64:7]',
-        camelCase: true,
-      },
-    },
-  };
+	const config = {
+		loader: 'vue-loader',
+		options: {
+			loaders: {
+				scss: scssLoaders,
+				js: jsLoaders,
+			},
+			postcss: [],
+
+			cssModules: {
+				localIdentName: '[local]-[hash:base64:7]',
+				camelCase: true,
+			},
+			transformToRequire: {
+				source: 'srcset'
+			}},
+	};
 
   return config;
 };
