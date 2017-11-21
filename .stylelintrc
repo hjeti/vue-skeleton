@@ -20,6 +20,7 @@
 				"after-comment",
 				"inside-block"
 			]
-		}]
+		}],
+		"declaration-empty-line-before": null,
 	}
 }
