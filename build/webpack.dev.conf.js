@@ -94,7 +94,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new CopyWebpackPlugin([
       {
         from: 'staticRoot',
-        to: 'static',
+        to: '',
         ignore: ['.*'],
       },
     ]),

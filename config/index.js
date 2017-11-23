@@ -19,7 +19,7 @@ module.exports = {
     env: {
       NODE_ENV: JSON.stringify('production'),
       VERSIONED_STATIC_ROOT: JSON.stringify(publicPath + versionPath + 'static/'),
-      STATIC_ROOT: JSON.stringify(publicPath + 'static/'),
+      STATIC_ROOT: JSON.stringify(publicPath),
       PUBLIC_PATH: JSON.stringify(publicPath),
     },
     index: path.resolve(__dirname, '../dist/index.html'),
@@ -32,7 +32,7 @@ module.exports = {
     env: {
       NODE_ENV: JSON.stringify('development'),
       VERSIONED_STATIC_ROOT: JSON.stringify('/static/'),
-      STATIC_ROOT: JSON.stringify('/static/'),
+      STATIC_ROOT: JSON.stringify('/'),
       PUBLIC_PATH: JSON.stringify('/'),
     },
     port: 8080,
@@ -40,7 +40,7 @@ module.exports = {
     host: 'localhost',
     autoOpenBrowser: true,
   },
-  useHttps: true,
+  useHttps: false,
   prePush: [
     {
       name: 'esLintCheck',
