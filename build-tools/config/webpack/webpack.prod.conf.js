@@ -79,12 +79,6 @@ const webpackConfig = merge(baseWebpackConfig, {
         safe: true,
       },
     }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true,
-      options: {
-        context: path.resolve(__dirname, '../'),
-      },
-    }),
     new ExtractTextPlugin({
       filename: path.posix.join(config.build.versionPath, '/css/[name].css'),
     }),
