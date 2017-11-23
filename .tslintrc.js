@@ -1,6 +1,11 @@
 module.exports = {
   extends: ['tslint-config-airbnb', 'tslint-config-prettier'],
   defaultSeverity: 'error',
+  linterOptions: {
+    exclude: [
+      './src/vendor/**/*.ts',
+    ]
+  },
   rules: {
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     'no-console': process.env.NODE_ENV === 'production' ? 1 : 0,
