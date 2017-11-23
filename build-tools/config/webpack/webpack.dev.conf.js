@@ -67,12 +67,6 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': config.dev.env,
     }),
-    new webpack.LoaderOptionsPlugin({
-      debug: true,
-      options: {
-        context: path.resolve(__dirname, '../'),
-      },
-    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.NamedChunksPlugin(),
