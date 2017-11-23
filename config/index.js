@@ -36,9 +36,11 @@ module.exports = {
       PUBLIC_PATH: JSON.stringify('/'),
     },
     port: 8080,
-    proxyTable: {}
+    proxyTable: {},
+    host: 'localhost',
+    autoOpenBrowser: true,
   },
-  useHttps: false,
+  useHttps: true,
   prePush: [
     {
       name: 'esLintCheck',

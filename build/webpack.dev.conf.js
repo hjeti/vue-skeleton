@@ -7,17 +7,11 @@ const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const webpackHelpers = require('./webpackHelpers');
+const detectPort = require('detect-port');
 
 const disableHotReload = process.argv.indexOf('--disableHotReloading') != -1 || false;
 
-// add hot-reload related code to entry chunks
-if (!disableHotReload) {
-  Object.keys(baseWebpackConfig.entry).forEach(function(name) {
-    baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name]);
-  });
-}
-
-module.exports = merge(baseWebpackConfig, {
+const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: [
       {
@@ -54,6 +48,22 @@ module.exports = merge(baseWebpackConfig, {
       },
     ],
   },
+  devServer: {
+    clientLogLevel: 'info',
+    historyApiFallback: true,
+    hot: !disableHotReload,
+    compress: true,
+    host: process.env.HOST || config.dev.host,
+    port: process.env.PORT || config.dev.port,
+    open: config.dev.autoOpenBrowser,
+    overlay: {
+      warnings: false,
+      errors: true,
+    },
+    proxy: config.dev.proxyTable,
+    quiet: true,
+    https: config.useHttps
+  },
   devtool: 'cheap-module-eval-source-map',
   plugins: [
     new webpack.DefinePlugin({
@@ -74,7 +84,6 @@ module.exports = merge(baseWebpackConfig, {
       version: '/',
       inject: true,
     }),
-    new FriendlyErrorsWebpackPlugin(),
     new CopyWebpackPlugin([
       {
         from: 'static',
@@ -90,4 +99,17 @@ module.exports = merge(baseWebpackConfig, {
       },
     ]),
   ],
+});
+
+module.exports = detectPort(devWebpackConfig.devServer.port).then(function (port) {
+  process.env.PORT = port;
+  devWebpackConfig.devServer.port = port;
+
+  devWebpackConfig.plugins.push(new FriendlyErrorsWebpackPlugin({
+    compilationSuccessInfo: {
+      messages: [`Your application is running here: ${config.useHttps ? 'https' : 'http'}://${config.dev.host}:${port}`],
+    }
+  }));
+
+  return devWebpackConfig;
 });
