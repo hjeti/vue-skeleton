@@ -1,0 +1,16 @@
+{
+  "extends": ["tslint-config-airbnb", "tslint-config-prettier"],
+  "defaultSeverity": "error",
+  "linterOptions": {
+    "exclude": [
+      "./src/vendor/**/*.ts"
+    ]
+  },
+  "rules": {
+    "no-debugger": 2,
+    "no-console": 1,
+    "prefer-array-literal": [true, { "allow-type-parameters": true }],
+    "variable-name": [true, "allow-pascal-case"],
+    "max-line-length": [true, 100]
+  }
+}
