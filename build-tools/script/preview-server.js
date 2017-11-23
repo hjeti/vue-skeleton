@@ -8,7 +8,7 @@ const fs = require('fs');
 const https = require('https');
 const http = require('http');
 const compression = require('compression');
-const webpackConfig = require('./webpack.prod.conf');
+const webpackConfig = require('../config/webpack/webpack.prod.conf');
 
 // default port where dev server listens for incoming traffic
 const port = 4040;
@@ -19,11 +19,11 @@ const server = express();
 server.use(require('connect-history-api-fallback')());
 server.use(compression());
 
-server.use(webpackConfig.output.publicPath, express.static(path.join(__dirname, '../dist')));
-server.use('/static', express.static(path.join(__dirname, '../dist/static')));
+server.use(webpackConfig.output.publicPath, express.static(path.join(__dirname, '../../build')));
+server.use('/static', express.static(path.join(__dirname, '../../build/static')));
 
 server.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, '../dist/index.html'));
+  res.sendFile(path.join(__dirname, '../../build/index.html'));
 });
 
 const uri = (config.useHttps ? 'https' : 'http') + '://localhost:' + port;
@@ -35,8 +35,8 @@ let createdServer;
 if (config.useHttps) {
   createdServer = https.createServer(
     {
-      key: fs.readFileSync(path.join(__dirname, './ssl/key.pem')),
-      cert: fs.readFileSync(path.join(__dirname, './ssl/cert.pem')),
+      key: fs.readFileSync(path.join(__dirname, '../ssl/key.pem')),
+      cert: fs.readFileSync(path.join(__dirname, '../ssl/cert.pem')),
     },
     server
   );

@@ -4,7 +4,7 @@ require('shelljs/global');
 const config = require('../config');
 const ora = require('ora');
 const webpack = require('webpack');
-const webpackConfig = require('./webpack.prod.conf');
+const webpackConfig = require('../config/webpack/webpack.prod.conf');
 const fs = require('fs-extra');
 const chalk = require('chalk');
 

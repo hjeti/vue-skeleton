@@ -22,7 +22,7 @@ module.exports = {
       STATIC_ROOT: JSON.stringify(publicPath),
       PUBLIC_PATH: JSON.stringify(publicPath),
     },
-    index: path.resolve(__dirname, '../dist/index.html'),
+    index: path.resolve(__dirname, '../../build/index.html'),
     versionPath: versionPath,
     publicPath: publicPath,
     enableImageOptimization: true,

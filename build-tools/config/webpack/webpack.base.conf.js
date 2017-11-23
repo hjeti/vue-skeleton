@@ -1,8 +1,8 @@
 const path = require('path');
-const config = require('../config');
+const config = require('../../config');
 const webpackHelpers = require('./webpackHelpers');
 
-const projectRoot = path.resolve(__dirname, '../');
+const projectRoot = path.resolve(__dirname, '../../../');
 const isDevelopment = process.env.NODE_ENV == 'development';
 
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
     app: './src/bootstrap.js',
   },
   output: {
-    path: path.join(projectRoot, 'dist'),
+    path: path.join(projectRoot, 'build'),
     publicPath: '/',
     filename: '[name].js',
     chunkFilename: '[id].js',
