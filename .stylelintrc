@@ -1,24 +1,16 @@
 {
 	"extends": [
 		"stylelint-config-standard",
-		"stylelint-config-recommended-scss"
+		"stylelint-config-recommended-scss",
+		"stylelint-config-prettier"
 	],
 	"rules": {
 		"selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": "/^local|^global/" }],
 		"max-nesting-depth": 5,
 		"selector-max-compound-selectors": 4,
 		"selector-pseudo-element-colon-notation": null,
-		"at-rule-empty-line-before": ["always", { "except": ["inside-block", "blockless-after-same-name-blockless"], "ignore": "after-comment"}],
-		"rule-empty-line-before": ["always-multi-line", {
-			"except": [
-				"after-single-line-comment",
-				"inside-block-and-after-rule",
-				"first-nested"
-			],
-			"ignore": [
-				"after-comment",
-				"inside-block"
-			]
-		}]
+		"at-rule-empty-line-before": null,
+		"rule-empty-line-before": null,
+		"declaration-empty-line-before": null
 	}
 }
