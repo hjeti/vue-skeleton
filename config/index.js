@@ -25,8 +25,6 @@ module.exports = {
     index: path.resolve(__dirname, '../dist/index.html'),
     versionPath: versionPath,
     publicPath: publicPath,
-    enableESLintLoader: true,
-    enableTSLintLoader: true,
     enableImageOptimization: true,
     enablePNGQuant: true, // Best PNG optimizer but PNGQuant crashes on some images so use with caution.
   },
@@ -38,9 +36,7 @@ module.exports = {
       PUBLIC_PATH: JSON.stringify('/'),
     },
     port: 8080,
-    proxyTable: {},
-    enableESLintLoader: false,
-    enableTSLintLoader: false,
+    proxyTable: {}
   },
   useHttps: false,
   prePush: [

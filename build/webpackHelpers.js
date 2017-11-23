@@ -90,38 +90,3 @@ exports.getVueLoaderConfig = function(isDevelopment, eslintLoaderEnabled) {
 
   return config;
 };
-
-exports.getESLintLoader = function(enabled, projectRoot) {
-  return enabled
-    ? {
-        test: /\.js$/,
-        enforce: 'pre',
-        use: [
-          {
-            loader: 'eslint-loader',
-          },
-        ],
-        include: [path.join(projectRoot, 'src')],
-      }
-    : {};
-};
-
-exports.getTSLintLoader = function(enabled, projectRoot) {
-  return enabled
-    ? {
-        test: /\.ts$/,
-        enforce: 'pre',
-        use: [
-          {
-            loader: 'tslint-loader',
-            options: {
-              tsConfigFile: path.resolve(__dirname, '../tsconfig.json'),
-              configFile: path.resolve(__dirname, '../.tslintrc.js'),
-            },
-          },
-        ],
-        include: [path.join(projectRoot, 'src')],
-        exclude: /node_modules|vendor/,
-      }
-    : {};
-};

@@ -4,12 +4,6 @@ const webpackHelpers = require('./webpackHelpers');
 
 const projectRoot = path.resolve(__dirname, '../');
 const isDevelopment = process.env.NODE_ENV == 'development';
-const eslintLoaderEnabled = isDevelopment
-  ? config.dev.enableESLintLoader
-  : config.build.enableESLintLoader;
-const tslintLoaderEnabled = isDevelopment
-  ? config.dev.enableTSLintLoader
-  : config.build.enableTSLintLoader;
 
 module.exports = {
   entry: {
@@ -45,7 +39,6 @@ module.exports = {
         test: /\.(glsl|txt)$/,
         use: 'raw-loader',
       },
-      webpackHelpers.getESLintLoader(eslintLoaderEnabled, projectRoot),
       {
         test: /\.ts$/,
         include: [path.join(projectRoot, 'src')],
@@ -59,7 +52,6 @@ module.exports = {
           },
         ],
       },
-      webpackHelpers.getTSLintLoader(tslintLoaderEnabled, projectRoot),
       {
         test: /\.svg$/,
         use: [
