@@ -6,7 +6,6 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --config build-tools/config/webpack/webpack.dev.conf.js",
-    "dev-dhr": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --config build-tools/config/webpack/webpack.dev.conf.js --disableHotReloading",
     "build": "cross-env NODE_ENV=production node build-tools/script/build.js",
     "eslint": "eslint src --ext .js --cache",
     "tslint": "tslint src/**/*.ts -p tsconfig.json",

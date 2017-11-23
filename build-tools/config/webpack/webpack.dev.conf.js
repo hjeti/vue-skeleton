@@ -9,8 +9,6 @@ const path = require('path');
 const webpackHelpers = require('./webpackHelpers');
 const detectPort = require('detect-port');
 
-const disableHotReload = process.argv.indexOf('--disableHotReloading') != -1 || false;
-
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: [
@@ -51,7 +49,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   devServer: {
     clientLogLevel: 'info',
     historyApiFallback: true,
-    hot: !disableHotReload,
+    hot: true,
     compress: true,
     host: process.env.HOST || config.dev.host,
     port: process.env.PORT || config.dev.port,
@@ -83,6 +81,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       template: 'index.html',
       version: '/',
       inject: true,
+      cache: true
     }),
     new CopyWebpackPlugin([
       {
