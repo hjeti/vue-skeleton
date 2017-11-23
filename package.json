@@ -12,20 +12,10 @@
     "tslint": "tslint src/**/*.ts -p tsconfig.json",
     "stylelint": "stylelint \"./src/**/*.scss\" --cache",
     "preview": "node build-tools/script/preview-server.js",
-    "prepush": "node bin/prePush.js",
     "precommit": "lint-staged",
     "analyze": "webpack-bundle-analyzer stats.json ./build",
     "postcommit": "git reset",
     "prettify": "prettier --write \"src/**/*.{js,ts}\""
-  },
-  "lint-staged": {
-    "gitDir": "./",
-    "linters": {
-      "src/**/*.{js,ts}": [
-        "prettier --write",
-        "git add"
-      ]
-    }
   },
   "dependencies": {
     "axios": "^0.17.0",

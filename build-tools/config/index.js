@@ -41,23 +41,9 @@ module.exports = {
     autoOpenBrowser: true,
   },
   useHttps: false,
-  prePush: [
-    {
-      name: 'esLintCheck',
-      options: {},
-    },
-    {
-      name: 'styleLintCheck',
-    },
-    // {
-    // 	name: 'tsLintCheck',
-    // 	options: {
-    // 		// Make sure that these folders are also excluded in the tslintloader config in webpackHelpers.js
-    // 		exclude: [
-    // 			'./node_modules/**/*',
-    // 			'./src/vendor/**/*'
-    // 		],
-    // 	},
-    // },
-  ],
+  lintStaged: {
+    eslintEnabled: true,
+    tslintEnabled: true,
+    stylelintEnabled: true
+  }
 };
