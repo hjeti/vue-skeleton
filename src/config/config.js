@@ -25,9 +25,11 @@ const config = {
   variables: {
     [VariableNames.LOCALE_ENABLED]: false,
     [VariableNames.LOCALE_ROUTING_ENABLED]: false,
-    [VariableNames.VERSIONED_STATIC_ROOT]: process.env.VERSIONED_STATIC_ROOT,
-    [VariableNames.STATIC_ROOT]: process.env.STATIC_ROOT,
-    [VariableNames.PUBLIC_PATH]: process.env.PUBLIC_PATH,
+    [VariableNames.VERSIONED_STATIC_ROOT]:
+      (window.webpackPublicPath || process.env.PUBLIC_PATH) + process.env.VERSIONED_STATIC_ROOT,
+    [VariableNames.STATIC_ROOT]:
+      (window.webpackPublicPath || process.env.PUBLIC_PATH) + process.env.STATIC_ROOT,
+    [VariableNames.PUBLIC_PATH]: window.webpackPublicPath || process.env.PUBLIC_PATH,
   },
   urls: {
     [URLNames.LOCALE]: `${process.env.VERSIONED_STATIC_ROOT}locale/{locale}.json`,

@@ -28,6 +28,11 @@ Object.keys(component).forEach(key => Vue.component(key, component[key]));
 
 setupInjects();
 
+if (window.webpackPublicPath) {
+  // eslint-disable-next-line
+  __webpack_public_path__ = window.webpackPublicPath;
+}
+
 const router = getRouter();
 const store = getStore();
 const localeConfig = getLocaleConfig();

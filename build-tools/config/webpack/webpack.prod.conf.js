@@ -33,7 +33,7 @@ const webpackConfig = merge(baseWebpackConfig, {
           {
             loader: 'url-loader',
             options: {
-              limit: 10000,
+              limit: 0,
               name: path.posix.join(config.build.versionPath, 'image/[name].[hash:7].[ext]'),
             },
           },
@@ -45,7 +45,7 @@ const webpackConfig = merge(baseWebpackConfig, {
           {
             loader: 'url-loader',
             options: {
-              limit: 10000,
+              limit: 0,
               name: path.posix.join(config.build.versionPath, 'font/[name].[hash:7].[ext]'),
             },
           },
