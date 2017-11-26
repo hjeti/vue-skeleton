@@ -11,6 +11,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const webpackHelpers = require('./webpackHelpers');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const env = config.build.env;
 
@@ -135,6 +136,29 @@ const webpackConfig = merge(baseWebpackConfig, {
       generateStatsFile: true,
       statsFilename: '../stats.json',
     }),
+    ...(config.build.generateIcons ? (
+    [
+      new FaviconsWebpackPlugin({
+        logo: path.resolve(__dirname, '../../../static/image/favicon.png'),
+        prefix: config.build.versionPath + 'static/favicon/',
+        emitStats: false,
+        persistentCache: false,
+        inject: true,
+        background: '#fff',
+        title: '',
+        icons: {
+          android: true,
+          appleIcon: true,
+          appleStartup: false,
+          coast: false,
+          favicons: true,
+          firefox: true,
+          opengraph: true,
+          twitter: true,
+          yandex: true,
+          windows: true
+        }
+    })]) : []),
   ],
 });
 

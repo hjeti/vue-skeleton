@@ -38,6 +38,7 @@ module.exports = {
     publicPath: publicPath,
     enableImageOptimization: true,
     enablePNGQuant: true, // Best PNG optimizer but PNGQuant crashes on some images so use with caution.
+    generateIcons: true, // generates icons for all platforms with favicon.png from static/image/favicon.png as the source image
   },
   dev: {
     env: {
@@ -55,6 +56,6 @@ module.exports = {
   lintStaged: {
     eslintEnabled: true,
     tslintEnabled: true,
-    stylelintEnabled: true
-  }
+    stylelintEnabled: true,
+  },
 };
