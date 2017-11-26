@@ -38,7 +38,7 @@ const config = {
   properties: {
     [PropertyNames.DEFAULT_LOCALE]: 'en-gb',
     [PropertyNames.AVAILABLE_LOCALES]: ['en-gb'],
-    [PropertyNames.WHITELISTED_QUERY_PARAMS]: ['token', 'q'],
+    [PropertyNames.WHITELISTED_QUERY_PARAMS]: [],
   },
 };
 
