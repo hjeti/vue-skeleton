@@ -3,15 +3,15 @@ const config = require('./build-tools/config');
 const defaultSettings = ['prettier --write', 'git add'];
 
 const jsSettings = config.lintStaged.eslintEnabled
-  ? [...defaultSettings, 'eslint --ext .js --cache']
+  ? [...defaultSettings, 'npm run lint:js']
   : [...defaultSettings];
 
 const tsSettings = config.lintStaged.tslintEnabled
-  ? [...defaultSettings, 'tslint -p tsconfig.json']
+  ? [...defaultSettings, 'npm run lint:ts']
   : [...defaultSettings];
 
 const scssSettings = config.lintStaged.stylelintEnabled
-  ? [...defaultSettings, 'stylelint --cache']
+  ? [...defaultSettings, 'npm run lint:scss']
   : [...defaultSettings];
 
 module.exports = {
