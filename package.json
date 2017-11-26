@@ -14,7 +14,7 @@
     "precommit": "lint-staged",
     "analyze": "webpack-bundle-analyzer stats.json ./build",
     "postcommit": "git reset",
-    "prettify": "prettier --write \"src/**/*.{js,ts}\""
+    "prettify": "prettier --write \"src/**/*.{js,ts,scss}\""
   },
   "dependencies": {
     "axios": "^0.17.0",
