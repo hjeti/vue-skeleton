@@ -3,10 +3,10 @@ import { {{#each mutations}}{{this}}{{#unless @last}}, {{/unless}}{{/each}} } fr
 {{/if}}
 
 export default {
-	{{#if mutations}}
-	{{#each mutations}}
-	[{{this}}]: (state, payload) => {
-	},
-	{{/each}}
-	{{/if}}
+  {{#if mutations}}
+  {{#each mutations}}
+  [{{this}}]: (state, payload) => {
+  },
+  {{/each}}
+  {{/if}}
 };

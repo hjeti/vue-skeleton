@@ -7,11 +7,11 @@ import {{name_cc}} from './{{name_cc}}';
 export const {{name_pc}}Namespace = '{{name_cc}}';
 
 export const {{name_pc}}MutationTypes = {
-	{{#if mutations}}
-	{{#each mutations}}
-	{{this}}: `{{prepend (append ../name_pc "Namespace}") "${"}}/{{prepend (append this "}") "${"}}`,
-	{{/each}}
-	{{/if}}
+  {{#if mutations}}
+  {{#each mutations}}
+  {{this}}: `{{prepend (append ../name_pc "Namespace}") "${"}}/{{prepend (append this "}") "${"}}`,
+  {{/each}}
+  {{/if}}
 };
 
 export default {{name_cc}};
