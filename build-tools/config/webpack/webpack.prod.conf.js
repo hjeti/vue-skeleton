@@ -100,7 +100,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       disable: !config.build.enableImageOptimization,
       svgo: null,
       gifsicle: null,
-      pngquant: config.build.enablePNGQuant ? { quality: '65' } : null,
+      pngquant: config.build.enablePNGQuant ? { quality: config.build.pngQuantQuality } : null,
     }),
     // split vendor js into its own file
     new webpack.optimize.CommonsChunkPlugin({
