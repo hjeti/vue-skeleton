@@ -14,6 +14,7 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 
 const env = config.build.env;
+const projectRoot = path.resolve(__dirname, '../../../');
 
 const webpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -109,7 +110,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         return (
           module.resource &&
           /\.js$/.test(module.resource) &&
-          module.resource.indexOf(path.join(__dirname, '../../../node_modules')) === 0
+          module.resource.indexOf(path.join(projectRoot, './node_modules')) === 0
         );
       },
     }),
@@ -134,12 +135,12 @@ const webpackConfig = merge(baseWebpackConfig, {
     new BundleAnalyzerPlugin({
       analyzerMode: 'disabled',
       generateStatsFile: true,
-      statsFilename: '../stats.json',
+      statsFilename: path.join(projectRoot, './stats.json'),
     }),
     ...(config.build.generateIcons ? (
     [
       new FaviconsWebpackPlugin({
-        logo: path.resolve(__dirname, '../../../static/image/favicon.png'),
+        logo: path.join(projectRoot, './static/image/favicon.png'),
         prefix: config.build.versionPath + 'static/favicon/',
         emitStats: false,
         persistentCache: false,

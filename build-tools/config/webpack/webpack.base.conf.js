@@ -3,7 +3,7 @@ const config = require('../../config');
 const webpackHelpers = require('./webpackHelpers');
 
 const projectRoot = path.resolve(__dirname, '../../../');
-const isDevelopment = process.env.NODE_ENV == 'development';
+const isDevelopment = process.env.NODE_ENV === 'development';
 
 module.exports = {
   entry: {
