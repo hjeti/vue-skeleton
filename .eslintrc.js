@@ -30,8 +30,8 @@ module.exports = {
       },
     ],
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
-    'no-console': process.env.NODE_ENV === 'production' ? 1 : 0,
+    'no-debugger': 2,
+    'no-console': 1,
     'max-len': ['error', 100],
     'no-param-reassign': 0,
     // only for use with getter-setters
