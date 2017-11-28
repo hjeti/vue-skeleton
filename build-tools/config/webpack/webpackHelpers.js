@@ -44,7 +44,7 @@ exports.getVueLoaderConfig = function(isDevelopment, eslintLoaderEnabled) {
   let scssLoaders;
 
   if (isDevelopment) {
-    scssLoaders = ['vue-style-loader', 'css-loader'].map(loader => ({ loader: loader }));
+    scssLoaders = ['vue-style-loader', 'css-loader'].map(loader => ({ loader }));
     scssLoaders.push(this.getSassLoaderConfig());
   } else {
     scssLoaders = ExtractTextPlugin.extract({
