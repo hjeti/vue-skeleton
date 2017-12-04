@@ -23,7 +23,18 @@ if (!publicPath.endsWith('/')) {
   publicPath = `${publicPath}/`;
 }
 
-const versionPath = 'version/' + new Date().getTime() + '/';
+/*
+It's also possible to override the version number during a build.
+
+npm run build -- --versionNumber=v1
+ */
+let version = new Date().getTime();
+
+if(argv.versionNumber){
+  version = argv.versionNumber;
+}
+
+const versionPath = 'version/' + version + '/';
 
 module.exports = {
   build: {
