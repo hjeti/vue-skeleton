@@ -10,7 +10,7 @@ module.exports = {
     app: './src/bootstrap.js',
   },
   output: {
-    path: path.join(projectRoot, 'build'),
+    path: path.join(projectRoot, 'dist'),
     publicPath: '/',
     filename: '[name].js',
     chunkFilename: '[id].js',

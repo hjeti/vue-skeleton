@@ -14,16 +14,17 @@ const webpackConfig = require('../config/webpack/webpack.prod.conf');
 const port = 4040;
 
 const server = express();
+const root = path.join(__dirname, '../../dist');
 
 // handle fallback for HTML5 history API
 server.use(require('connect-history-api-fallback')());
 server.use(compression());
 
-server.use(webpackConfig.output.publicPath, express.static(path.join(__dirname, '../../build')));
-server.use('/static', express.static(path.join(__dirname, '../../build/static')));
+server.use(webpackConfig.output.publicPath, express.static(root));
+server.use('/static', express.static(path.join(root, './static')));
 
 server.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, '../../build/index.html'));
+  res.sendFile(path.join(root, './index.html'));
 });
 
 const uri = (config.useHttps ? 'https' : 'http') + '://localhost:' + port;
