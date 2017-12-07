@@ -32,7 +32,6 @@ module.exports = {
     // allow debugger during development
     'no-debugger': 2,
     'no-console': 1,
-    'max-len': ['error', 100],
     'no-param-reassign': 0,
     // only for use with getter-setters
     'no-underscore-dangle': 0,
