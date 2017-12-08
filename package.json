@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A Vue Skeleton",
   "author": "Hendrik-Jan de Harder <hendrik-jan@mediamonks.com>",
+  "license" : "MIT",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --config build-tools/config/webpack/webpack.dev.conf.js",
