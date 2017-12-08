@@ -61,7 +61,6 @@ module.exports = {
     },
     port: 8080,
     proxyTable: {},
-    host: 'localhost',
     autoOpenBrowser: true,
   },
   useHttps: false,
