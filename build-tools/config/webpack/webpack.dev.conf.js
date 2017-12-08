@@ -8,6 +8,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const webpackHelpers = require('./webpackHelpers');
 const detectPort = require('detect-port');
+const opn = require('opn');
 
 const devWebpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -53,7 +54,8 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     compress: true,
     host: process.env.HOST || '0.0.0.0',
     port: process.env.PORT || config.dev.port,
-    open: config.dev.autoOpenBrowser,
+    disableHostCheck: true,
+    open: false,
     overlay: {
       warnings: false,
       errors: true,
@@ -103,6 +105,10 @@ module.exports = detectPort(devWebpackConfig.devServer.port).then(function (port
       messages: [`Your application is running here: ${config.useHttps ? 'https' : 'http'}://localhost:${port}`],
     }
   }));
+
+  if(config.dev.autoOpenBrowser) {
+    opn(`${config.useHttps ? 'https' : 'http'}://localhost:${port}`).catch(() => {});
+  }
 
   return devWebpackConfig;
 });
