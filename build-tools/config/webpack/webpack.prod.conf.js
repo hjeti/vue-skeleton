@@ -12,6 +12,7 @@ const webpackHelpers = require('./webpackHelpers');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 
 const env = config.build.env;
 const projectRoot = path.resolve(__dirname, '../../../');
@@ -118,6 +119,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       name: 'manifest',
       minChunks: Infinity,
     }),
+    new LodashModuleReplacementPlugin(),
     new CopyWebpackPlugin([
       {
         from: 'static',
