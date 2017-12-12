@@ -3,7 +3,7 @@ const argv = require('yargs').argv;
 
 /*
 change the publicPath if site is running in a subfolder on the server. It's also possible to override this
-publicPath by using: npm run build -- --publicPath=/v/vue-skeleton/
+publicPath by using: yarn build -- --publicPath=/v/vue-skeleton/
 
 When you don't know the publicPath at build time, you can set `window['webpackPublicPath']` before
 loading any script in your HTML.
@@ -26,7 +26,7 @@ if (!publicPath.endsWith('/')) {
 /*
 It's also possible to override the version number during a build.
 
-npm run build -- --versionNumber=v1
+yarn build -- --versionNumber=v1
  */
 let version = new Date().getTime();
 
