@@ -17,6 +17,7 @@
       "allow-undefined-union",
       "allow-string",
       "allow-number"
-    ]
+    ],
+    "import-name": 0
   }
 }
