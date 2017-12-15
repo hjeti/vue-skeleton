@@ -28,19 +28,24 @@ Object.keys(component).forEach(key => Vue.component(key, component[key]));
 
 setupInjects();
 
+if (window.webpackPublicPath) {
+  // eslint-disable-next-line
+  __webpack_public_path__ = window.webpackPublicPath;
+}
+
 const router = getRouter();
 const store = getStore();
 const localeConfig = getLocaleConfig();
 
 if (localeConfig.localeEnabled) {
-	Vue.use(VueI18nManager, {
-		store,
-		router,
-		config: localeConfig.config,
-		proxy: localeLoader,
-	});
+  Vue.use(VueI18nManager, {
+    store,
+    router,
+    config: localeConfig.config,
+    proxy: localeLoader,
+  });
 
-	Vue.initI18nManager();
+  Vue.initI18nManager();
 }
 
 // sync router data to store
@@ -48,9 +53,9 @@ sync(store, router);
 
 // Init new vue app
 const app = new Vue({
-	router,
-	store,
-	render: createElement => createElement(App),
+  router,
+  store,
+  render: createElement => createElement(App),
 });
 
 // Mount the app after startUp

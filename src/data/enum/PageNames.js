@@ -1,3 +1,3 @@
 export default {
-	HOME: 'home',
+  HOME: 'home',
 };

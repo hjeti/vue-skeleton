@@ -1,4 +1,4 @@
 export default {
-	ID: 'id',
-	SLUG: 'slug',
+  ID: 'id',
+  SLUG: 'slug',
 };

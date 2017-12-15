@@ -5,7 +5,6 @@
 		"stylelint-config-prettier"
 	],
 	"rules": {
-		"indentation": "tab",
 		"selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": "/^local|^global/" }],
 		"max-nesting-depth": 5,
 		"selector-max-compound-selectors": 4,

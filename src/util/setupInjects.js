@@ -8,24 +8,24 @@ import { setValue } from './injector';
 import { responseFormatter, errorFormatter } from './gatewayFormatter';
 
 const setupInjects = () => {
-	const configManager = new ConfigManager();
-	configManager.init(config.config, config.environment);
+  const configManager = new ConfigManager();
+  configManager.init(config.config, config.environment);
 
-	const gateway = axios.create({
-		baseURL: configManager.getURL(URLNames.API),
-		headers: {
-			Accept: 'application/json',
-		},
-		responseType: 'json',
-	});
+  const gateway = axios.create({
+    baseURL: configManager.getURL(URLNames.API),
+    headers: {
+      Accept: 'application/json',
+    },
+    responseType: 'json',
+  });
 
-	gateway.interceptors.response.use(
-		response => responseFormatter(response),
-		error => Promise.reject(errorFormatter(error)),
-	);
+  gateway.interceptors.response.use(
+    response => responseFormatter(response),
+    error => Promise.reject(errorFormatter(error)),
+  );
 
-	setValue(CONFIG_MANAGER, configManager);
-	setValue(GATEWAY, gateway);
+  setValue(CONFIG_MANAGER, configManager);
+  setValue(GATEWAY, gateway);
 };
 
 export default setupInjects;

@@ -23,12 +23,12 @@ When built, the whole skeleton is only **~66kb** gzipped!
 * [seng-scss](https://github.com/mediamonks/seng-scss)
 * [airbnb coding standard](https://github.com/airbnb/javascript) (integrated with es/ts-lint)
 * [modernizr](https://github.com/Modernizr/Modernizr)
+* [prettier](https://prettier.io/)
+* [lint-staged](https://github.com/okonet/lint-staged)
 * [stylelint](https://github.com/stylelint/stylelint) + [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard)
 * i18n using [i18nManager](https://github.com/MatteoGabriele/vue-i18n-manager)
 * versioning
 * (build) preview server (gzip enabled)
-* optional es/ts-lint loader
-* optional prepush es/ts-lint hooks
 * SVG support
 * https support
 * [Image optimization](https://github.com/Klathmon/imagemin-webpack-plugin)

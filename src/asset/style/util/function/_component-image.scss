@@ -6,5 +6,5 @@
  * @require {function} asset
  */
 @function componentImage($file) {
-	@return url($pathComponentImage + '/' + $file);
+  @return url($pathComponentImage + '/' + $file);
 }
