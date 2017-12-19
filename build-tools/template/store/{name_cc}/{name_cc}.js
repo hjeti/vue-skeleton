@@ -6,10 +6,8 @@ export const {{this}} = '{{camelcase this}}';
 
 export default {
   namespaced: true,
-  state: {
-  },
-  getters: {
-  },
+  state: {},
+  getters: {},
   mutations: {
     {{#if mutations}}
     {{#each mutations}}
@@ -18,6 +16,5 @@ export default {
     {{/each}}
     {{/if}}
   },
-  actions: {
-  },
+  actions: {},
 };
