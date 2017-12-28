@@ -1,6 +1,7 @@
 {
   "extends": ["tslint-config-airbnb", "tslint-config-prettier"],
   "defaultSeverity": "error",
+  "rulesDirectory": ["tslint-plugin-prettier"],
   "linterOptions": {
     "exclude": [
       "./src/vendor/**/*.ts"
@@ -18,6 +19,7 @@
       "allow-string",
       "allow-number"
     ],
-    "import-name": 0
+    "import-name": 0,
+    "prettier": true
   }
 }
