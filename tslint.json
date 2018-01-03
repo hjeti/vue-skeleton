@@ -8,8 +8,8 @@
     ]
   },
   "rules": {
-    "no-debugger": 2,
-    "no-console": 1,
+    "no-debugger": true,
+    "no-console": true,
     "prefer-array-literal": [true, { "allow-type-parameters": true }],
     "variable-name": [true, "allow-pascal-case"],
     "strict-boolean-expressions": [
@@ -19,7 +19,7 @@
       "allow-string",
       "allow-number"
     ],
-    "import-name": 0,
+    "import-name": false,
     "prettier": true
   }
 }
