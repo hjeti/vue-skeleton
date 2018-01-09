@@ -32,7 +32,7 @@ const config = {
     [VariableNames.PUBLIC_PATH]: window.webpackPublicPath || process.env.PUBLIC_PATH,
   },
   urls: {
-    [URLNames.LOCALE]: `${VariableNames.VERSIONED_STATIC_ROOT}locale/{locale}.json`,
+    [URLNames.LOCALE]: `{${VariableNames.VERSIONED_STATIC_ROOT}}locale/{locale}.json`,
     [URLNames.API]: `${process.env.PUBLIC_PATH}api/`,
   },
   properties: {
