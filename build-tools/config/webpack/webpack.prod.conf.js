@@ -28,7 +28,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       },
       {
         test: /\.vue$/,
-        use: [webpackHelpers.getVueLoaderConfig(false, config.build.enableESLintLoader)],
+        use: [webpackHelpers.getVueLoaderConfig(false)],
       },
       {
         test: /\.(png|jpe?g|gif)(\?.*)?$/,

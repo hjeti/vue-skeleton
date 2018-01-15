@@ -47,7 +47,7 @@ exports.getScssLoaderConfig = function(isDevelopment) {
   return config;
 };
 
-exports.getVueLoaderConfig = function(isDevelopment, eslintLoaderEnabled) {
+exports.getVueLoaderConfig = function(isDevelopment) {
   let scssLoaders;
 
   if (isDevelopment) {
@@ -76,12 +76,6 @@ exports.getVueLoaderConfig = function(isDevelopment, eslintLoaderEnabled) {
       loader: 'babel-loader',
     },
   ];
-
-  if (eslintLoaderEnabled) {
-    jsLoaders.push({
-      loader: 'eslint-loader',
-    });
-  }
 
   const config = {
     loader: 'vue-loader',
