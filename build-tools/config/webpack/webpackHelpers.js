@@ -1,12 +1,13 @@
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 
-exports.getSassLoaderConfig = function() {
+exports.getSassLoaderConfig = function(isDevelopment) {
   return {
     loader: 'sass-loader',
     options: {
       data: '@import "src/asset/style/utils.scss";',
       includePaths: ['src/asset/style'],
+      sourceMap: isDevelopment
     },
   };
 };
@@ -24,11 +25,17 @@ exports.getScssLoaderConfig = function(isDevelopment) {
   const config = [
     {
       loader: 'css-loader',
+      options: {
+        sourceMap: isDevelopment
+      }
     },
     {
       loader: 'postcss-loader',
+      options: {
+        sourceMap: isDevelopment
+      }
     },
-    this.getSassLoaderConfig(),
+    this.getSassLoaderConfig(isDevelopment),
   ];
 
   if (isDevelopment) {
@@ -44,7 +51,13 @@ exports.getVueLoaderConfig = function(isDevelopment, eslintLoaderEnabled) {
   let scssLoaders;
 
   if (isDevelopment) {
-    scssLoaders = ['vue-style-loader', 'css-loader'].map(loader => ({ loader }));
+    scssLoaders = ['vue-style-loader'].map(loader => ({ loader }));
+    scssLoaders.push({
+      loader: 'css-loader',
+      options: {
+        sourceMap: true
+      }
+    });
     scssLoaders.push(this.getSassLoaderConfig());
   } else {
     scssLoaders = ExtractTextPlugin.extract({
@@ -52,7 +65,7 @@ exports.getVueLoaderConfig = function(isDevelopment, eslintLoaderEnabled) {
         {
           loader: 'css-loader',
         },
-        this.getSassLoaderConfig(),
+        this.getSassLoaderConfig(isDevelopment),
       ],
       fallback: 'vue-style-loader',
     });
@@ -70,23 +83,23 @@ exports.getVueLoaderConfig = function(isDevelopment, eslintLoaderEnabled) {
     });
   }
 
-	const config = {
-		loader: 'vue-loader',
-		options: {
-			loaders: {
-				scss: scssLoaders,
-				js: jsLoaders,
-			},
-			postcss: [],
+  const config = {
+    loader: 'vue-loader',
+    options: {
+      loaders: {
+        scss: scssLoaders,
+        js: jsLoaders,
+      },
+      postcss: [],
 
-			cssModules: {
-				localIdentName: '[local]-[hash:base64:7]',
-				camelCase: true,
-			},
-			transformToRequire: {
-				source: 'srcset'
-			}},
-	};
+      cssModules: {
+        localIdentName: '[local]-[hash:base64:7]',
+        camelCase: true,
+      },
+      transformToRequire: {
+        source: 'srcset'
+      }},
+  };
 
   return config;
 };
