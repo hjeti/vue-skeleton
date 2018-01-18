@@ -31,7 +31,6 @@ const getRouter = () => {
       base: configManager.getVariable(VariableNames.PUBLIC_PATH),
     });
 
-    let initialized = false;
     router.beforeEach((to, from, next) => {
       const whitelistedQueryParams = configManager.getProperty(
         PropertyNames.WHITELISTED_QUERY_PARAMS,
@@ -50,14 +49,10 @@ const getRouter = () => {
         });
       }
 
-      if (initialized && to.path === from.path) {
-        next(false);
-      } else if (redirect) {
+      if (redirect) {
         next({ path: to.path, query });
-        initialized = true;
       } else {
         next();
-        initialized = true;
       }
     });
   }
