@@ -21,7 +21,9 @@ const setupInjects = () => {
 
   gateway.interceptors.response.use(
     response => responseFormatter(response),
-    error => Promise.reject(errorFormatter(error)),
+    error => {
+      throw errorFormatter(error);
+    },
   );
 
   setValue(CONFIG_MANAGER, configManager);
