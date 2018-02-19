@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --config build-tools/config/webpack/webpack.dev.conf.js",
     "build": "cross-env NODE_ENV=production node build-tools/script/build.js",
-    "lint:js": "eslint src --ext .js --cache",
+    "lint:js": "eslint src --ext .js,.vue --cache",
     "lint:ts": "tslint src/**/*.ts -p tsconfig.json",
     "lint:scss": "stylelint \"./src/**/*.scss\" --cache",
     "preview": "node build-tools/script/preview-server.js",
