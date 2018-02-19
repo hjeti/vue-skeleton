@@ -15,7 +15,7 @@ const scssSettings = config.lintStaged.stylelintEnabled
   : [...defaultSettings];
 
 module.exports = {
-  'src/**/*.js': jsSettings,
+  'src/**/*.{js,vue}': jsSettings,
   'src/**/*.ts': tsSettings,
   'src/**/*.scss': scssSettings,
 };
