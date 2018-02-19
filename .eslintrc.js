@@ -30,6 +30,9 @@ module.exports = {
         ts: 'never',
       },
     ],
+    // strongly-recommended rules fails with vue-types
+    // https://github.com/dwightjack/vue-types/issues/29
+    'vue/require-default-prop': 0,
     // allow debugger during development
     'no-debugger': 2,
     'no-console': 1,
