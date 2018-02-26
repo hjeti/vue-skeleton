@@ -1,3 +1,5 @@
-export default {
+const PagePaths = {
   HOME: '/',
 };
+
+export default PagePaths;
