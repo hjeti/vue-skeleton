@@ -11,6 +11,7 @@ const detectPort = require('detect-port');
 const opn = require('opn');
 
 const devWebpackConfig = merge(baseWebpackConfig, {
+  mode: 'development',
   module: {
     rules: [
       {

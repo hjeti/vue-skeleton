@@ -18,6 +18,7 @@ const env = config.build.env;
 const projectRoot = path.resolve(__dirname, '../../../');
 
 const webpackConfig = merge(baseWebpackConfig, {
+  mode: 'production',
   module: {
     rules: [
       {
@@ -62,6 +63,14 @@ const webpackConfig = merge(baseWebpackConfig, {
     chunkFilename: path.posix.join('', config.build.versionPath + '/js/[id].js'),
     publicPath: config.build.publicPath,
   },
+  optimization: {
+    concatenateModules: true,
+    minimize: true,
+    splitChunks: {
+      chunks: 'all'
+    },
+    runtimeChunk: true
+  },
   plugins: [
     new WebpackCleanupPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
@@ -69,14 +78,6 @@ const webpackConfig = merge(baseWebpackConfig, {
       'process.env': env,
     }),
     new webpack.NamedChunksPlugin(),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-      },
-      output: {
-        comments: false,
-      },
-    }),
     new OptimizeCssAssetsPlugin({
       cssProcessorOptions: {
         safe: true,
@@ -102,22 +103,6 @@ const webpackConfig = merge(baseWebpackConfig, {
       svgo: null,
       gifsicle: null,
       pngquant: config.build.enablePNGQuant ? { quality: config.build.pngQuantQuality } : null,
-    }),
-    // split vendor js into its own file
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      minChunks: function(module, count) {
-        // any required modules inside node_modules are extracted to vendor
-        return (
-          module.resource &&
-          /\.js$/.test(module.resource) &&
-          module.resource.indexOf(path.join(projectRoot, './node_modules')) === 0
-        );
-      },
-    }),
-    new webpack.optimize.CommonsChunkPlugin({
-      name: 'manifest',
-      minChunks: Infinity,
     }),
     new LodashModuleReplacementPlugin(),
     new CopyWebpackPlugin([
