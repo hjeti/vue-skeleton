@@ -41,7 +41,7 @@
   "devDependencies": {
     "async": "^2.2.0",
     "autoprefixer": "^8.0.0",
-    "awesome-typescript-loader": "^3.5.0",
+    "awesome-typescript-loader": "4.0.0-0",
     "babel-core": "^6.0.0",
     "babel-eslint": "^8.0.0",
     "babel-loader": "^7.1.3",
