@@ -58,8 +58,8 @@ const webpackConfig = merge(baseWebpackConfig, {
   },
   devtool: false,
   output: {
-    filename: path.posix.join('', config.build.versionPath + '/js/[name].js'),
-    chunkFilename: path.posix.join('', config.build.versionPath + '/js/[id].js'),
+    filename: path.posix.join('', config.build.versionPath + 'js/[name].js'),
+    chunkFilename: path.posix.join('', config.build.versionPath + 'js/[id].js'),
     publicPath: config.build.publicPath,
   },
   plugins: [
@@ -83,7 +83,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       },
     }),
     new ExtractTextPlugin({
-      filename: path.posix.join(config.build.versionPath, '/css/[name].css'),
+      filename: path.posix.join(config.build.versionPath, 'css/[name].css'),
     }),
     new HtmlWebpackPlugin({
       filename: config.build.index,
@@ -123,7 +123,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     new CopyWebpackPlugin([
       {
         from: 'static',
-        to: config.build.versionPath + '/static',
+        to: config.build.versionPath + 'static',
         ignore: ['.*'],
       },
     ]),
