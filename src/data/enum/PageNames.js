@@ -1,3 +1,5 @@
-export default {
+const PageNames = {
   HOME: 'home',
 };
+
+export default PageNames;

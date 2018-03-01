@@ -40,7 +40,7 @@ const localeConfig = getLocaleConfig();
 if (localeConfig.localeEnabled) {
   Vue.use(VueI18nManager, {
     store,
-    router,
+    router: localeConfig.localeRoutingEnabled ? router : null,
     config: localeConfig.config,
     proxy: localeLoader,
   });

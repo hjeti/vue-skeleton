@@ -1,6 +1,6 @@
 {
   "name": "vue-skeleton",
-  "version": "1.1.4",
+  "version": "1.1.8",
   "description": "A Vue Skeleton",
   "author": "Hendrik-Jan de Harder <hendrik-jan@mediamonks.com>",
   "license": "MIT",
@@ -20,7 +20,6 @@
   "dependencies": {
     "axios": "^0.17.0",
     "babel-polyfill": "^6.23.0",
-    "classlist-polyfill": "^1.0.3",
     "core-js": "^2.4.1",
     "detect-port": "^1.2.1",
     "fetch-polyfill": "^0.8.2",
