@@ -9,7 +9,7 @@ export const errorFormatter = error => {
 };
 
 export const responseFormatter = response => {
-  if (response.data.data) {
+  if (response && response.data && typeof response.data.data !== 'undefined') {
     return { ...response, ...response.data };
   }
   return response;
