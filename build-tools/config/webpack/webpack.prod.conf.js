@@ -73,7 +73,6 @@ const webpackConfig = merge(baseWebpackConfig, {
   },
   plugins: [
     new WebpackCleanupPlugin(),
-    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.DefinePlugin({
       'process.env': env,
     }),
