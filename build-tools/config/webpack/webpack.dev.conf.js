@@ -66,7 +66,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     https: config.useHttps
   },
   optimization: {
-    noOmitOnErrors: true,
+    noEmitOnErrors: true,
   },
   devtool: 'cheap-module-eval-source-map',
   plugins: [
