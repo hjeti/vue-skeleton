@@ -422,9 +422,9 @@ autoprefixer@^8.0.0:
     postcss "^6.0.17"
     postcss-value-parser "^3.2.3"
 
-awesome-typescript-loader@^5.0.0-0:
-  version "5.0.0-0"
-  resolved "https://registry.yarnpkg.com/awesome-typescript-loader/-/awesome-typescript-loader-5.0.0-0.tgz#1330750fe603d54a5f0e25429185baed0e48f9f2"
+awesome-typescript-loader@5.0.0-1:
+  version "5.0.0-1"
+  resolved "https://registry.yarnpkg.com/awesome-typescript-loader/-/awesome-typescript-loader-5.0.0-1.tgz#ab618ae4071f714825f0306871a0452fd1b347e8"
   dependencies:
     chalk "^2.3.1"
     enhanced-resolve "^4.0.0"
