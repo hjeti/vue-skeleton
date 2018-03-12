@@ -1,11 +1,11 @@
 import HomePage from 'page/HomePage';
-import PagePaths from 'data/enum/PagePaths';
-import PageNames from 'data/enum/PageNames';
+import RoutePaths from 'data/enum/RoutePaths';
+import RouteNames from 'data/enum/RouteNames';
 
 export default [
   {
-    path: PagePaths.HOME,
+    path: RoutePaths.HOME,
     component: HomePage,
-    name: PageNames.HOME,
+    name: RouteNames.HOME,
   },
 ];
