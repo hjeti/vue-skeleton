@@ -97,3 +97,22 @@ exports.getVueLoaderConfig = function(isDevelopment) {
 
   return config;
 };
+
+exports.getSvgoLoaderConfig = function() {
+  return {
+    loader: 'svgo-loader',
+    options: {
+      plugins: [
+        { removeStyleElement: true },
+        { removeComments: true },
+        { removeDesc: true },
+        { removeUselessDefs: true },
+        { removeTitle: true },
+        { removeMetadata: true },
+        { removeComments: true },
+        { cleanupIDs: { remove: true, prefix: '' } },
+        { convertColors: { shorthex: false } },
+      ],
+    },
+  };
+};
