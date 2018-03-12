@@ -1,5 +1,5 @@
-const PageNames = {
+const RouteNames = {
   HOME: 'home',
 };
 
-export default PageNames;
+export default RouteNames;

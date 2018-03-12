@@ -1,5 +1,5 @@
-const PagePaths = {
+const RoutePaths = {
   HOME: '/',
 };
 
-export default PagePaths;
+export default RoutePaths;
