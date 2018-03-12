@@ -11,6 +11,7 @@ const detectPort = require('detect-port');
 const opn = require('opn');
 
 const devWebpackConfig = merge(baseWebpackConfig, {
+  mode: 'development',
   module: {
     rules: [
       {
@@ -64,14 +65,15 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     quiet: true,
     https: config.useHttps
   },
+  optimization: {
+    noEmitOnErrors: true,
+  },
   devtool: 'cheap-module-eval-source-map',
   plugins: [
     new webpack.DefinePlugin({
       'process.env': config.dev.env,
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.NamedChunksPlugin(),
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: 'index.html',
