@@ -4716,9 +4716,9 @@ html-tags@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/html-tags/-/html-tags-2.0.0.tgz#10b30a386085f43cede353cc8fa7cb0deeea668b"
 
-html-webpack-plugin@3.0.7:
-  version "3.0.7"
-  resolved "https://registry.yarnpkg.com/html-webpack-plugin/-/html-webpack-plugin-3.0.7.tgz#b46074f6a76e791581ffe9bb059a72b452d99907"
+html-webpack-plugin@3.0.6:
+  version "3.0.6"
+  resolved "https://registry.yarnpkg.com/html-webpack-plugin/-/html-webpack-plugin-3.0.6.tgz#d35b0452aae129a8a9f3fac44a169a625d8cf3fa"
   dependencies:
     html-minifier "^3.2.3"
     loader-utils "^0.2.16"
@@ -4779,7 +4779,7 @@ http-parser-js@>=0.4.0:
   version "0.4.11"
   resolved "https://registry.yarnpkg.com/http-parser-js/-/http-parser-js-0.4.11.tgz#5b720849c650903c27e521633d94696ee95f3529"
 
-http-proxy-middleware@0.18.0:
+http-proxy-middleware@^0.18.0:
   version "0.18.0"
   resolved "https://registry.yarnpkg.com/http-proxy-middleware/-/http-proxy-middleware-0.18.0.tgz#0987e6bb5a5606e5a69168d8f967a87f15dd8aab"
   dependencies:
@@ -5975,7 +5975,7 @@ levn@^0.3.0, levn@~0.3.0:
     prelude-ls "~1.1.2"
     type-check "~0.3.2"
 
-lint-staged@7.0.0:
+lint-staged@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/lint-staged/-/lint-staged-7.0.0.tgz#57926c63201e7bd38ca0576d74391efa699b4a9d"
   dependencies:
@@ -7186,7 +7186,7 @@ optimist@~0.6.0:
     minimist "~0.0.1"
     wordwrap "~0.0.2"
 
-optimize-css-assets-webpack-plugin@4.0.0:
+optimize-css-assets-webpack-plugin@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/optimize-css-assets-webpack-plugin/-/optimize-css-assets-webpack-plugin-4.0.0.tgz#d5f80041fb1391b358a1f35273c3b53de814e8fe"
   dependencies:
@@ -7212,7 +7212,16 @@ optipng-bin@^3.0.0:
     bin-wrapper "^3.0.0"
     logalot "^2.0.0"
 
-ora@2.0.0:
+ora@^0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/ora/-/ora-0.2.3.tgz#37527d220adcd53c39b73571d754156d5db657a4"
+  dependencies:
+    chalk "^1.1.1"
+    cli-cursor "^1.0.2"
+    cli-spinners "^0.1.2"
+    object-assign "^4.0.1"
+
+ora@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ora/-/ora-2.0.0.tgz#8ec3a37fa7bffb54a3a0c188a1f6798e7e1827cd"
   dependencies:
@@ -7222,15 +7231,6 @@ ora@2.0.0:
     log-symbols "^2.2.0"
     strip-ansi "^4.0.0"
     wcwidth "^1.0.1"
-
-ora@^0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/ora/-/ora-0.2.3.tgz#37527d220adcd53c39b73571d754156d5db657a4"
-  dependencies:
-    chalk "^1.1.1"
-    cli-cursor "^1.0.2"
-    cli-spinners "^0.1.2"
-    object-assign "^4.0.1"
 
 ordered-read-streams@^0.3.0:
   version "0.3.0"
@@ -7742,7 +7742,7 @@ postcss-load-plugins@^2.3.0:
     cosmiconfig "^2.1.1"
     object-assign "^4.1.0"
 
-postcss-loader@2.1.2:
+postcss-loader@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/postcss-loader/-/postcss-loader-2.1.2.tgz#03f54e23be736c9ea4f610e17d2a299254c05130"
   dependencies:
@@ -9511,7 +9511,7 @@ style-search@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/style-search/-/style-search-0.1.0.tgz#7958c793e47e32e07d2b5cafe5c0bf8e12e77902"
 
-stylelint-config-prettier@3.0.4:
+stylelint-config-prettier@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/stylelint-config-prettier/-/stylelint-config-prettier-3.0.4.tgz#1259093c1db2d5e8dfff7d9672f6f41db2101845"
   dependencies:
@@ -10289,7 +10289,7 @@ url-join@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/url-join/-/url-join-4.0.0.tgz#4d3340e807d3773bda9991f8305acdcc2a665d2a"
 
-url-loader@1.0.1:
+url-loader@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/url-loader/-/url-loader-1.0.1.tgz#61bc53f1f184d7343da2728a1289ef8722ea45ee"
   dependencies:
@@ -10695,7 +10695,7 @@ webpack-core@~0.6.9:
     source-list-map "~0.1.7"
     source-map "~0.4.1"
 
-webpack-dev-middleware@3.0.1:
+webpack-dev-middleware@3.0.1, webpack-dev-middleware@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/webpack-dev-middleware/-/webpack-dev-middleware-3.0.1.tgz#7ffd6d0192883c83d3f262e8d7dec822493c6166"
   dependencies:
@@ -11002,23 +11002,6 @@ yargs-parser@^9.0.2:
   dependencies:
     camelcase "^4.1.0"
 
-yargs@11.1.0:
-  version "11.1.0"
-  resolved "https://registry.yarnpkg.com/yargs/-/yargs-11.1.0.tgz#90b869934ed6e871115ea2ff58b03f4724ed2d77"
-  dependencies:
-    cliui "^4.0.0"
-    decamelize "^1.1.1"
-    find-up "^2.1.0"
-    get-caller-file "^1.0.1"
-    os-locale "^2.0.0"
-    require-directory "^2.1.1"
-    require-main-filename "^1.0.1"
-    set-blocking "^2.0.0"
-    string-width "^2.0.0"
-    which-module "^2.0.0"
-    y18n "^3.2.1"
-    yargs-parser "^9.0.2"
-
 yargs@7.0.2:
   version "7.0.2"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-7.0.2.tgz#115b97df1321823e8b8648e8968c782521221f67"
@@ -11058,6 +11041,23 @@ yargs@9.0.1:
 yargs@^11.0.0:
   version "11.0.0"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-11.0.0.tgz#c052931006c5eee74610e5fc0354bedfd08a201b"
+  dependencies:
+    cliui "^4.0.0"
+    decamelize "^1.1.1"
+    find-up "^2.1.0"
+    get-caller-file "^1.0.1"
+    os-locale "^2.0.0"
+    require-directory "^2.1.1"
+    require-main-filename "^1.0.1"
+    set-blocking "^2.0.0"
+    string-width "^2.0.0"
+    which-module "^2.0.0"
+    y18n "^3.2.1"
+    yargs-parser "^9.0.2"
+
+yargs@^11.1.0:
+  version "11.1.0"
+  resolved "https://registry.yarnpkg.com/yargs/-/yargs-11.1.0.tgz#90b869934ed6e871115ea2ff58b03f4724ed2d77"
   dependencies:
     cliui "^4.0.0"
     decamelize "^1.1.1"
