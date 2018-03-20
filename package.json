@@ -14,7 +14,6 @@
     "lint:scss": "stylelint \"./src/**/*.scss\" --cache",
     "preview": "node build-tools/script/preview-server.js",
     "precommit": "lint-staged",
-    "analyze2": "webpack-bundle-analyzer stats.json ./dist",
     "postcommit": "git reset",
     "prettify": "prettier --write \"src/**/*.{js,ts,scss}\""
   },
