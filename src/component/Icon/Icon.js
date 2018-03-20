@@ -1,5 +1,7 @@
 import VueTypes from 'vue-types';
 
+const svgContext = require.context('asset/svg/?inline', false, /\.svg/);
+
 export default {
   name: 'Icon',
   props: {
@@ -7,8 +9,7 @@ export default {
   },
   computed: {
     icon() {
-      // eslint-disable-next-line global-require, import/no-dynamic-require
-      return require(`asset/svg/${this.name}.svg`);
+      return svgContext(`./${this.name}.svg`);
     },
   },
 };
