@@ -118,11 +118,12 @@ const webpackConfig = merge(baseWebpackConfig, {
         ignore: ['.gitkeep'],
       },
     ]),
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'disabled',
-      generateStatsFile: true,
-      statsFilename: path.join(projectRoot, './stats.json'),
-    }),
+    ...(config.build.analyze ? (
+      [
+        new BundleAnalyzerPlugin({
+            defaultSizes: 'gzip'
+        })
+      ]) : []),
     ...(config.build.generateIcons ? (
     [
       new FaviconsWebpackPlugin({
