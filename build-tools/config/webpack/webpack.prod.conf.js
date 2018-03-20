@@ -108,14 +108,14 @@ const webpackConfig = merge(baseWebpackConfig, {
       {
         from: 'static',
         to: config.build.versionPath + 'static',
-        ignore: ['.*'],
+        ignore: ['.gitkeep'],
       },
     ]),
     new CopyWebpackPlugin([
       {
         from: 'staticRoot',
         to: '',
-        ignore: ['.*'],
+        ignore: ['.gitkeep'],
       },
     ]),
     new BundleAnalyzerPlugin({
