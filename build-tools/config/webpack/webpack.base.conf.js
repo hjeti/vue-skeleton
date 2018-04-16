@@ -54,26 +54,24 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        use: [
+        oneOf: [
           {
-            loader: 'svg-inline-loader',
+            resourceQuery: /inline/,
+            use: [
+              {
+                loader: 'svg-inline-loader',
+              },
+              webpackHelpers.getSvgoLoaderConfig(),
+            ]
           },
           {
-            loader: 'svgo-loader',
-            options: {
-              plugins: [
-                { removeStyleElement: true },
-                { removeComments: true },
-                { removeDesc: true },
-                { removeUselessDefs: true },
-                { removeTitle: true },
-                { removeMetadata: true },
-                { removeComments: true },
-                { cleanupIDs: { remove: true, prefix: '' } },
-                { convertColors: { shorthex: false } },
-              ],
-            },
-          },
+            use: [
+              {
+                loader: 'url-loader',
+              },
+              webpackHelpers.getSvgoLoaderConfig(),
+            ]
+          }
         ],
       },
     ],

@@ -108,21 +108,22 @@ const webpackConfig = merge(baseWebpackConfig, {
       {
         from: 'static',
         to: config.build.versionPath + 'static',
-        ignore: ['.*'],
+        ignore: ['.gitkeep'],
       },
     ]),
     new CopyWebpackPlugin([
       {
         from: 'staticRoot',
         to: '',
-        ignore: ['.*'],
+        ignore: ['.gitkeep'],
       },
     ]),
-    new BundleAnalyzerPlugin({
-      analyzerMode: 'disabled',
-      generateStatsFile: true,
-      statsFilename: path.join(projectRoot, './stats.json'),
-    }),
+    ...(config.build.analyze ? (
+      [
+        new BundleAnalyzerPlugin({
+            defaultSizes: 'gzip'
+        })
+      ]) : []),
     ...(config.build.generateIcons ? (
     [
       new FaviconsWebpackPlugin({
