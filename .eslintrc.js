@@ -10,7 +10,7 @@ module.exports = {
   env: {
     browser: true,
   },
-  extends: ['airbnb-base', 'prettier', 'plugin:vue/recommended'],
+  extends: ['airbnb-base', 'prettier', 'plugin:vue/recommended', 'plugin:vue-types/strongly-recommended'],
   plugins: ['import', 'prettier', 'vue'],
   settings: {
     'import/resolver': {
@@ -30,9 +30,6 @@ module.exports = {
         ts: 'never',
       },
     ],
-    // strongly-recommended rules fails with vue-types
-    // https://github.com/dwightjack/vue-types/issues/29
-    'vue/require-default-prop': 0,
     // allow debugger during development
     'no-debugger': 2,
     'no-console': 1,
