@@ -3,7 +3,7 @@ const config = require('../../config');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.base.conf');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
@@ -24,9 +24,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     rules: [
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
-          use: webpackHelpers.getScssLoaderConfig(),
-        }),
+        use: webpackHelpers.getScssLoaderConfig(),
       },
       {
         test: /\.vue$/,
@@ -68,9 +66,16 @@ const webpackConfig = merge(baseWebpackConfig, {
     concatenateModules: true,
     minimize: true,
     splitChunks: {
-      chunks: 'all'
+      chunks: 'all',
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all"
+        },
+      },
     },
-    runtimeChunk: true
+    runtimeChunk: false
   },
   plugins: [
     new VueLoaderPlugin(),
@@ -84,7 +89,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         safe: true,
       },
     }),
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: path.posix.join(config.build.versionPath, 'css/[name].css'),
     }),
     new HtmlWebpackPlugin({

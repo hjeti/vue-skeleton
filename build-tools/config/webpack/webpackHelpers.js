@@ -1,4 +1,5 @@
 const jsonImporter = require('node-sass-json-importer');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 exports.getSassLoaderConfig = function(isDevelopment) {
   return {
@@ -45,6 +46,10 @@ exports.getScssLoaderConfig = function(isDevelopment) {
     config.unshift({
       loader: 'style-loader',
     });
+  }
+
+  if (!isDevelopment) {
+    config.unshift(MiniCssExtractPlugin.loader);
   }
 
   return config;
