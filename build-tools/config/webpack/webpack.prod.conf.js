@@ -8,6 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const webpackHelpers = require('./webpackHelpers');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
@@ -29,7 +30,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       },
       {
         test: /\.vue$/,
-        use: [webpackHelpers.getVueLoaderConfig(false)],
+        use: [webpackHelpers.getVueLoaderConfig()],
       },
       {
         test: /\.(png|jpe?g|gif)(\?.*)?$/,
@@ -72,6 +73,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     runtimeChunk: true
   },
   plugins: [
+    new VueLoaderPlugin(),
     new WebpackCleanupPlugin(),
     new webpack.DefinePlugin({
       'process.env': env,
