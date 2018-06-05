@@ -3,11 +3,12 @@ const config = require('../../config');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.base.conf');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const webpackHelpers = require('./webpackHelpers');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
@@ -23,13 +24,11 @@ const webpackConfig = merge(baseWebpackConfig, {
     rules: [
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
-          use: webpackHelpers.getScssLoaderConfig(),
-        }),
+        use: webpackHelpers.getScssLoaderConfig(),
       },
       {
         test: /\.vue$/,
-        use: [webpackHelpers.getVueLoaderConfig(false)],
+        use: [webpackHelpers.getVueLoaderConfig()],
       },
       {
         test: /\.(png|jpe?g|gif)(\?.*)?$/,
@@ -67,11 +66,19 @@ const webpackConfig = merge(baseWebpackConfig, {
     concatenateModules: true,
     minimize: true,
     splitChunks: {
-      chunks: 'all'
+      chunks: 'all',
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: "vendors",
+          chunks: "all"
+        },
+      },
     },
-    runtimeChunk: true
+    runtimeChunk: false
   },
   plugins: [
+    new VueLoaderPlugin(),
     new WebpackCleanupPlugin(),
     new webpack.DefinePlugin({
       'process.env': env,
@@ -82,7 +89,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         safe: true,
       },
     }),
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: path.posix.join(config.build.versionPath, 'css/[name].css'),
     }),
     new HtmlWebpackPlugin({

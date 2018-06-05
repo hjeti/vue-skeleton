@@ -5,6 +5,7 @@ const baseWebpackConfig = require('./webpack.base.conf');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const path = require('path');
 const webpackHelpers = require('./webpackHelpers');
 const detectPort = require('detect-port');
@@ -20,7 +21,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       },
       {
         test: /\.vue$/,
-        use: [webpackHelpers.getVueLoaderConfig(true)],
+        use: [webpackHelpers.getVueLoaderConfig()],
       },
       {
         test: /\.(png|jpe?g|gif)(\?.*)?$/,
@@ -70,6 +71,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   },
   devtool: 'cheap-module-eval-source-map',
   plugins: [
+    new VueLoaderPlugin(),
     new webpack.DefinePlugin({
       'process.env': config.dev.env,
     }),
