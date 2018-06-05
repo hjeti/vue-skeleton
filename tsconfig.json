@@ -9,7 +9,7 @@
     "baseUrl": "./src/",
     "lib": [
       "DOM",
-      "ES6",
+      "ES7",
       "DOM.Iterable",
       "ScriptHost"
     ]
