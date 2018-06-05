@@ -110,7 +110,9 @@ const webpackConfig = merge(baseWebpackConfig, {
       gifsicle: null,
       pngquant: config.build.enablePNGQuant ? { quality: config.build.pngQuantQuality } : null,
     }),
-    new LodashModuleReplacementPlugin(),
+    new LodashModuleReplacementPlugin({
+      paths: true,
+    }),
     new CopyWebpackPlugin([
       {
         from: 'static',
