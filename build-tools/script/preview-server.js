@@ -9,6 +9,8 @@ const https = require('https');
 const http = require('http');
 const compression = require('compression');
 const webpackConfig = require('../config/webpack/webpack.prod.conf');
+const pem = require('pem');
+
 
 // default port where dev server listens for incoming traffic
 const port = 4040;
@@ -31,25 +33,22 @@ const uri = (config.useHttps ? 'https' : 'http') + '://localhost:' + port;
 
 console.log('> Listening at ' + uri + '\n');
 
-let createdServer;
-
-if (config.useHttps) {
-  createdServer = https.createServer(
-    {
-      key: fs.readFileSync(path.join(__dirname, '../ssl/key.pem')),
-      cert: fs.readFileSync(path.join(__dirname, '../ssl/cert.pem')),
-    },
-    server
-  );
-} else {
-  createdServer = http.createServer(server);
-}
-
-module.exports = createdServer.listen(port, function(err) {
+const onServerRunning = function(err) {
   if (err) {
     console.log(err);
     return;
   }
 
   opn(uri);
-});
+};
+
+if (config.useHttps) {
+  pem.createCertificate({ days: 1, selfSigned: true }, function (err, keys) {
+    if (err) {
+      throw err
+    }
+    https.createServer({ key: keys.serviceKey, cert: keys.certificate }, server).listen(port, onServerRunning);
+  });
+} else {
+  http.createServer(server).listen(port, onServerRunning);
+}
