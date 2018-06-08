@@ -7,8 +7,8 @@ $zLayout: default;
 
 // Colors
 
-// MediaQueries
-$mediaQueries: ();
+// $mediaQueries
+@import '../../../data/mediaQueries.json';
 
 // Paths
 $pathComponentImage: 'asset/image';

@@ -1,10 +1,11 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const path = require('path');
+const jsonImporter = require('node-sass-json-importer');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 exports.getSassLoaderConfig = function(isDevelopment) {
   return {
     loader: 'sass-loader',
     options: {
+      importer: jsonImporter,
       data: '@import "src/asset/style/utils.scss";',
       includePaths: ['src/asset/style'],
       sourceMap: isDevelopment
@@ -26,7 +27,10 @@ exports.getScssLoaderConfig = function(isDevelopment) {
     {
       loader: 'css-loader',
       options: {
-        sourceMap: isDevelopment
+        sourceMap: isDevelopment,
+        localIdentName: '[local]-[hash:base64:7]',
+        camelCase: true,
+        importLoaders: 2,
       }
     },
     {
@@ -44,58 +48,22 @@ exports.getScssLoaderConfig = function(isDevelopment) {
     });
   }
 
+  if (!isDevelopment) {
+    config.unshift(MiniCssExtractPlugin.loader);
+  }
+
   return config;
 };
 
-exports.getVueLoaderConfig = function(isDevelopment) {
-  let scssLoaders;
-
-  if (isDevelopment) {
-    scssLoaders = ['vue-style-loader'].map(loader => ({ loader }));
-    scssLoaders.push({
-      loader: 'css-loader',
-      options: {
-        sourceMap: true
-      }
-    });
-    scssLoaders.push(this.getSassLoaderConfig());
-  } else {
-    scssLoaders = ExtractTextPlugin.extract({
-      use: [
-        {
-          loader: 'css-loader',
-        },
-        this.getSassLoaderConfig(isDevelopment),
-      ],
-      fallback: 'vue-style-loader',
-    });
-  }
-
-  const jsLoaders = [
-    {
-      loader: 'babel-loader',
-    },
-  ];
-
-  const config = {
+exports.getVueLoaderConfig = function() {
+  return {
     loader: 'vue-loader',
     options: {
-      loaders: {
-        scss: scssLoaders,
-        js: jsLoaders,
+      transformAssetUrls: {
+        source: ['src', 'srcset']
       },
-      postcss: [],
-
-      cssModules: {
-        localIdentName: '[local]-[hash:base64:7]',
-        camelCase: true,
-      },
-      transformToRequire: {
-        source: 'srcset'
-      }},
+    },
   };
-
-  return config;
 };
 
 exports.getSvgoLoaderConfig = function() {
