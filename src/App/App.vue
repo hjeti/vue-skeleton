@@ -2,7 +2,7 @@
 <script src="./App.js"></script>
 
 <template>
-	<div>
-		<router-view></router-view>
-	</div>
+  <div>
+    <router-view />
+  </div>
 </template>
