@@ -23,7 +23,7 @@ const config = {
     },
   },
   variables: {
-    [VariableNames.LOCALE_ENABLED]: false,
+    [VariableNames.LOCALE_ENABLED]: true,
     [VariableNames.LOCALE_ROUTING_ENABLED]: false,
     [VariableNames.VERSIONED_STATIC_ROOT]:
       (window.webpackPublicPath || process.env.PUBLIC_PATH) + process.env.VERSIONED_STATIC_ROOT,
@@ -45,8 +45,11 @@ const config = {
 let environment = EnvironmentNames.PRODUCTION;
 const { host } = document.location;
 
+console.log(host);
+
 switch (host.split(':').shift()) {
   case 'localhost': {
+    console.log('blaa');
     environment = EnvironmentNames.LOCAL;
     break;
   }
