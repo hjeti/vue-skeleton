@@ -21,7 +21,7 @@ import VueExposePlugin from 'util/VueExposePlugin';
 import RouteNames from 'data/enum/RouteNames';
 import RoutePaths from 'data/enum/RoutePaths';
 import { getValue } from 'util/injector';
-import { GATEWAY } from 'data/Injectables';
+import { CONFIG_MANAGER, GATEWAY } from 'data/Injectables';
 import { createPath } from 'util/routeUtils';
 
 // register filters globally
@@ -40,6 +40,7 @@ Vue.use(Vuex);
 
 const store = getStore();
 const localeConfig = getLocaleConfig();
+const configManager = getValue(CONFIG_MANAGER);
 
 Vue.use(VueExposePlugin, {
   $config: configManager,
