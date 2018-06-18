@@ -14,6 +14,15 @@ import VueI18nManager from 'vue-i18n-manager';
 import localeLoader from 'util/localeLoader';
 import getLocaleConfig from 'config/localeConfig';
 import getStore from 'store';
+import { PropertyNames, URLNames, VariableNames } from 'data/enum/configNames';
+import axios from 'axios/index';
+import Params from 'data/enum/Params';
+import VueExposePlugin from 'util/VueExposePlugin';
+import RouteNames from 'data/enum/RouteNames';
+import RoutePaths from 'data/enum/RoutePaths';
+import { getValue } from 'util/injector';
+import { GATEWAY } from 'data/Injectables';
+import { createPath } from 'util/routeUtils';
 
 // register filters globally
 Object.keys(filter).forEach(key => Vue.filter(key, filter[key]));
@@ -31,6 +40,21 @@ Vue.use(Vuex);
 
 const store = getStore();
 const localeConfig = getLocaleConfig();
+
+Vue.use(VueExposePlugin, {
+  $config: configManager,
+  $gateway: getValue(GATEWAY),
+  $http: axios,
+  $versionRoot: configManager.getVariable(VariableNames.VERSIONED_STATIC_ROOT),
+  $staticRoot: configManager.getVariable(VariableNames.STATIC_ROOT),
+  URLNames,
+  PropertyNames,
+  VariableNames,
+  RouteNames,
+  RoutePaths,
+  Params,
+  createPath,
+});
 
 if (localeConfig.localeEnabled) {
   Vue.use(VueI18nManager, {
