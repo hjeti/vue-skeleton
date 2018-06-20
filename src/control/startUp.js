@@ -1,14 +1,14 @@
 import Vue from 'vue';
 import axios from 'axios';
-import VueExposePlugin from 'util/VueExposePlugin';
-import { URLNames, PropertyNames, VariableNames } from 'data/enum/configNames';
-import RouteNames from 'data/enum/RouteNames';
-import RoutePaths from 'data/enum/RoutePaths';
-import { createPath } from 'util/routeUtils';
-import Params from 'data/enum/Params';
-import { getValue } from 'util/injector';
-import { CONFIG_MANAGER, GATEWAY } from 'data/Injectables';
-import localeLoader from 'util/localeLoader';
+import VueExposePlugin from '../util/VueExposePlugin';
+import { URLNames, PropertyNames, VariableNames } from '../data/enum/configNames';
+import RouteNames from '../data/enum/RouteNames';
+import RoutePaths from '../data/enum/RoutePaths';
+import { createPath } from '../util/routeUtils';
+import Params from '../data/enum/Params';
+import { getValue } from '../util/injector';
+import { CONFIG_MANAGER, GATEWAY } from '../data/Injectables';
+import localeLoader from '../util/localeLoader';
 
 const initPlugins = () => {
   const configManager = getValue(CONFIG_MANAGER);

@@ -1,6 +1,6 @@
-import { PropertyNames, VariableNames } from 'data/enum/configNames';
-import { getValue } from 'util/injector';
-import { CONFIG_MANAGER } from 'data/Injectables';
+import { PropertyNames, VariableNames } from '../data/enum/configNames';
+import { getValue } from '../util/injector';
+import { CONFIG_MANAGER } from '../data/Injectables';
 
 const getLocaleConfig = () => {
   const configManager = getValue(CONFIG_MANAGER);

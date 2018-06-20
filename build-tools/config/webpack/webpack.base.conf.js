@@ -17,7 +17,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['.vue', '.js', '.ts', '.scss'],
-    modules: [path.join(projectRoot, 'src'), path.join(projectRoot, 'node_modules')],
     alias: {
       modernizr$: path.join(projectRoot, '.modernizrrc'),
       TweenLite: path.resolve(projectRoot, 'node_modules/gsap/src/uncompressed/TweenLite'),

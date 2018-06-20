@@ -1,4 +1,4 @@
-import { EnvironmentNames, PropertyNames, URLNames, VariableNames } from 'data/enum/configNames';
+import { EnvironmentNames, PropertyNames, URLNames, VariableNames } from '../data/enum/configNames';
 
 const config = {
   environments: {
