@@ -32,16 +32,19 @@ const getRouter = () => {
     });
 
     router.beforeEach((to, from, next) => {
-      const whitelistedQueryParams = configManager.getProperty(
-        PropertyNames.WHITELISTED_QUERY_PARAMS,
+      const persistQueryParams = configManager.getProperty(
+        PropertyNames.PERSIST_QUERY_PARAMS,
       );
 
       let redirect = false;
       const { ...query } = to.query;
 
-      if (whitelistedQueryParams && whitelistedQueryParams.length > 0) {
-        whitelistedQueryParams.forEach(queryParam => {
-          if (from.query[queryParam] && !query[queryParam]) {
+      if (persistQueryParams && persistQueryParams.length > 0) {
+        persistQueryParams.forEach(queryParam => {
+          if (
+            typeof from.query[queryParam] !== 'undefined' &&
+            typeof query[queryParam] === 'undefined'
+          ) {
             query[queryParam] = from.query[queryParam];
 
             redirect = true;
