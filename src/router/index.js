@@ -1,10 +1,10 @@
 import VueRouter from 'vue-router';
 import Vue from 'vue';
 import { routeParser } from 'vue-i18n-manager';
-import { PropertyNames, VariableNames } from 'data/enum/configNames';
-import getLocaleConfig from 'config/localeConfig';
-import { CONFIG_MANAGER } from 'data/Injectables';
-import { getValue } from 'util/injector';
+import { PropertyNames, VariableNames } from '../data/enum/configNames';
+import getLocaleConfig from '../config/localeConfig';
+import { CONFIG_MANAGER } from '../data/Injectables';
+import { getValue } from '../util/injector';
 
 import routes from './routes';
 
@@ -32,16 +32,19 @@ const getRouter = () => {
     });
 
     router.beforeEach((to, from, next) => {
-      const whitelistedQueryParams = configManager.getProperty(
-        PropertyNames.WHITELISTED_QUERY_PARAMS,
+      const persistQueryParams = configManager.getProperty(
+        PropertyNames.PERSIST_QUERY_PARAMS,
       );
 
       let redirect = false;
       const { ...query } = to.query;
 
-      if (whitelistedQueryParams && whitelistedQueryParams.length > 0) {
-        whitelistedQueryParams.forEach(queryParam => {
-          if (from.query[queryParam] && !query[queryParam]) {
+      if (persistQueryParams && persistQueryParams.length > 0) {
+        persistQueryParams.forEach(queryParam => {
+          if (
+            typeof from.query[queryParam] !== 'undefined' &&
+            typeof query[queryParam] === 'undefined'
+          ) {
             query[queryParam] = from.query[queryParam];
 
             redirect = true;

@@ -21,5 +21,5 @@ export const VariableNames = {
 export const PropertyNames = {
   DEFAULT_LOCALE: 'default-locale',
   AVAILABLE_LOCALES: 'available-locales',
-  WHITELISTED_QUERY_PARAMS: 'whitelisted-query-params',
+  PERSIST_QUERY_PARAMS: 'persist-query-params',
 };

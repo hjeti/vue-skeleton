@@ -7,7 +7,10 @@ const isDevelopment = process.env.NODE_ENV === 'development';
 
 module.exports = {
   entry: {
-    app: './src/bootstrap.js',
+    app: [
+      './src/polyfill/index.js',
+      './src/bootstrap.js'
+    ],
   },
   output: {
     path: path.join(projectRoot, 'dist'),
@@ -17,7 +20,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['.vue', '.js', '.ts', '.scss'],
-    modules: [path.join(projectRoot, 'src'), path.join(projectRoot, 'node_modules')],
     alias: {
       modernizr$: path.join(projectRoot, '.modernizrrc'),
       TweenLite: path.resolve(projectRoot, 'node_modules/gsap/src/uncompressed/TweenLite'),
