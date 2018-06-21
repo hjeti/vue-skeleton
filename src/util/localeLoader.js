@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { URLNames } from 'data/enum/configNames';
-import { getValue } from 'util/injector';
-import { CONFIG_MANAGER } from 'data/Injectables';
+import { URLNames } from '../data/enum/configNames';
+import { getValue } from '../util/injector';
+import { CONFIG_MANAGER } from '../data/Injectables';
 
 const loadedLanguages = [];
 let loadCallback;

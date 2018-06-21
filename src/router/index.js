@@ -1,10 +1,10 @@
 import VueRouter from 'vue-router';
 import Vue from 'vue';
 import { routeParser } from 'vue-i18n-manager';
-import { PropertyNames, VariableNames } from 'data/enum/configNames';
-import getLocaleConfig from 'config/localeConfig';
-import { CONFIG_MANAGER } from 'data/Injectables';
-import { getValue } from 'util/injector';
+import { PropertyNames, VariableNames } from '../data/enum/configNames';
+import getLocaleConfig from '../config/localeConfig';
+import { CONFIG_MANAGER } from '../data/Injectables';
+import { getValue } from '../util/injector';
 
 import routes from './routes';
 

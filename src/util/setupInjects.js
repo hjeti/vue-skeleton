@@ -1,8 +1,8 @@
-import { CONFIG_MANAGER, GATEWAY } from 'data/Injectables';
-import config from 'config/config';
 import ConfigManager from 'seng-config';
 import * as axios from 'axios';
-import { URLNames } from 'data/enum/configNames';
+import { CONFIG_MANAGER, GATEWAY } from '../data/Injectables';
+import config from '../config/config';
+import { URLNames } from '../data/enum/configNames';
 
 import { setValue } from './injector';
 import { responseFormatter, errorFormatter } from './gatewayFormatter';
