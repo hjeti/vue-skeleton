@@ -7,7 +7,10 @@ const isDevelopment = process.env.NODE_ENV === 'development';
 
 module.exports = {
   entry: {
-    app: './src/bootstrap.js',
+    app: [
+      './src/polyfill/index.js',
+      './src/bootstrap.js'
+    ],
   },
   output: {
     path: path.join(projectRoot, 'dist'),

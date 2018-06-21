@@ -1,10 +1,11 @@
 import 'modernizr';
-
 import Vue from 'vue';
 import VueI18nManager from 'vue-i18n-manager';
 import { sync } from 'vuex-router-sync';
+
 import './asset/style/screen.scss';
-import './polyfill';
+
+import './settings';
 import directive from './directive';
 import component from './component';
 import getRouter from './router';
@@ -15,7 +16,6 @@ import setupInjects from './util/setupInjects';
 import localeLoader from './util/localeLoader';
 import App from './App';
 import filter from './filter';
-import './settings';
 
 // register filters globally
 Object.keys(filter).forEach(key => Vue.filter(key, filter[key]));
