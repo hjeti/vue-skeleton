@@ -19,7 +19,7 @@
     "storybook": "start-storybook -p 9001 -c build-tools/config/storybook"
   },
   "dependencies": {
-    "@storybook/vue": "4.0.0-alpha.9",
+    "@storybook/addon-centered": "4.0.0-alpha.10",
     "axios": "^0.18.0",
     "babel-polyfill": "^6.23.0",
     "core-js": "^2.4.1",
@@ -41,6 +41,12 @@
     "vuex-router-sync": "^5.0.0"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "4.0.0-alpha.10",
+    "@storybook/addon-knobs": "4.0.0-alpha.10",
+    "@storybook/addon-links": "4.0.0-alpha.10",
+    "@storybook/addon-notes": "4.0.0-alpha.10",
+    "@storybook/addon-viewport": "4.0.0-alpha.10",
+    "@storybook/vue": "4.0.0-alpha.10",
     "async": "^2.2.0",
     "autoprefixer": "^8.0.0",
     "awesome-typescript-loader": "^5.0.0-1",

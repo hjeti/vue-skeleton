@@ -1,28 +1,28 @@
 import { configure } from '@storybook/vue';
-import 'polyfill';
-import 'asset/style/screen.scss';
+import '../../../src/polyfill';
+import '../../../src/asset/style/screen.scss';
 import 'modernizr';
-import 'settings';
+import '../../../src/settings';
 
 import Vue from 'vue';
 import Vuex from 'vuex';
-import component from 'component';
-import filter from 'filter';
-import directive from 'directive';
-import setupInjects from 'util/setupInjects';
+import component from '../../../src/component';
+import filter from '../../../src/filter';
+import directive from '../../../src/directive';
+import setupInjects from '../../../src/util/setupInjects';
 import VueI18nManager from 'vue-i18n-manager';
-import localeLoader from 'util/localeLoader';
-import getLocaleConfig from 'config/localeConfig';
-import getStore from 'store';
-import { PropertyNames, URLNames, VariableNames } from 'data/enum/configNames';
-import axios from 'axios/index';
-import Params from 'data/enum/Params';
-import VueExposePlugin from 'util/VueExposePlugin';
-import RouteNames from 'data/enum/RouteNames';
-import RoutePaths from 'data/enum/RoutePaths';
-import { getValue } from 'util/injector';
-import { CONFIG_MANAGER, GATEWAY } from 'data/Injectables';
-import { createPath } from 'util/routeUtils';
+import localeLoader from '../../../src/util/localeLoader';
+import getLocaleConfig from '../../../src/config/localeConfig';
+import getStore from '../../../src/store';
+import { PropertyNames, URLNames, VariableNames } from '../../../src/data/enum/configNames';
+import axios from 'axios';
+import Params from '../../../src/data/enum/Params';
+import VueExposePlugin from '../../../src/util/VueExposePlugin';
+import RouteNames from '../../../src/data/enum/RouteNames';
+import RoutePaths from '../../../src/data/enum/RoutePaths';
+import { getValue } from '../../../src/util/injector';
+import { CONFIG_MANAGER, GATEWAY } from '../../../src/data/Injectables';
+import { createPath } from '../../../src/util/routeUtils';
 
 // register filters globally
 Object.keys(filter).forEach(key => Vue.filter(key, filter[key]));

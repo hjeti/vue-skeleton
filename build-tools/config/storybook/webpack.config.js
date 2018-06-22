@@ -8,7 +8,6 @@ const config = require('../../config');
 
 module.exports = (storybookBaseConfig) => {
   storybookBaseConfig.resolve.extensions = ['.vue', '.js', '.ts', '.scss'];
-  storybookBaseConfig.resolve.modules.push(webpackBaseConfig.resolve.modules[0]);
   storybookBaseConfig.resolve.alias = {
     ...storybookBaseConfig.resolve.alias,
     ...webpackBaseConfig.resolve.alias,
