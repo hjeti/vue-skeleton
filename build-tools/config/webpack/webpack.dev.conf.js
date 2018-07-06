@@ -17,7 +17,15 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     rules: [
       {
         test: /\.scss$/,
-        use: webpackHelpers.getScssLoaderConfig(true),
+        oneOf: [
+          {
+            resourceQuery: /module/,
+            use: webpackHelpers.getScssLoaderConfig(true),
+          },
+          {
+            use: webpackHelpers.getScssLoaderConfig(true),
+          },
+        ],
       },
       {
         test: /\.vue$/,
@@ -64,7 +72,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
     },
     proxy: config.dev.proxyTable,
     quiet: true,
-    https: config.useHttps
+    https: config.useHttps,
   },
   optimization: {
     noEmitOnErrors: true,
@@ -81,7 +89,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
       template: 'index.html',
       version: '/',
       inject: true,
-      cache: true
+      cache: true,
     }),
     new CopyWebpackPlugin([
       {
@@ -100,17 +108,23 @@ const devWebpackConfig = merge(baseWebpackConfig, {
   ],
 });
 
-module.exports = detectPort(devWebpackConfig.devServer.port).then(function (port) {
+module.exports = detectPort(devWebpackConfig.devServer.port).then(function(port) {
   process.env.PORT = port;
   devWebpackConfig.devServer.port = port;
 
-  devWebpackConfig.plugins.push(new FriendlyErrorsWebpackPlugin({
-    compilationSuccessInfo: {
-      messages: [`Your application is running here: ${config.useHttps ? 'https' : 'http'}://localhost:${port}`],
-    }
-  }));
+  devWebpackConfig.plugins.push(
+    new FriendlyErrorsWebpackPlugin({
+      compilationSuccessInfo: {
+        messages: [
+          `Your application is running here: ${
+            config.useHttps ? 'https' : 'http'
+          }://localhost:${port}`,
+        ],
+      },
+    }),
+  );
 
-  if(config.dev.autoOpenBrowser) {
+  if (config.dev.autoOpenBrowser) {
     opn(`${config.useHttps ? 'https' : 'http'}://localhost:${port}`).catch(() => {});
   }
 

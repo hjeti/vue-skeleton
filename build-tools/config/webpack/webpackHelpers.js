@@ -22,7 +22,7 @@ exports.getBabelLoaderConfig = function(isDevelopment) {
   };
 };
 
-exports.getScssLoaderConfig = function(isDevelopment) {
+exports.getScssLoaderConfig = function(isDevelopment, cssModules = false) {
   const config = [
     {
       loader: 'css-loader',
@@ -31,7 +31,7 @@ exports.getScssLoaderConfig = function(isDevelopment) {
         localIdentName: '[local]-[hash:base64:7]',
         camelCase: true,
         importLoaders: 2,
-        modules: true,
+        modules: cssModules,
       },
     },
     {
