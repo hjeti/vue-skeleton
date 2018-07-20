@@ -8,7 +8,7 @@ exports.getSassLoaderConfig = function(isDevelopment) {
       importer: jsonImporter,
       data: '@import "src/asset/style/utils.scss";',
       includePaths: ['src/asset/style'],
-      sourceMap: isDevelopment
+      sourceMap: isDevelopment,
     },
   };
 };
@@ -22,7 +22,7 @@ exports.getBabelLoaderConfig = function(isDevelopment) {
   };
 };
 
-exports.getScssLoaderConfig = function(isDevelopment) {
+exports.getScssLoaderConfig = function(isDevelopment, cssModules = false) {
   const config = [
     {
       loader: 'css-loader',
@@ -31,13 +31,14 @@ exports.getScssLoaderConfig = function(isDevelopment) {
         localIdentName: '[local]-[hash:base64:7]',
         camelCase: true,
         importLoaders: 2,
-      }
+        modules: cssModules,
+      },
     },
     {
       loader: 'postcss-loader',
       options: {
-        sourceMap: isDevelopment
-      }
+        sourceMap: isDevelopment,
+      },
     },
     this.getSassLoaderConfig(isDevelopment),
   ];
@@ -60,7 +61,7 @@ exports.getVueLoaderConfig = function() {
     loader: 'vue-loader',
     options: {
       transformAssetUrls: {
-        source: ['src', 'srcset']
+        source: ['src', 'srcset'],
       },
     },
   };

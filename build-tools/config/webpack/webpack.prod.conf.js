@@ -24,7 +24,15 @@ const webpackConfig = merge(baseWebpackConfig, {
     rules: [
       {
         test: /\.scss$/,
-        use: webpackHelpers.getScssLoaderConfig(),
+        oneOf: [
+          {
+            resourceQuery: /module/,
+            use: webpackHelpers.getScssLoaderConfig(false, true),
+          },
+          {
+            use: webpackHelpers.getScssLoaderConfig(false),
+          },
+        ],
       },
       {
         test: /\.vue$/,
@@ -70,12 +78,12 @@ const webpackConfig = merge(baseWebpackConfig, {
       cacheGroups: {
         commons: {
           test: /[\\/]node_modules[\\/]/,
-          name: "vendors",
-          chunks: "all"
+          name: 'vendors',
+          chunks: 'all',
         },
       },
     },
-    runtimeChunk: false
+    runtimeChunk: false,
   },
   plugins: [
     new VueLoaderPlugin(),
@@ -127,35 +135,38 @@ const webpackConfig = merge(baseWebpackConfig, {
         ignore: ['.gitkeep'],
       },
     ]),
-    ...(config.build.analyze ? (
-      [
-        new BundleAnalyzerPlugin({
-            defaultSizes: 'gzip'
-        })
-      ]) : []),
-    ...(config.build.generateIcons ? (
-    [
-      new FaviconsWebpackPlugin({
-        logo: path.join(projectRoot, './static/image/favicon.png'),
-        prefix: config.build.versionPath + 'static/favicon/',
-        emitStats: false,
-        persistentCache: false,
-        inject: true,
-        background: '#fff',
-        title: '',
-        icons: {
-          android: true,
-          appleIcon: true,
-          appleStartup: false,
-          coast: false,
-          favicons: true,
-          firefox: true,
-          opengraph: true,
-          twitter: true,
-          yandex: true,
-          windows: true
-        }
-    })]) : []),
+    ...(config.build.analyze
+      ? [
+          new BundleAnalyzerPlugin({
+            defaultSizes: 'gzip',
+          }),
+        ]
+      : []),
+    ...(config.build.generateIcons
+      ? [
+          new FaviconsWebpackPlugin({
+            logo: path.join(projectRoot, './static/image/favicon.png'),
+            prefix: config.build.versionPath + 'static/favicon/',
+            emitStats: false,
+            persistentCache: false,
+            inject: true,
+            background: '#fff',
+            title: '',
+            icons: {
+              android: true,
+              appleIcon: true,
+              appleStartup: false,
+              coast: false,
+              favicons: true,
+              firefox: true,
+              opengraph: true,
+              twitter: true,
+              yandex: true,
+              windows: true,
+            },
+          }),
+        ]
+      : []),
   ],
 });
 
