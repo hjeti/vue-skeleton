@@ -20,7 +20,7 @@ const devWebpackConfig = merge(baseWebpackConfig, {
         oneOf: [
           {
             resourceQuery: /module/,
-            use: webpackHelpers.getScssLoaderConfig(true),
+            use: webpackHelpers.getScssLoaderConfig(true, true),
           },
           {
             use: webpackHelpers.getScssLoaderConfig(true),
