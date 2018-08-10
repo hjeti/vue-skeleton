@@ -10,6 +10,7 @@
   "rules": {
     "no-debugger": true,
     "no-console": true,
+    "no-parameter-reassignment": false,
     "prefer-array-literal": [true, { "allow-type-parameters": true }],
     "variable-name": [true, "allow-pascal-case"],
     "strict-boolean-expressions": [
