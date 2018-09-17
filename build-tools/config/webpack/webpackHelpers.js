@@ -5,7 +5,7 @@ exports.getSassLoaderConfig = function(isDevelopment) {
   return {
     loader: 'sass-loader',
     options: {
-      importer: jsonImporter,
+      importer: jsonImporter(),
       data: '@import "src/asset/style/utils.scss";',
       includePaths: ['src/asset/style'],
       sourceMap: isDevelopment,
