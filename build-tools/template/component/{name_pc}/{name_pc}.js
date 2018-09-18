@@ -1,6 +1,6 @@
 {{#if components}}
 {{#each components}}
-import {{this}} from 'component/{{this}}';
+import {{this}} from '../{{this}}';
 {{/each}}
 {{/if}}
 {{#if props}}
