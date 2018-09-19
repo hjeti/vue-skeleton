@@ -30,6 +30,7 @@
     "normalize.css": "^8.0.0",
     "postcss-safe-parser": "^4.0.1",
     "seng-config": "^1.1.0",
+    "seng-device-state-tracker": "^1.1.4",
     "seng-scss": "^1.0.0",
     "vue": "^2.2.5",
     "vue-i18n-manager": "^3.2.2",

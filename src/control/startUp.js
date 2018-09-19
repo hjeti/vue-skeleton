@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import axios from 'axios';
+import DeviceStateTracker from 'seng-device-state-tracker';
 import VueExposePlugin from '../util/VueExposePlugin';
 import { URLNames, PropertyNames, VariableNames } from '../data/enum/configNames';
 import RouteNames from '../data/enum/RouteNames';
@@ -9,6 +10,7 @@ import Params from '../data/enum/Params';
 import { getValue } from '../util/injector';
 import { CONFIG_MANAGER, GATEWAY } from '../data/Injectables';
 import localeLoader from '../util/localeLoader';
+import { mediaQueries, deviceState } from '../data/mediaQueries.json';
 
 const initPlugins = () => {
   const configManager = getValue(CONFIG_MANAGER);
@@ -27,6 +29,12 @@ const initPlugins = () => {
     RoutePaths,
     Params,
     createPath,
+    $deviceStateTracker: new DeviceStateTracker({
+      mediaQueries,
+      deviceState,
+      showStateIndicator: process.env.NODE_ENV !== 'production',
+    }),
+    DeviceState: deviceState,
   });
 };
 
