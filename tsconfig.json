@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "sourceMap": true,
-    "noImplicitAny": false,
+    "strict": true,
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,
     "target": "es2017",

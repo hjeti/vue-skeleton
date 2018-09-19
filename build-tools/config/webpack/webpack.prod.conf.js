@@ -94,8 +94,11 @@ const webpackConfig = merge(baseWebpackConfig, {
     new webpack.NamedChunksPlugin(),
     new OptimizeCssAssetsPlugin({
       cssProcessorOptions: {
-        safe: true,
-      },
+        parser: require('postcss-safe-parser'),
+        discardComments: {
+          removeAll: true
+        }
+      }
     }),
     new MiniCssExtractPlugin({
       filename: path.posix.join(config.build.versionPath, 'css/[name].css'),
