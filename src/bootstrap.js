@@ -5,17 +5,17 @@ import { sync } from 'vuex-router-sync';
 
 import './asset/style/screen.scss';
 
-import './settings';
-import directive from './directive';
-import component from './component';
-import getRouter from './router';
-import getStore from './store';
+import './settings/settings';
+import directive from './directive/directive';
+import component from './component/component';
+import getRouter from './router/router';
+import getStore from './store/store';
 import startUp from './control/startUp';
 import getLocaleConfig from './config/localeConfig';
 import setupInjects from './util/setupInjects';
 import localeLoader from './util/localeLoader';
 import App from './App';
-import filter from './filter';
+import filter from './filter/filter';
 
 // register filters globally
 Object.keys(filter).forEach(key => Vue.filter(key, filter[key]));
