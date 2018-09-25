@@ -15,13 +15,6 @@
    			"default": []
    		},
    		{
-   			"name": "connected",
-   			"type": "confirm",
-   			"message": "Do you want to use veux-connect?",
-   			"isBoolean": true,
-   			"default": false
-   		},
-   		{
    			"name": "lifecycle",
    			"type": "confirm",
    			"message": "Do you want to add empty lifecycle methods?",
