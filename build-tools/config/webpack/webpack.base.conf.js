@@ -23,6 +23,7 @@ module.exports = {
     alias: {
       modernizr$: path.join(projectRoot, '.modernizrrc'),
       TweenLite: path.resolve(projectRoot, 'node_modules/gsap/src/uncompressed/TweenLite'),
+      asset: path.resolve(projectRoot, 'src/asset'),
     },
   },
   module: {
