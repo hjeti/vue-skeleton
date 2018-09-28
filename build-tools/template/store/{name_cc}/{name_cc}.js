@@ -1,20 +1,8 @@
-{{#if mutations}}
-{{#each mutations}}
-export const {{this}} = '{{camelcase this}}';
-{{/each}}
-{{/if}}
+const namespace = '{{name_cc}}';
 
 export default {
-  namespaced: true,
   state: {},
   getters: {},
-  mutations: {
-    {{#if mutations}}
-    {{#each mutations}}
-    [{{this}}]: (state, payload) => {
-    },
-    {{/each}}
-    {{/if}}
-  },
+  mutations: {},
   actions: {},
 };

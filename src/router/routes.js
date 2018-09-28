@@ -1,10 +1,12 @@
 import HomePage from '../page/HomePage';
-import RoutePaths from '../data/enum/RoutePaths';
-import RouteNames from '../data/enum/RouteNames';
+
+export const RouteNames = {
+  HOME: 'home',
+};
 
 export default [
   {
-    path: RoutePaths.HOME,
+    path: '/',
     component: HomePage,
     name: RouteNames.HOME,
   },

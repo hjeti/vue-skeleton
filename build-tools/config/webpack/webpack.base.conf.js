@@ -1,5 +1,5 @@
 const path = require('path');
-const config = require('../../config');
+const config = require('../../config/config');
 const webpackHelpers = require('./webpackHelpers');
 
 const projectRoot = path.resolve(__dirname, '../../../');
@@ -8,7 +8,7 @@ const isDevelopment = process.env.NODE_ENV === 'development';
 module.exports = {
   entry: {
     app: [
-      './src/polyfill/index.js',
+      './src/polyfill/polyfill.js',
       './src/bootstrap.js'
     ],
   },
@@ -23,6 +23,7 @@ module.exports = {
     alias: {
       modernizr$: path.join(projectRoot, '.modernizrrc'),
       TweenLite: path.resolve(projectRoot, 'node_modules/gsap/src/uncompressed/TweenLite'),
+      asset: path.resolve(projectRoot, 'src/asset'),
     },
   },
   module: {

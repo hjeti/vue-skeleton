@@ -2,6 +2,7 @@
   "compilerOptions": {
     "sourceMap": true,
     "strict": true,
+    "module": "esnext",
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,
     "target": "es2017",

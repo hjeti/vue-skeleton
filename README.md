@@ -12,9 +12,8 @@ When built, the whole skeleton is only **~66kb** gzipped!
 
 * [vuex](https://github.com/vuejs/vuex)
 * [vue-router](https://github.com/vuejs/vue-router)
-* [vuex-connect](https://github.com/ktsn/vuex-connect)
 * [vue-types](https://github.com/dwightjack/vue-types)
-* [webpack 3](https://github.com/webpack/webpack)
+* [webpack](https://github.com/webpack/webpack)
 * [SCSS](https://github.com/sass/sass)
 * [CSS Modules](https://github.com/css-modules/css-modules)
 * [TypeScript](https://github.com/Microsoft/TypeScript)

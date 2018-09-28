@@ -32,9 +32,7 @@ const getRouter = () => {
     });
 
     router.beforeEach((to, from, next) => {
-      const persistQueryParams = configManager.getProperty(
-        PropertyNames.PERSIST_QUERY_PARAMS,
-      );
+      const persistQueryParams = configManager.getProperty(PropertyNames.PERSIST_QUERY_PARAMS);
 
       let redirect = false;
       const { ...query } = to.query;

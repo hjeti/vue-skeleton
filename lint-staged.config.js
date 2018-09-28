@@ -1,4 +1,4 @@
-const config = require('./build-tools/config');
+const config = require('./build-tools/config/config');
 
 const defaultSettings = ['prettier --write', 'git add'];
 

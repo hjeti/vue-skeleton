@@ -1,7 +1,7 @@
 // https://github.com/shelljs/shelljs
 require('shelljs/global');
 
-const config = require('../config');
+const config = require('../config/config');
 const ora = require('ora');
 const webpack = require('webpack');
 const webpackConfig = require('../config/webpack/webpack.prod.conf');
