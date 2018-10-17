@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --config build-tools/config/webpack/webpack.dev.conf.js",
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --config build-tools/config/webpack/webpack.conf.dev.js",
     "build": "cross-env NODE_ENV=production node build-tools/script/build.js",
     "lint:js": "eslint src --ext .js,.vue --cache",
     "analyze": "npm run build -- --analyze",

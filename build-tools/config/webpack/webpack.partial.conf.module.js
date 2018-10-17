@@ -1,0 +1,207 @@
+const jsonImporter = require('node-sass-json-importer');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require('path');
+
+module.exports = (config, isDevelopment) => webpackConfig => {
+  return {
+    ...webpackConfig,
+    module: {
+      rules: [
+        /*
+         * ------------------------------------------------
+         * Styling (scss and css)
+         * ------------------------------------------------
+         */
+        {
+          test: /\.scss$/,
+          oneOf: (() => {
+            function getScssLoaderConfig(cssModules) {
+              const config = [
+                {
+                  loader: 'css-loader',
+                  options: {
+                    sourceMap: isDevelopment,
+                    localIdentName: '[local]-[hash:base64:7]',
+                    camelCase: true,
+                    importLoaders: 2,
+                    modules: cssModules,
+                  },
+                },
+                {
+                  loader: 'postcss-loader',
+                  options: {
+                    sourceMap: isDevelopment,
+                  },
+                },
+                {
+                  loader: 'sass-loader',
+                  options: {
+                    importer: jsonImporter(),
+                    data: '@import "src/asset/style/utils.scss";',
+                    includePaths: ['src/asset/style'],
+                    sourceMap: isDevelopment,
+                  },
+                },
+              ];
+
+              if (isDevelopment) {
+                config.unshift({ loader: 'style-loader' });
+              } else {
+                config.unshift(MiniCssExtractPlugin.loader);
+              }
+
+              return config;
+            }
+
+            return [
+              {
+                resourceQuery: /module/,
+                use: getScssLoaderConfig(true),
+              },
+              {
+                use: getScssLoaderConfig(false),
+              },
+            ];
+          })(),
+        },
+        /*
+         * ------------------------------------------------
+         * JavaScript and TypeScript
+         * ------------------------------------------------
+         */
+        ...(() => {
+          const babelLoaderConfig = {
+            loader: 'babel-loader',
+            options: {
+              cacheDirectory: isDevelopment,
+            },
+          };
+
+          return [
+            {
+              test: /\.js$/,
+              use: babelLoaderConfig,
+              include: [path.join(config.projectRoot, 'src')],
+              exclude: /node_modules/,
+            },
+            {
+              test: /\.ts$/,
+              include: [path.join(config.projectRoot, 'src')],
+              use: [
+                babelLoaderConfig,
+                {
+                  loader: 'awesome-typescript-loader',
+                  options: {
+                    configFileName: path.resolve(config.projectRoot, './tsconfig.json'),
+                  },
+                },
+              ],
+            },
+          ];
+        })(),
+        /*
+         * ------------------------------------------------
+         * Vue
+         * ------------------------------------------------
+         */
+        {
+          test: /\.vue$/,
+          use: [
+            {
+              loader: 'vue-loader',
+              options: {
+                transformAssetUrls: {
+                  source: ['src', 'srcset'],
+                },
+              },
+            },
+          ],
+        },
+        /*
+         * ------------------------------------------------
+         * Images and SVG
+         * ------------------------------------------------
+         */
+        {
+          test: /\.(png|jpe?g|gif)(\?.*)?$/,
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                limit: 10000,
+                name: path.posix.join(
+                  isDevelopment ? '' : config.build.versionPath,
+                  'image/[name].[hash:7].[ext]',
+                ),
+              },
+            },
+          ],
+        },
+        {
+          test: /\.svg$/,
+          oneOf: (() => {
+            const svgoLoaderConfig = {
+              loader: 'svgo-loader',
+              options: {
+                plugins: [
+                  { removeStyleElement: true },
+                  { removeComments: true },
+                  { removeDesc: true },
+                  { removeUselessDefs: true },
+                  { removeTitle: true },
+                  { removeMetadata: true },
+                  { removeComments: true },
+                  { cleanupIDs: { remove: true, prefix: '' } },
+                  { convertColors: { shorthex: false } },
+                ],
+              },
+            };
+
+            return [
+              {
+                resourceQuery: /inline/,
+                use: [{ loader: 'svg-inline-loader' }, svgoLoaderConfig],
+              },
+              {
+                use: [{ loader: 'url-loader' }, svgoLoaderConfig],
+              },
+            ];
+          })(),
+        },
+        /*
+         * ------------------------------------------------
+         * Fonts
+         * ------------------------------------------------
+         */
+        {
+          test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                limit: 10000,
+                name: path.posix.join(
+                  isDevelopment ? '' : config.build.versionPath,
+                  'font/[name].[hash:7].[ext]',
+                ),
+              },
+            },
+          ],
+        },
+        /*
+         * ------------------------------------------------
+         * Other
+         * ------------------------------------------------
+         */
+        {
+          test: /\.modernizrrc$/,
+          loader: 'modernizr-loader!json-loader',
+        },
+        {
+          test: /\.(glsl|txt)$/,
+          use: 'raw-loader',
+        },
+      ],
+    },
+  };
+};

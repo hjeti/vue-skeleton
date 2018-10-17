@@ -2,13 +2,11 @@ const config = require('../config/config');
 if (!process.env.NODE_ENV) process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV);
 const path = require('path');
 const express = require('express');
-const webpack = require('webpack');
 const opn = require('opn');
-const fs = require('fs');
 const https = require('https');
 const http = require('http');
 const compression = require('compression');
-const webpackConfig = require('../config/webpack/webpack.prod.conf');
+const webpackConfig = require('../config/webpack/webpack.conf.prod');
 const pem = require('pem');
 
 

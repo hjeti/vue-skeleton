@@ -71,6 +71,7 @@ module.exports = {
     autoOpenBrowser: true,
   },
   useHttps: false,
+  projectRoot: path.resolve(__dirname, '../../'),
   lintStaged: {
     eslintEnabled: true,
     tslintEnabled: true,
