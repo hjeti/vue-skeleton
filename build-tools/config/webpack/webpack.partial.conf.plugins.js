@@ -10,7 +10,6 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
   /*
@@ -69,15 +68,7 @@ module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
      */
     plugins.push(
       new webpack.HotModuleReplacementPlugin(),
-      new FriendlyErrorsWebpackPlugin({
-        compilationSuccessInfo: {
-          messages: [
-            `Your application is running here: ${
-              config.devServer.useHttps ? 'https' : 'http'
-            }://localhost:${process.env.PORT || config.devServer.port}`,
-          ],
-        },
-      }),
+      // note: the FriendlyErrorsWebpackPlugin is injected from webpack.conf.dev.js
     );
   } else {
     /*

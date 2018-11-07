@@ -6,7 +6,7 @@ module.exports = ({ config }) => webpackConfig => ({
     hot: true,
     compress: true,
     host: process.env.HOST || '0.0.0.0',
-    port: process.env.PORT || config.devServer.port,
+    port: config.devServer.port,
     disableHostCheck: true,
     open: false,
     overlay: {
