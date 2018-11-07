@@ -12,7 +12,7 @@ const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
-module.exports = (config, isDevelopment) => webpackConfig => {
+module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
   /*
    * ------------------------------------------------
    * Common plugins (for development and production)
@@ -27,12 +27,12 @@ module.exports = (config, isDevelopment) => webpackConfig => {
       },
     ]),
     new webpack.DefinePlugin({
-      'process.env': config[isDevelopment ? 'dev' : 'build'].env,
+      'process.env': config.env[buildType],
     }),
     new CopyWebpackPlugin([
       {
         from: 'static',
-        to: isDevelopment ? 'static' : config.build.versionPath + 'static',
+        to: isDevelopment ? 'static' : config.dist.versionPath + 'static',
         ignore: ['.*'],
       },
     ]),
@@ -40,10 +40,10 @@ module.exports = (config, isDevelopment) => webpackConfig => {
     new HtmlWebpackPlugin(
       isDevelopment
         ? {
-            filename: config.build.index,
+            filename: config.devServer.indexHtml,
             template: 'index.html',
             inject: true,
-            version: config.build.versionPath,
+            version: config.dist.versionPath,
             minify: {
               removeComments: true,
               collapseWhitespace: true,
@@ -73,8 +73,8 @@ module.exports = (config, isDevelopment) => webpackConfig => {
         compilationSuccessInfo: {
           messages: [
             `Your application is running here: ${
-              config.useHttps ? 'https' : 'http'
-            }://localhost:${process.env.PORT || config.dev.port}`,
+              config.devServer.useHttps ? 'https' : 'http'
+            }://localhost:${process.env.PORT || config.devServer.port}`,
           ],
         },
       }),
@@ -88,7 +88,7 @@ module.exports = (config, isDevelopment) => webpackConfig => {
     plugins.push(
       new WebpackCleanupPlugin(),
       new MiniCssExtractPlugin({
-        filename: path.posix.join(config.build.versionPath, 'css/[name].css'),
+        filename: path.posix.join(config.dist.versionPath, 'css/[name].css'),
       }),
       new LodashModuleReplacementPlugin({
         paths: true,
@@ -103,14 +103,14 @@ module.exports = (config, isDevelopment) => webpackConfig => {
         },
       }),
       new ImageminPlugin({
-        disable: !config.build.enableImageOptimization,
+        disable: !config.dist.enableImageOptimization,
         svgo: null,
         gifsicle: null,
-        pngquant: config.build.enablePNGQuant ? { quality: config.build.pngQuantQuality } : null,
+        pngquant: config.dist.enablePNGQuant ? { quality: config.dist.pngQuantQuality } : null,
       }),
     );
 
-    if (config.build.analyze) {
+    if (config.enableBundleAnalyzer) {
       plugins.push(
         new BundleAnalyzerPlugin({
           defaultSizes: 'gzip',
@@ -118,11 +118,11 @@ module.exports = (config, isDevelopment) => webpackConfig => {
       );
     }
 
-    if (config.build.generateIcons) {
+    if (config.dist.generateIcons) {
       plugins.push(
         new FaviconsWebpackPlugin({
           logo: path.join(config.projectRoot, 'static/image/favicon.png'),
-          prefix: config.build.versionPath + 'static/favicon/',
+          prefix: config.dist.versionPath + 'static/favicon/',
           emitStats: false,
           persistentCache: false,
           inject: true,

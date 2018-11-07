@@ -1,7 +1,9 @@
 const helpers = require('./webpack.helpers');
 const config = require('../config');
 
-module.exports = isDevelopment => {
+const { DEVELOPMENT, PRODUCTION } = config.buildTypes;
+
+module.exports = buildType => {
   const generator = helpers.compose(
     [
       require('./webpack.partial.conf.devServer'),
@@ -12,13 +14,17 @@ module.exports = isDevelopment => {
       require('./webpack.partial.conf.output'),
       require('./webpack.partial.conf.plugins'),
       require('./webpack.partial.conf.resolve'),
-    ].map(module => module(config, isDevelopment))
+    ].map(module => module({
+      isDevelopment: buildType === DEVELOPMENT,
+      buildType,
+      config,
+    }))
   );
 
   return generator({
     // single configuration properties go here
     // object go into a separate file (e.g. webpack.partial.conf.entry.js)
-    mode: isDevelopment ? 'development' : 'production',
-    devtool: isDevelopment ? 'cheap-module-eval-source-map' : false,
+    mode: buildType === PRODUCTION ? 'production' : 'development',
+    devtool: buildType === DEVELOPMENT ? 'cheap-module-eval-source-map' : false,
   });
 };

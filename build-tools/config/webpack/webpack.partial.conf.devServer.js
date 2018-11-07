@@ -1,4 +1,4 @@
-module.exports = (config, isDevelopment) => webpackConfig => ({
+module.exports = ({ config }) => webpackConfig => ({
   ...webpackConfig,
   devServer: {
     clientLogLevel: 'info',
@@ -6,15 +6,15 @@ module.exports = (config, isDevelopment) => webpackConfig => ({
     hot: true,
     compress: true,
     host: process.env.HOST || '0.0.0.0',
-    port: process.env.PORT || config.dev.port,
+    port: process.env.PORT || config.devServer.port,
     disableHostCheck: true,
     open: false,
     overlay: {
       warnings: false,
       errors: true,
     },
-    proxy: config.dev.proxyTable,
+    proxy: config.devServer.proxyTable,
     // quiet: true,
-    https: config.useHttps,
+    https: config.devServer.useHttps,
   },
 });

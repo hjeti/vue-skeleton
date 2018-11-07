@@ -1,4 +1,4 @@
-module.exports = (config, isDevelopment) => webpackConfig => ({
+module.exports = ({ isDevelopment }) => webpackConfig => ({
   ...webpackConfig,
   optimization: isDevelopment ? {
     noEmitOnErrors: true,

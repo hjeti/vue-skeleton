@@ -2,7 +2,7 @@ const jsonImporter = require('node-sass-json-importer');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
-module.exports = (config, isDevelopment) => webpackConfig => {
+module.exports = ({ config, isDevelopment }) => webpackConfig => {
   return {
     ...webpackConfig,
     module: {
@@ -15,8 +15,8 @@ module.exports = (config, isDevelopment) => webpackConfig => {
         {
           test: /\.scss$/,
           oneOf: (() => {
-            function getScssLoaderConfig(cssModules) {
-              const config = [
+            function getScssLoaders(cssModules) {
+              const loaders = [
                 {
                   loader: 'css-loader',
                   options: {
@@ -45,21 +45,21 @@ module.exports = (config, isDevelopment) => webpackConfig => {
               ];
 
               if (isDevelopment) {
-                config.unshift({ loader: 'style-loader' });
+                loaders.unshift({ loader: 'style-loader' });
               } else {
-                config.unshift(MiniCssExtractPlugin.loader);
+                loaders.unshift(MiniCssExtractPlugin.loader);
               }
 
-              return config;
+              return loaders;
             }
 
             return [
               {
                 resourceQuery: /module/,
-                use: getScssLoaderConfig(true),
+                use: getScssLoaders(true),
               },
               {
-                use: getScssLoaderConfig(false),
+                use: getScssLoaders(false),
               },
             ];
           })(),
@@ -130,7 +130,7 @@ module.exports = (config, isDevelopment) => webpackConfig => {
               options: {
                 limit: 10000,
                 name: path.posix.join(
-                  isDevelopment ? '' : config.build.versionPath,
+                  isDevelopment ? '' : config.dist.versionPath,
                   'image/[name].[hash:7].[ext]',
                 ),
               },
@@ -181,7 +181,7 @@ module.exports = (config, isDevelopment) => webpackConfig => {
               options: {
                 limit: 10000,
                 name: path.posix.join(
-                  isDevelopment ? '' : config.build.versionPath,
+                  isDevelopment ? '' : config.dist.versionPath,
                   'font/[name].[hash:7].[ext]',
                 ),
               },

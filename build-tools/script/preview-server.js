@@ -1,5 +1,5 @@
 const config = require('../config/config');
-if (!process.env.NODE_ENV) process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV);
+if (!process.env.NODE_ENV) process.env.NODE_ENV = JSON.parse(config.env.development.NODE_ENV);
 const path = require('path');
 const express = require('express');
 const opn = require('opn');
@@ -27,7 +27,7 @@ server.get('*', function(req, res) {
   res.sendFile(path.join(root, './index.html'));
 });
 
-const uri = (config.useHttps ? 'https' : 'http') + '://localhost:' + port;
+const uri = (config.devServer.useHttps ? 'https' : 'http') + '://localhost:' + port;
 
 console.log('> Listening at ' + uri + '\n');
 
@@ -40,7 +40,7 @@ const onServerRunning = function(err) {
   opn(uri);
 };
 
-if (config.useHttps) {
+if (config.devServer.useHttps) {
   pem.createCertificate({ days: 1, selfSigned: true }, function (err, keys) {
     if (err) {
       throw err

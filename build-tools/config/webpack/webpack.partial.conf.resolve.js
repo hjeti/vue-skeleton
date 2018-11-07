@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports = (config, isDevelopment) => webpackConfig => ({
+module.exports = ({ config }) => webpackConfig => ({
   ...webpackConfig,
   resolve: {
     extensions: ['.vue', '.js', '.ts', '.scss'],

@@ -1,4 +1,4 @@
-module.exports = (config, isDevelopment) => webpackConfig => ({
+module.exports = () => webpackConfig => ({
   ...webpackConfig,
   node: {
     // prevent webpack from injecting useless setImmediate polyfill because Vue
