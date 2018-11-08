@@ -1,6 +1,4 @@
-const Params = {
+export default {
   ID: 'id',
   SLUG: 'slug',
 };
-
-export default Params;

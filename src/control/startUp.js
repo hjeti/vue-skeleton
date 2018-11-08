@@ -2,18 +2,16 @@ import Vue from 'vue';
 import axios from 'axios';
 import DeviceStateTracker from 'seng-device-state-tracker';
 import VueExposePlugin from '../util/VueExposePlugin';
+import gateway from '../util/gateway';
+import configManager from '../util/configManager';
 import { URLNames, PropertyNames, VariableNames } from '../data/enum/configNames';
 import { RouteNames } from '../router/routes';
 import { createPath } from '../util/routeUtils';
 import Params from '../data/enum/Params';
-import { getValue } from '../util/injector';
-import { CONFIG_MANAGER, GATEWAY } from '../data/Injectables';
 import localeLoader from '../util/localeLoader';
 import { mediaQueries, deviceState } from '../data/mediaQueries.json';
 
 const initPlugins = () => {
-  const configManager = getValue(CONFIG_MANAGER);
-
   const cleanMediaQueries = Object.keys(mediaQueries).reduce((result, key) => {
     result[key] = mediaQueries[key].replace(/'/g, '');
     return result;
@@ -22,7 +20,7 @@ const initPlugins = () => {
   // expose objects to the Vue prototype for easy access in your vue templates and components
   Vue.use(VueExposePlugin, {
     $config: configManager,
-    $gateway: getValue(GATEWAY),
+    $gateway: gateway,
     $http: axios,
     $versionRoot: configManager.getVariable(VariableNames.VERSIONED_STATIC_ROOT),
     $staticRoot: configManager.getVariable(VariableNames.STATIC_ROOT),
@@ -54,11 +52,9 @@ const waitForLocale = store =>
     }
   });
 
-const startUp = store => {
+export default store => {
   // Initialise plugins
   initPlugins();
-
-  const configManager = getValue(CONFIG_MANAGER);
 
   // Add async methods to the Promise.all array
   return Promise.all([
@@ -67,5 +63,3 @@ const startUp = store => {
       : Promise.resolve(),
   ]);
 };
-
-export default startUp;
