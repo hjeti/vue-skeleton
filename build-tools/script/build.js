@@ -1,10 +1,9 @@
 // https://github.com/shelljs/shelljs
 require('shelljs/global');
 
-const config = require('../config/config');
 const ora = require('ora');
 const webpack = require('webpack');
-const webpackConfig = require('../config/webpack/webpack.prod.conf');
+const webpackConfig = require('../config/webpack/webpack.conf.prod');
 const fs = require('fs-extra');
 const chalk = require('chalk');
 
