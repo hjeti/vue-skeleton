@@ -9,6 +9,7 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+const AssetsPlugin = require('assets-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
@@ -76,7 +77,14 @@ module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
      * ------------------------------------------------
      */
     plugins.push(
-      new WebpackCleanupPlugin(),
+      new AssetsPlugin({
+        prettyPrint: true,
+        metadata: { version: config.dist.staticVersion },
+        path: path.join(config.projectRoot, 'dist'),
+      }),
+      new WebpackCleanupPlugin({
+        exclude: ['webpack-assets.json']
+      }),
       new MiniCssExtractPlugin({
         filename: 'assets/css/[name].[contenthash].css',
       }),

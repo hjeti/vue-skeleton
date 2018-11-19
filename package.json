@@ -54,6 +54,7 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/register": "^7.0.0",
     "@babel/runtime": "^7.0.0",
+    "assets-webpack-plugin": "^3.9.7",
     "async": "^2.2.0",
     "autoprefixer": "9.1.5",
     "awesome-typescript-loader": "^5.2.0",
