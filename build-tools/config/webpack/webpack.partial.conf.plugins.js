@@ -82,12 +82,17 @@ module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
     plugins.push(
       new AssetsPlugin({
         prettyPrint: true,
-        metadata: { version: config.dist.staticVersion },
-        path: path.join(config.projectRoot, 'dist'),
+        metadata: {
+          version: config.dist.version,
+          time: Date.now(),
+        },
+        path: path.join(config.projectRoot, 'dist', 'manifests'),
+        filename: `${config.dist.version}.json`,
+        entrypoints: true,
       }),
       new InlineSourcePlugin(),
       new WebpackCleanupPlugin({
-        exclude: ['webpack-assets.json']
+        exclude: ['manifests/*.json']
       }),
       new MiniCssExtractPlugin({
         filename: 'assets/css/[name].[contenthash].css',
