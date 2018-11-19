@@ -28,13 +28,13 @@ It's also possible to override the version number during a build.
 
 yarn build -- --versionNumber=v1
  */
-let staticVersion = new Date().getTime();
+let version = new Date().getTime();
 
 if(argv.versionNumber){
-  staticVersion = argv.versionNumber;
+  version = argv.versionNumber;
 }
 
-const staticPath = 'static/' + staticVersion + '/';
+const staticPath = 'static/' + version + '/';
 
 const buildTypes = {
   DEVELOPMENT: 'development',
@@ -58,10 +58,11 @@ module.exports = {
   dist: {
     /* paths */
     staticPath,
-    staticVersion,
+    version,
     publicPath,
 
     /* optimization */
+    cleanBuildOutput: !!argv.clean,
     enableImageOptimization: true,
     enablePNGQuant: true, // Best PNG optimizer but PNGQuant crashes on some images so use with caution.
     generateIcons: false, // generates icons for all platforms with favicon.png from static/image/favicon.png as the source image

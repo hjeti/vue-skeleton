@@ -10,9 +10,6 @@ const chalk = require('chalk');
 const spinner = ora('building for production...');
 spinner.start();
 
-//empty build folder because webpack-cleanup-plugin doesn't remove folders
-fs.emptyDirSync(webpackConfig.output.path);
-
 webpack(webpackConfig, function(err, stats) {
   spinner.stop();
   if (err) throw err;

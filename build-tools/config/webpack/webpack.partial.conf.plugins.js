@@ -91,9 +91,6 @@ module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
         entrypoints: true,
       }),
       new InlineSourcePlugin(),
-      new WebpackCleanupPlugin({
-        exclude: ['manifests/*.json']
-      }),
       new MiniCssExtractPlugin({
         filename: 'assets/css/[name].[contenthash].css',
       }),
@@ -115,6 +112,14 @@ module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
         pngquant: config.dist.enablePNGQuant ? { quality: config.dist.pngQuantQuality } : null,
       }),
     );
+
+    if (config.dist.cleanBuildOutput) {
+      plugins.push(
+        new WebpackCleanupPlugin({
+          exclude: [`manifests/${config.dist.version}.json`]
+        })
+      )
+    }
 
     if (config.enableBundleAnalyzer) {
       plugins.push(
