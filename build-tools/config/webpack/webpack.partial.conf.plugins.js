@@ -31,7 +31,7 @@ module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
     new CopyWebpackPlugin([
       {
         from: 'static',
-        to: isDevelopment ? 'static' : config.dist.versionPath + 'static',
+        to: isDevelopment ? 'static' : config.dist.staticPath,
         ignore: ['.*'],
       },
     ]),
@@ -42,7 +42,6 @@ module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
             filename: config.devServer.indexHtml,
             template: 'index.html',
             inject: true,
-            version: config.dist.versionPath,
             minify: {
               removeComments: true,
               collapseWhitespace: true,
@@ -79,7 +78,7 @@ module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
     plugins.push(
       new WebpackCleanupPlugin(),
       new MiniCssExtractPlugin({
-        filename: path.posix.join(config.dist.versionPath, 'css/[name].css'),
+        filename: 'assets/css/[name].[contenthash].css',
       }),
       new LodashModuleReplacementPlugin({
         paths: true,
@@ -113,7 +112,7 @@ module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
       plugins.push(
         new FaviconsWebpackPlugin({
           logo: path.join(config.projectRoot, 'static/image/favicon.png'),
-          prefix: config.dist.versionPath + 'static/favicon/',
+          prefix: path.join(config.dist.staticPath, 'favicon/'),
           emitStats: false,
           persistentCache: false,
           inject: true,

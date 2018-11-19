@@ -129,10 +129,7 @@ module.exports = ({ config, isDevelopment }) => webpackConfig => {
               loader: 'url-loader',
               options: {
                 limit: 10000,
-                name: path.posix.join(
-                  isDevelopment ? '' : config.dist.versionPath,
-                  'image/[name].[hash:7].[ext]',
-                ),
+                name: `assets/image/[name]${isDevelopment ? '' : '.[hash:7]'}.[ext]`,
               },
             },
           ],
@@ -180,10 +177,7 @@ module.exports = ({ config, isDevelopment }) => webpackConfig => {
               loader: 'url-loader',
               options: {
                 limit: 10000,
-                name: path.posix.join(
-                  isDevelopment ? '' : config.dist.versionPath,
-                  'font/[name].[hash:7].[ext]',
-                ),
+                name: `assets/font/[name]${isDevelopment ? '' : '.[hash:7]'}.[ext]`,
               },
             },
           ],

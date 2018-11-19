@@ -34,7 +34,7 @@ if(argv.versionNumber){
   version = argv.versionNumber;
 }
 
-const versionPath = 'version/' + version + '/';
+const staticPath = 'static/' + version + '/';
 
 const buildTypes = {
   DEVELOPMENT: 'development',
@@ -57,7 +57,7 @@ module.exports = {
   /* non-development builds */
   dist: {
     /* paths */
-    versionPath,
+    staticPath,
     publicPath,
 
     /* optimization */
@@ -79,7 +79,7 @@ module.exports = {
   env: {
     [buildTypes.PRODUCTION]: {
       NODE_ENV: JSON.stringify('production'),
-      VERSIONED_STATIC_ROOT: JSON.stringify(versionPath + 'static/'),
+      VERSIONED_STATIC_ROOT: JSON.stringify(staticPath),
       STATIC_ROOT: JSON.stringify(''),
       PUBLIC_PATH: JSON.stringify(publicPath),
     },
