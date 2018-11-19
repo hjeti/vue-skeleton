@@ -10,6 +10,7 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const AssetsPlugin = require('assets-webpack-plugin');
+const InlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
@@ -53,6 +54,8 @@ module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
         : {
             filename: 'index.html',
             template: 'index.html',
+            // option enabled by InlineSourcePlugin below
+            inlineSource: 'runtime~.+\\.js',
             version: '/',
             inject: true,
             cache: true,
@@ -82,6 +85,7 @@ module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
         metadata: { version: config.dist.staticVersion },
         path: path.join(config.projectRoot, 'dist'),
       }),
+      new InlineSourcePlugin(),
       new WebpackCleanupPlugin({
         exclude: ['webpack-assets.json']
       }),
@@ -91,7 +95,6 @@ module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
       new LodashModuleReplacementPlugin({
         paths: true,
       }),
-      new webpack.NamedChunksPlugin(),
       new OptimizeCssAssetsPlugin({
         cssProcessorOptions: {
           parser: require('postcss-safe-parser'),

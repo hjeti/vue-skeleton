@@ -6,6 +6,6 @@ module.exports = ({ config, isDevelopment }) => webpackConfig => ({
     path: path.join(config.projectRoot, 'dist'),
     publicPath: isDevelopment ? '/' : config.dist.publicPath,
     filename: `assets/js/[name]${isDevelopment ? '' : '.[contenthash]'}.js`,
-    chunkFilename: `assets/js/[id]${isDevelopment ? '' : '.[chunkhash]'}.js`,
+    chunkFilename: `assets/js/[name]${isDevelopment ? '' : '.[chunkhash]'}.js`,
   },
 });

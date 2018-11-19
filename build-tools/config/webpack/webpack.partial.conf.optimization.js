@@ -5,6 +5,7 @@ module.exports = ({ isDevelopment }) => webpackConfig => ({
   } : {
     concatenateModules: true,
     minimize: true,
+    moduleIds: 'hashed',
     splitChunks: {
       chunks: 'all',
       cacheGroups: {
@@ -15,6 +16,6 @@ module.exports = ({ isDevelopment }) => webpackConfig => ({
         },
       },
     },
-    runtimeChunk: false,
+    runtimeChunk: true,
   },
 });
