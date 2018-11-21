@@ -21,7 +21,7 @@ server.use(require('connect-history-api-fallback')());
 server.use(compression());
 
 server.use(webpackConfig.output.publicPath, express.static(root));
-server.use('/static', express.static(path.join(root, './static')));
+server.use('/version', express.static(path.join(root, './version')));
 
 server.get('*', function(req, res) {
   res.sendFile(path.join(root, './index.html'));

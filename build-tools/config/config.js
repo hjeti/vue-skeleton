@@ -34,7 +34,7 @@ if(argv.versionNumber){
   version = argv.versionNumber;
 }
 
-const staticPath = 'static/' + version + '/';
+const staticPath = 'version/' + version + '/';
 
 const buildTypes = {
   DEVELOPMENT: 'development',
@@ -87,7 +87,7 @@ module.exports = {
     },
     [buildTypes.DEVELOPMENT]: {
       NODE_ENV: JSON.stringify('development'),
-      VERSIONED_STATIC_ROOT: JSON.stringify('static/'),
+      VERSIONED_STATIC_ROOT: JSON.stringify('version/dev/'),
       STATIC_ROOT: JSON.stringify(''),
       PUBLIC_PATH: JSON.stringify('/'),
     }

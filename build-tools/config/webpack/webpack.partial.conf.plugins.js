@@ -33,7 +33,7 @@ module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
     new CopyWebpackPlugin([
       {
         from: 'static',
-        to: isDevelopment ? 'static' : config.dist.staticPath,
+        to: isDevelopment ? 'version/dev' : config.dist.staticPath,
         ignore: ['.*'],
       },
     ]),
