@@ -14,6 +14,11 @@ import { mediaQueries, deviceState } from '../data/mediaQueries.json';
 const initPlugins = () => {
   const configManager = getValue(CONFIG_MANAGER);
 
+  const cleanMediaQueries = Object.keys(mediaQueries).reduce((result, key) => {
+    result[key] = mediaQueries[key].replace(/'/g, '');
+    return result;
+  }, {});
+
   // expose objects to the Vue prototype for easy access in your vue templates and components
   Vue.use(VueExposePlugin, {
     $config: configManager,
@@ -28,7 +33,7 @@ const initPlugins = () => {
     Params,
     createPath,
     $deviceStateTracker: new DeviceStateTracker({
-      mediaQueries,
+      mediaQueries: cleanMediaQueries,
       deviceState,
       showStateIndicator: process.env.NODE_ENV !== 'production',
     }),
