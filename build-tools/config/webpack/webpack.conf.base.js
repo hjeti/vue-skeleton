@@ -3,7 +3,8 @@ const config = require('../config');
 
 const { DEVELOPMENT, PRODUCTION } = config.buildTypes;
 
-module.exports = buildType => {
+// note: we pass a default buildType here so this file can be loaded directly from .eslintrc.js
+module.exports = (buildType = DEVELOPMENT) => {
   const generator = helpers.compose(
     [
       require('./webpack.partial.conf.devServer'),
