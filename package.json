@@ -13,7 +13,8 @@
     "lint:ts": "tslint src/**/*.ts -p tsconfig.json",
     "lint:scss": "stylelint \"./src/**/*.scss\" --cache",
     "preview": "node build-tools/script/preview-server.js",
-    "prettify": "prettier --write \"src/**/*.{js,ts,scss}\""
+    "prettify": "prettier --write \"src/**/*.{js,ts,scss}\"",
+    "preinstall": "npx use-yarn"
   },
   "husky": {
     "hooks": {
@@ -128,6 +129,7 @@
     "tslint-plugin-prettier": "^2.0.0",
     "typescript": "^3.0.1",
     "url-loader": "^1.0.1",
+    "use-yarn": "^2.2.0",
     "vue-loader": "^15.0.10",
     "vue-style-loader": "^4.1.0",
     "vue-template-compiler": "^2.2.6",
@@ -142,8 +144,8 @@
     "yargs": "^12.0.2"
   },
   "engines": {
-    "node": ">= 6.0.0",
-    "npm": ">= 3.0.0"
+    "node": ">= 8.0.0",
+    "npm": ">= 5.0.0"
   },
   "browserslist": [
     "last 2 versions",
