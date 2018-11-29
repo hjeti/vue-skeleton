@@ -10,7 +10,9 @@ const jsSettings = config.lintStaged.eslintEnabled
   ? [...defaultSettings, jsLintCommand]
   : [...defaultSettings];
 
-const vueSettings = config.lintStaged.eslintEnabled ? [jsLintCommand] : [];
+const vueSettings = config.lintStaged.eslintEnabled
+  ? [...defaultSettings, jsLintCommand]
+  : [...defaultSettings];
 
 const tsSettings = config.lintStaged.tslintEnabled
   ? [...defaultSettings, tsLintCommand]

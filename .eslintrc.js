@@ -10,7 +10,7 @@ module.exports = {
   env: {
     browser: true,
   },
-  extends: ['airbnb-base', 'prettier', 'plugin:vue/recommended', 'plugin:vue-types/strongly-recommended'],
+  extends: ['airbnb-base', 'plugin:vue/recommended', 'plugin:vue-types/strongly-recommended', 'prettier', 'prettier/vue'],
   plugins: ['import', 'prettier', 'vue'],
   settings: {
     'import/resolver': {
@@ -41,14 +41,4 @@ module.exports = {
       { singleQuote: true, trailingComma: 'all', printWidth: 100, tabWidth: 2 },
     ],
   },
-  overrides: [
-    {
-      "files": [ "src/**/*.vue"],
-      "rules": {
-        'prettier/prettier': [
-          'off'
-        ],
-      },
-    },
-  ],
 };
