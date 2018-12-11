@@ -1,4 +1,6 @@
 module.exports = function(api) {
+  api.cache(!api.env("production"));
+
   return {
     presets: [
       [
@@ -6,8 +8,6 @@ module.exports = function(api) {
         {
           modules: false,
           useBuiltIns: "entry",
-          // for uglifyjs...
-          forceAllTransforms: api.env("production"),
           exclude: [
             "transform-regenerator",
             "es6.typed.data-view",
