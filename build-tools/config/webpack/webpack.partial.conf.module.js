@@ -144,6 +144,7 @@ module.exports = ({ config, isDevelopment }) => webpackConfig => {
               loader: 'svgo-loader',
               options: {
                 plugins: [
+                  { removeViewBox: false },
                   { removeStyleElement: true },
                   { removeComments: true },
                   { removeDesc: true },
