@@ -16,7 +16,6 @@ import setupInjects from './util/setupInjects';
 import localeLoader from './util/localeLoader';
 import App from './App';
 import filter from './filter/filter';
-import waitForStyleSheetsLoaded from './util/waitForStyleSheetsLoaded';
 
 // register filters globally
 Object.keys(filter).forEach(key => Vue.filter(key, filter[key]));
@@ -61,9 +60,5 @@ const app = new Vue({
 
 // Mount the app after startUp
 startUp(store).then(() => {
-  if (process.env.NODE_ENV !== 'production') {
-    waitForStyleSheetsLoaded(document).then(() => app.$mount('#app'));
-  } else {
-    app.$mount('#app');
-  }
+  app.$mount('#app');
 });
