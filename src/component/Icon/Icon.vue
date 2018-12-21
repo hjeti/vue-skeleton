@@ -3,7 +3,7 @@
 
 <template>
   <span
-    :class="$style.container"
+    :class="[$style.icon]"
     v-html="icon"
   />
 </template>

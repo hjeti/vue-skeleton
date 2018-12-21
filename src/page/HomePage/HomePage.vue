@@ -2,7 +2,7 @@
 <script src="./HomePage.js"></script>
 
 <template>
-  <div>
+  <div :class="[$style.homePage]">
     <h2>HomePage</h2>
   </div>
 </template>

@@ -1,6 +1,7 @@
 import VueTypes from 'vue-types';
 
 const svgContext = require.context('../../asset/svg/?inline', false, /\.svg/);
+
 // @vue/component
 export default {
   name: 'Icon',
