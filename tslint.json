@@ -12,13 +12,7 @@
     "no-console": true,
     "prefer-array-literal": [true, { "allow-type-parameters": true }],
     "variable-name": [true, "allow-pascal-case"],
-    "strict-boolean-expressions": [
-      true,
-      "allow-null-union",
-      "allow-undefined-union",
-      "allow-string",
-      "allow-number"
-    ],
+    "strict-boolean-expressions": false,
     "import-name": false,
     "prettier": true
   }
