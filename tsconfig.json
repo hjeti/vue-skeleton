@@ -5,6 +5,7 @@
     "module": "esnext",
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
     "target": "es2017",
     "allowJs": true,
     "baseUrl": "./src/",
