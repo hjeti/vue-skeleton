@@ -120,7 +120,7 @@ module.exports = ({ config, isDevelopment }) => webpackConfig => {
         },
         /*
          * ------------------------------------------------
-         * Images and SVG
+         * Images, SVG, Audio and Video
          * ------------------------------------------------
          */
         {
