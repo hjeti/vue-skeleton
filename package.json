@@ -1,9 +1,9 @@
 {
   "name": "vue-skeleton",
-  "version": "1.8.4",
+  "version": "1.8.5",
   "skeleton": {
     "name": "vue-skeleton",
-    "version": "1.8.4"
+    "version": "1.8.5"
   },
   "description": "A Vue Skeleton",
   "author": "Hendrik-Jan de Harder <hendrik-jan@mediamonks.com>",
