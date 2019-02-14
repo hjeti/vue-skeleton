@@ -10,8 +10,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --config build-tools/config/webpack/webpack.conf.dev.js",
-    "build": "cross-env NODE_ENV=production node build-tools/script/build.js",
+    "dev": "webpack-dev-server --inline --progress --config build-tools/config/webpack/webpack.conf.dev.js",
+    "build": "node build-tools/script/build.js",
     "analyze": "npm run build -- --analyze",
     "lint": "npm-run-all lint:*",
     "lint:js": "eslint src --ext .js,.vue --cache",
@@ -79,7 +79,6 @@
     "compression": "^1.6.2",
     "connect-history-api-fallback": "^1.1.0",
     "copy-webpack-plugin": "^4.4.2",
-    "cross-env": "^5.0.0",
     "css-loader": "^2.1.0",
     "eslint": "^5.6.0",
     "eslint-config-airbnb-base": "^13.1.0",
