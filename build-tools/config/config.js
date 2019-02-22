@@ -46,6 +46,8 @@ module.exports = {
 
   projectRoot: path.resolve(__dirname, '../../'),
 
+  compileNodeModules: false, // use babel to compile js code in node_modules
+
   devServer: {
     indexHtml: path.resolve(__dirname, '../../dist/index.html'),
     port: process.env.PORT || 8080,

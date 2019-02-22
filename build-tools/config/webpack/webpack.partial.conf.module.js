@@ -82,12 +82,10 @@ module.exports = ({ config, isDevelopment }) => webpackConfig => {
             {
               test: /\.js$/,
               use: babelLoaderConfig,
-              include: [path.join(config.projectRoot, 'src')],
-              exclude: /node_modules/,
+              exclude: config.compileNodeModules ? /@babel(?:\/|\\{1,2})runtime/ : /node_modules/,
             },
             {
               test: /\.ts$/,
-              include: [path.join(config.projectRoot, 'src')],
               use: [
                 babelLoaderConfig,
                 {
