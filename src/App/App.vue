@@ -2,7 +2,7 @@
 <script src="./App.js"></script>
 
 <template>
-  <div :class="[$style.app]">
-    <router-view />
+  <div :class="[$style.app]" id="app">
+    <router-view/>
   </div>
 </template>
