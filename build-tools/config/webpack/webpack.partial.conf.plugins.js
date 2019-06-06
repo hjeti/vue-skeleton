@@ -115,8 +115,8 @@ module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
           routes: ['/', '/about'],
           renderAfterDocumentEvent: 'x-app-render',
           postProcess: route => {
-            route.html = route.html // eslint-disable-line
-              .replace(/<script (.*?)>/g, '<script $1 defer>')
+            route.html = route.html
+              .replace(/<script (.*?)>/g, '<script $1 >')
               .replace('id="app"', 'id="app" data-server-rendered="true"');
             return route;
           },
