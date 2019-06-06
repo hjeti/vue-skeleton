@@ -12,6 +12,7 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build-tools/config/webpack/webpack.conf.dev.js",
     "build": "node build-tools/script/build.js",
+    "prerender": "node build-tools/script/build.js --prerender",
     "analyze": "npm run build -- --analyze",
     "lint": "npm-run-all lint:*",
     "lint:js": "eslint src --ext .js,.vue --cache",
@@ -44,6 +45,7 @@
     "modernizr": "^3.3.1",
     "normalize.css": "^8.0.0",
     "postcss-safe-parser": "^4.0.1",
+    "prerender-spa-plugin": "^3.4.0",
     "seng-config": "^1.1.0",
     "seng-device-state-tracker": "^1.1.4",
     "seng-scss": "^1.0.0",
@@ -137,7 +139,6 @@
     "vue-template-compiler": "^2.2.6",
     "webpack": "^4.10.2",
     "webpack-bundle-analyzer": "^3.0.2",
-    "webpack-cleanup-plugin": "^0.5.1",
     "webpack-cli": "^3.0.2",
     "webpack-dev-server": "^3.0.0",
     "yargs": "^13.2.1"

@@ -1,5 +1,4 @@
 const path = require('path');
-const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -10,6 +9,7 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const PrerenderSPAPlugin = require('prerender-spa-plugin');
 
 module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
   /*
@@ -77,7 +77,6 @@ module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
      * ------------------------------------------------
      */
     plugins.push(
-      new WebpackCleanupPlugin(),
       new MiniCssExtractPlugin({
         filename: path.posix.join(config.dist.versionPath, 'css/[name].css'),
       }),
@@ -105,6 +104,22 @@ module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
       plugins.push(
         new BundleAnalyzerPlugin({
           defaultSizes: 'gzip',
+        }),
+      );
+    }
+    if (config.enablePrerender) {
+      plugins.push(
+        new PrerenderSPAPlugin({
+          staticDir: path.join(config.projectRoot, 'dist'),
+          // Add routes to prerender.
+          routes: ['/', '/about'],
+          renderAfterDocumentEvent: 'x-app-render',
+          postProcess: route => {
+            route.html = route.html
+              .replace(/<script (.*?)>/g, '<script $1 >')
+              .replace('id="app"', 'id="app" data-server-rendered="true"');
+            return route;
+          },
         }),
       );
     }

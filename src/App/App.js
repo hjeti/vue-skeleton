@@ -10,6 +10,11 @@ export default {
       deviceState: state => state.app.deviceState,
     }),
   },
+  mounted() {
+    this.$nextTick(() => {
+      document.dispatchEvent(new Event('x-app-render'));
+    });
+  },
   created() {
     this.$deviceStateTracker.addEventListener(
       DeviceStateEvent.STATE_UPDATE,

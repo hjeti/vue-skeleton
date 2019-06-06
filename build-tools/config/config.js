@@ -10,7 +10,7 @@ loading any script in your HTML.
  */
 let publicPath = '/';
 
-if(argv.publicPath){
+if (argv.publicPath) {
   publicPath = argv.publicPath;
 }
 
@@ -30,7 +30,7 @@ yarn build -- --versionNumber=v1
  */
 let version = new Date().getTime();
 
-if(argv.versionNumber){
+if (argv.versionNumber) {
   version = argv.versionNumber;
 }
 
@@ -38,7 +38,7 @@ const versionPath = 'version/' + version + '/';
 
 const buildTypes = {
   DEVELOPMENT: 'development',
-  PRODUCTION: 'production'
+  PRODUCTION: 'production',
 };
 
 module.exports = {
@@ -77,6 +77,8 @@ module.exports = {
     stylelintEnabled: true,
   },
 
+  enablePrerender: argv.prerender,
+
   /* environment variables (set using DefinePlugin) */
   env: {
     [buildTypes.PRODUCTION]: {
@@ -90,6 +92,6 @@ module.exports = {
       VERSIONED_STATIC_ROOT: JSON.stringify('static/'),
       STATIC_ROOT: JSON.stringify(''),
       PUBLIC_PATH: JSON.stringify('/'),
-    }
+    },
   },
 };
