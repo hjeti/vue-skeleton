@@ -21,8 +21,6 @@ module.exports = ({ config, isDevelopment }) => webpackConfig => {
                   loader: 'css-loader',
                   options: {
                     sourceMap: isDevelopment,
-                    localIdentName: '[local]-[hash:base64:7]',
-                    camelCase: true,
                     importLoaders: 2,
                     modules: cssModules,
                   },
@@ -36,9 +34,6 @@ module.exports = ({ config, isDevelopment }) => webpackConfig => {
                 {
                   loader: 'sass-loader',
                   options: {
-                    importer: jsonImporter(),
-                    data: '@import "src/asset/style/utils.scss";',
-                    includePaths: ['src/asset/style'],
                     sourceMap: isDevelopment,
                   },
                 },
