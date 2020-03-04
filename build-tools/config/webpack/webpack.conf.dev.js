@@ -1,5 +1,5 @@
 const detectPort = require('detect-port');
-const opn = require('opn');
+const open = require('open');
 const config = require('../config');
 const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
@@ -12,7 +12,7 @@ module.exports = detectPort(config.devServer.port).then(port => {
   devWebpackConfig.devServer.port = port;
 
   if (config.devServer.autoOpenBrowser) {
-    opn(`${config.devServer.useHttps ? 'https' : 'http'}://localhost:${port}`).catch(() => {});
+    open(`${config.devServer.useHttps ? 'https' : 'http'}://localhost:${port}`).catch(() => {});
   }
 
   // note: we inject this plugin here because we need access to the port

@@ -2,7 +2,7 @@ const config = require('../config/config');
 if (!process.env.NODE_ENV) process.env.NODE_ENV = JSON.parse(config.env.development.NODE_ENV);
 const path = require('path');
 const express = require('express');
-const opn = require('opn');
+const open = require('open');
 const https = require('https');
 const http = require('http');
 const compression = require('compression');
@@ -37,7 +37,7 @@ const onServerRunning = function(err) {
     return;
   }
 
-  opn(uri);
+  open(uri);
 };
 
 if (config.devServer.useHttps) {
