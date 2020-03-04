@@ -21,8 +21,13 @@ module.exports = ({ config, isDevelopment }) => webpackConfig => {
                   loader: 'css-loader',
                   options: {
                     sourceMap: isDevelopment,
+                    modules: cssModules
+                      ? {
+                        localIdentName: '[local]-[hash:base64:7]',
+                      }
+                      : undefined,
+                    localsConvention: 'camelCase',
                     importLoaders: 2,
-                    modules: cssModules,
                   },
                 },
                 {
@@ -35,6 +40,11 @@ module.exports = ({ config, isDevelopment }) => webpackConfig => {
                   loader: 'sass-loader',
                   options: {
                     sourceMap: isDevelopment,
+                    prependData: '@import "src/asset/style/utils.scss";',
+                    sassOptions: {
+                      importer: jsonImporter(),
+                      includePaths: ['src/asset/style'],
+                    },
                   },
                 },
               ];
