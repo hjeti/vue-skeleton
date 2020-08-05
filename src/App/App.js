@@ -7,7 +7,7 @@ export default {
   name: 'App',
   computed: {
     ...mapState({
-      deviceState: state => state.app.deviceState,
+      deviceState: (state) => state.app.deviceState,
     }),
   },
   created() {

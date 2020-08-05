@@ -20,8 +20,8 @@ const setupInjects = () => {
   });
 
   gateway.interceptors.response.use(
-    response => responseFormatter(response),
-    error => {
+    (response) => responseFormatter(response),
+    (error) => {
       throw errorFormatter(error);
     },
   );
