@@ -21,10 +21,12 @@ module.exports = ({ config, isDevelopment }) => webpackConfig => {
                   loader: 'css-loader',
                   options: {
                     sourceMap: isDevelopment,
-                    localIdentName: '[local]-[hash:base64:7]',
-                    camelCase: true,
+                    modules: cssModules
+                      ? {
+                        localIdentName: '[local]-[hash:base64:7]',
+                      }
+                      : undefined,
                     importLoaders: 2,
-                    modules: cssModules,
                   },
                 },
                 {
