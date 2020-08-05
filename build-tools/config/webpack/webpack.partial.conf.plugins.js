@@ -11,30 +11,34 @@ const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
-module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
+module.exports = ({ config, isDevelopment, buildType }) => (webpackConfig) => {
   /*
    * ------------------------------------------------
    * Common plugins (for development and production)
    * ------------------------------------------------
    */
   const plugins = [
-    new CopyWebpackPlugin([
-      {
-        from: 'staticRoot',
-        to: '',
-        ignore: ['.*'],
-      },
-    ]),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'staticRoot',
+          to: '',
+          globOptions: {
+            ignore: ['.*'],
+          },
+        },
+        {
+          from: 'static',
+          to: isDevelopment ? 'static' : config.dist.versionPath + 'static',
+          globOptions: {
+            ignore: ['.*'],
+          },
+        },
+      ],
+    }),
     new webpack.DefinePlugin({
       'process.env': config.env[buildType],
     }),
-    new CopyWebpackPlugin([
-      {
-        from: 'static',
-        to: isDevelopment ? 'static' : config.dist.versionPath + 'static',
-        ignore: ['.*'],
-      },
-    ]),
     new VueLoaderPlugin(),
     new HtmlWebpackPlugin(
       isDevelopment
@@ -48,7 +52,6 @@ module.exports = ({ config, isDevelopment, buildType }) => webpackConfig => {
               collapseWhitespace: true,
               removeAttributeQuotes: false,
             },
-            chunksSortMode: 'dependency',
           }
         : {
             filename: 'index.html',
