@@ -10,6 +10,7 @@ module.exports = function(api) {
           modules: false,
           useBuiltIns: 'entry',
           exclude: ['transform-typeof-symbol'],
+          corejs: 3
         },
       ],
     ],
