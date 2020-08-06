@@ -47,10 +47,10 @@
     "sass": "^1.26.10",
     "seng-config": "^1.1.0",
     "seng-device-state-tracker": "^1.1.4",
-    "seng-scss": "^1.0.0",
+    "seng-scss": "^1.2.4",
     "vue": "^2.2.5",
     "vue-i18n-manager": "^3.2.2",
-    "vue-router": "^3.0.1",
+    "vue-router": "^3.4.1",
     "vue-types": "^1.0.1",
     "vuex": "^3.0.1",
     "vuex-router-sync": "^5.0.0"
