@@ -38,7 +38,7 @@ const getRouter = () => {
       const { ...query } = to.query;
 
       if (persistQueryParams && persistQueryParams.length > 0) {
-        persistQueryParams.forEach(queryParam => {
+        persistQueryParams.forEach((queryParam) => {
           if (
             typeof from.query[queryParam] !== 'undefined' &&
             typeof query[queryParam] === 'undefined'

@@ -9,7 +9,7 @@ export default {
     loadCallback = callback;
   },
   getTranslation({ translationKey, code }) {
-    return import(`../data/locale/${translationKey}.json`).then(result => {
+    return import(`../data/locale/${translationKey}.json`).then((result) => {
       loadedLanguages.push(code);
 
       if (loadCallback) {

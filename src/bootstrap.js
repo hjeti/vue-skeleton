@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/extensions
 import 'modernizr';
 import Vue from 'vue';
 import VueI18nManager from 'vue-i18n-manager';
@@ -18,13 +19,13 @@ import App from './App';
 import filter from './filter/filter';
 
 // register filters globally
-Object.keys(filter).forEach(key => Vue.filter(key, filter[key]));
+Object.keys(filter).forEach((key) => Vue.filter(key, filter[key]));
 
 // register directives globally
-Object.keys(directive).forEach(key => Vue.directive(key, directive[key]));
+Object.keys(directive).forEach((key) => Vue.directive(key, directive[key]));
 
 // register components globally
-Object.keys(component).forEach(key => Vue.component(key, component[key]));
+Object.keys(component).forEach((key) => Vue.component(key, component[key]));
 
 setupInjects();
 
@@ -55,7 +56,7 @@ sync(store, router);
 const app = new Vue({
   router,
   store,
-  render: createElement => createElement(App),
+  render: (createElement) => createElement(App),
 });
 
 // Mount the app after startUp

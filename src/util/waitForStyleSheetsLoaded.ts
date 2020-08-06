@@ -1,5 +1,5 @@
 const waitForStyleSheetsLoaded = (document: HTMLDocument) =>
-  new Promise(resolve => {
+  new Promise((resolve) => {
     const links = <Array<HTMLLinkElement>>(
       Array.from(document.querySelectorAll('link[rel=stylesheet]'))
     );
@@ -22,7 +22,7 @@ const waitForStyleSheetsLoaded = (document: HTMLDocument) =>
     checkAllLoaded(true);
 
     if (!allLoaded) {
-      links.forEach(stylesheet => {
+      links.forEach((stylesheet) => {
         stylesheet.onload = () => {
           loadedCount += 1;
           checkAllLoaded();

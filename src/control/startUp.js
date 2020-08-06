@@ -42,12 +42,12 @@ const initPlugins = () => {
   });
 };
 
-const waitForLocale = store =>
-  new Promise(resolve => {
+const waitForLocale = (store) =>
+  new Promise((resolve) => {
     if (localeLoader.isLoaded(store.getters.currentLanguage.code)) {
       resolve();
     } else {
-      localeLoader.setLoadCallback(locale => {
+      localeLoader.setLoadCallback((locale) => {
         if (locale === store.getters.currentLanguage.code) {
           resolve();
         }
@@ -55,7 +55,7 @@ const waitForLocale = store =>
     }
   });
 
-const startUp = store => {
+const startUp = (store) => {
   // Initialise plugins
   initPlugins();
 

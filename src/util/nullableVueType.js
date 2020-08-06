@@ -12,8 +12,8 @@ import { validateType } from 'vue-types/es/utils';
  * @param typechecker The typechecker from the `vue-types` package
  * @returns a typechecker that allows the `null` value
  */
-const nullableVueType = typechecker => ({
-  validator: value => {
+const nullableVueType = (typechecker) => ({
+  validator: (value) => {
     if (value === null) {
       return true;
     }

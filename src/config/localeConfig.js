@@ -5,7 +5,7 @@ import { CONFIG_MANAGER } from '../data/Injectables';
 const getLocaleConfig = () => {
   const configManager = getValue(CONFIG_MANAGER);
 
-  const languages = configManager.getProperty(PropertyNames.AVAILABLE_LOCALES).map(locale => {
+  const languages = configManager.getProperty(PropertyNames.AVAILABLE_LOCALES).map((locale) => {
     if (typeof locale === 'string') {
       return {
         code: locale,
