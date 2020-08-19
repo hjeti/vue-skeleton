@@ -47,7 +47,7 @@
     "sass": "^1.26.10",
     "seng-config": "^1.1.0",
     "seng-device-state-tracker": "^1.1.4",
-    "seng-scss": "^1.2.4",
+    "seng-scss": "^1.2.5",
     "vue": "^2.2.5",
     "vue-i18n-manager": "^3.2.2",
     "vue-router": "^3.4.1",
