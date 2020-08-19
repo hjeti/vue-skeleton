@@ -9986,10 +9986,10 @@ seng-event@^1.2.3:
     "@babel/runtime" "^7.0.0-beta.42"
     seng-disposable "^1.1.3"
 
-seng-scss@1.2.4:
-  version "1.2.4"
-  resolved "https://registry.yarnpkg.com/seng-scss/-/seng-scss-1.2.4.tgz#854665b82018eb6f9005db5003a919a6fa089752"
-  integrity sha512-7eWXNnfl3CzxaCjcQI/3lYciY4VbLRDWCSYBqffnWqQUee77agKkZTFQ+yEQhPZ7Grl8NepRoGAjxOto0HPL8Q==
+seng-scss@^1.2.5:
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/seng-scss/-/seng-scss-1.2.5.tgz#3acc63baa918d701dcff55d5e9aac75da587f1c4"
+  integrity sha512-OtbYvMLFUUTvNidDhclOS3ufhKbd3tjjhRMQu2SErTtotSdhb+3lR7JOl2/N2C9749etNhdcvQTra4nLq0LM5g==
 
 serialize-javascript@^3.1.0:
   version "3.1.0"
@@ -11756,10 +11756,10 @@ vue-loader@^15.0.10:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-router@3.4.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.4.1.tgz#e6275bfd1bfad3c0d82766377ba5f5f74f6da549"
-  integrity sha512-vmZSBb/A1+hddeSxPBlbLRnB5l+BkyrH89ojsy+d/OkQ3rb4jqbilaAQ3dfPWWbqPwSd11AX4l/DuBhOcR93dg==
+vue-router@^3.4.1:
+  version "3.4.3"
+  resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.4.3.tgz#fa93768616ee338aa174f160ac965167fa572ffa"
+  integrity sha512-BADg1mjGWX18Dpmy6bOGzGNnk7B/ZA0RxuA6qedY/YJwirMfKXIDzcccmHbQI0A6k5PzMdMloc0ElHfyOoX35A==
 
 vue-style-loader@^4.1.0:
   version "4.1.2"
