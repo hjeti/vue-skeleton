@@ -24,6 +24,7 @@ module.exports = ({ config, isDevelopment }) => webpackConfig => {
                     modules: cssModules
                       ? {
                         localIdentName: '[local]-[hash:base64:7]',
+                        exportLocalsConvention: 'camelCase',
                       }
                       : undefined,
                     importLoaders: 2,
