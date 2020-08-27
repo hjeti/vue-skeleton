@@ -13,7 +13,7 @@ module.exports = ({ config, isDevelopment }) => webpackConfig => {
          * ------------------------------------------------
          */
         {
-          test: /\.scss$/,
+          test: /\.s?css$/,
           oneOf: (() => {
             function getScssLoaders(cssModules) {
               const loaders = [
