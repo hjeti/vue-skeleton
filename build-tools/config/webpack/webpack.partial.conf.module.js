@@ -131,6 +131,7 @@ module.exports = ({ config, isDevelopment }) => webpackConfig => {
             {
               loader: 'url-loader',
               options: {
+                esModule: false,
                 limit: 10000,
                 name: path.posix.join(
                   isDevelopment ? '' : config.dist.versionPath,
