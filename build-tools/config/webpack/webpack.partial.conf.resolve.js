@@ -8,6 +8,7 @@ module.exports = ({ config }) => webpackConfig => ({
       modernizr$: path.join(config.projectRoot, '.modernizrrc'),
       TweenLite: path.resolve(config.projectRoot, 'node_modules/gsap/src/uncompressed/TweenLite'),
       asset: path.resolve(config.projectRoot, 'src/asset'),
+      '@': path.resolve(config.projectRoot, 'src'),
     },
   },
 });
