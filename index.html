@@ -15,7 +15,7 @@
     <% } %>
 
     <% if(process.env.NODE_ENV === 'development') { %>
-      <meta http-equiv="Content-Security-Policy" content="script-src 'sha256-y6zSYDRnnvPXsdyPJkSTJ25talbGpofNceZQ0NWVil4=' 'sha256-T6VpZaIBkbQNokSAmOCA6btCvzSmdUvUrNUtK9IsMMs=' 'strict-dynamic' https: http: 'unsafe-inline'; object-src 'none'; base-uri 'none';">
+      <meta http-equiv="Content-Security-Policy" content="script-src 'sha256-+OVgFCkyF2/rZ6qyfsNnIisCRI6dtMZw3w0Y4xiYagw=' 'strict-dynamic' https: http: 'unsafe-inline'; object-src 'none'; base-uri 'none';">
     <% } %>
 
     <% for (var chunk in htmlWebpackPlugin.files.css) { %>
