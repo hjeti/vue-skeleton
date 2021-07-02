@@ -1,3 +1,8 @@
+/**
+ * script-loader source, minified version located in index.html.
+ * this script is used for loading other application scripts within its own domain.
+ * the syntax is compatible with older browsers
+ */
 (function() {
   var scripts = document.querySelectorAll('html > head > meta[name="app-script"]');
 
