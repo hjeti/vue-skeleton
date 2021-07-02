@@ -5,14 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" />
 
+    <!--
+      Uncomment and adjust content for webpack:public-path content parameter to override webpack (runtime) publicPath
+      <meta name="webpack:public-path" content="<%= process.env.PUBLIC_PATH %>" />
+      <meta name="app-script" content="<%= process.env.PUBLIC_PATH %><%= process.env.VERSIONED_STATIC_ROOT %>js/webpack.path.js" />
+    -->
+    <% for (var chunk in htmlWebpackPlugin.files.js) { %>
+      <meta name="app-script" content="<%= htmlWebpackPlugin.files.js[chunk]%>" />
+    <% } %>
+
     <% if(process.env.NODE_ENV === 'development') { %>
       <meta http-equiv="Content-Security-Policy" content="script-src 'sha256-y6zSYDRnnvPXsdyPJkSTJ25talbGpofNceZQ0NWVil4=' 'sha256-T6VpZaIBkbQNokSAmOCA6btCvzSmdUvUrNUtK9IsMMs=' 'strict-dynamic' https: http: 'unsafe-inline'; object-src 'none'; base-uri 'none';">
     <% } %>
-
-    <!--
-      Uncomment and adjust content override webpack publicPath
-      <meta name="webpack:public-path" content="/" />
-    -->
 
     <% for (var chunk in htmlWebpackPlugin.files.css) { %>
       <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[chunk]%>" />
@@ -23,17 +27,6 @@
   <body>
     <div id="app"></div>
 
-    <!--
-      Uncomment to enable overriding webpack public path
-      <div data-app-src="<%= process.env.PUBLIC_PATH %><%= process.env.VERSIONED_STATIC_ROOT %>js/webpack.path.js" data-type="app"></div>
-    -->
-
-    <% for (var chunk in htmlWebpackPlugin.files.js) { %>
-    <div data-app-src="<%= htmlWebpackPlugin.files.js[chunk]%>"
-    <% if(htmlWebpackPlugin.files.js[chunk].includes("polyfill")) { %> data-type="polyfill" <% } else{ %> data-type="app"<% } %>
-    ></div>
-    <% } %>
-
-    <script>"use strict";!function(){for(var t=document.querySelectorAll("[data-app-src]"),e=0;e<t.length;e++){var r=t[e].dataset.type,a=t[e].dataset.appSrc;if("/"!==a[0])return;var c=document.createElement("script");c.src=a,"polyfill"===r&&c.setAttribute("noModule",""),document.body.appendChild(c)}}()</script>
+    <script>!function(){for(var o=document.querySelectorAll('html > head > meta[name="app-script"]'),t=0;t<o.length;t++){var e=o[t].getAttribute("content"),n=document.createElement("script");n.src=e,n.src.substr(0,window.location.origin.length)!==window.location.origin?window.console&&console.error("[ScriptLoader] Cannot load "+e+"."):document.body.appendChild(n)}}()</script>
   </body>
 </html>
