@@ -93,9 +93,11 @@ module.exports = ({ config, isDevelopment }) => webpackConfig => {
               use: [
                 babelLoaderConfig,
                 {
-                  loader: 'awesome-typescript-loader',
+                  loader: 'ts-loader',
                   options: {
-                    configFileName: path.resolve(config.projectRoot, './tsconfig.json'),
+                    onlyCompileBundledFiles: true,
+                    transpileOnly: true,
+                    happyPackMode: true
                   },
                 },
               ],
