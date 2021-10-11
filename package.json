@@ -129,7 +129,7 @@
     "tslint-config-airbnb": "^5.9.2",
     "tslint-config-prettier": "^1.14.0",
     "tslint-plugin-prettier": "^2.0.0",
-    "typescript": "^3.0.1",
+    "typescript": "^4.4.3",
     "url-loader": "^4.1.0",
     "use-yarn": "^2.2.0",
     "vue-loader": "^15.0.10",

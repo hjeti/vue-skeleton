@@ -1,5 +1,5 @@
 const waitForStyleSheetsLoaded = (document: HTMLDocument) =>
-  new Promise((resolve) => {
+  new Promise<void>((resolve) => {
     const links = <Array<HTMLLinkElement>>(
       Array.from(document.querySelectorAll('link[rel=stylesheet]'))
     );
