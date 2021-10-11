@@ -10,6 +10,7 @@ const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
 
 module.exports = ({ config, isDevelopment, buildType }) => (webpackConfig) => {
   /*
@@ -61,6 +62,10 @@ module.exports = ({ config, isDevelopment, buildType }) => (webpackConfig) => {
             cache: true,
           },
     ),
+    new ForkTsCheckerWebpackPlugin({
+      async: isDevelopment,
+      typescript: { diagnosticOptions: { semantic: true, syntactic: true } },
+    })
   ];
 
   if (isDevelopment) {
