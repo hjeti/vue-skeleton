@@ -46,7 +46,7 @@ module.exports = ({ config, isDevelopment, buildType }) => (webpackConfig) => {
         ? {
             filename: config.devServer.indexHtml,
             template: 'index.html',
-            inject: true,
+            inject: false,
             version: config.dist.versionPath,
             minify: {
               removeComments: true,
@@ -58,7 +58,7 @@ module.exports = ({ config, isDevelopment, buildType }) => (webpackConfig) => {
             filename: 'index.html',
             template: 'index.html',
             version: '/',
-            inject: true,
+            inject: false,
             cache: true,
           },
     ),
